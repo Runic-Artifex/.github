@@ -42,6 +42,25 @@ are public, package namespaces are controlled, and the registry trusted-publishe
 policies have been configured. A manual workflow dispatch may build release
 artifacts without publishing at any time.
 
+## Documentation gate
+
+The source of truth for ecosystem documentation is the private
+[`Runic-Artifex/runic-docs`](https://github.com/Runic-Artifex/runic-docs)
+repository. An owner-only hosted version may be used for launch review, but a
+successful deployment is not authorization to make the portal, repositories,
+or packages public.
+
+Before approving the first public release, verify that:
+
+1. the documentation CI build and dependency audit pass on `main`;
+2. every package name, version, dependency direction, and install command matches
+   the artifacts produced by the release workflows;
+3. source, support, security, and license links resolve to their intended public
+   destinations;
+4. the owner-only portal has been reviewed as the release candidate; and
+5. the final public hostname and repository visibility sequence are recorded in
+   the launch runbook.
+
 The private-repository plan currently permits the `main` deployment policy but
 not required environment reviewers. Add Viktor Jannicke as the required reviewer
 to every `public-release` environment when the repositories become public and
