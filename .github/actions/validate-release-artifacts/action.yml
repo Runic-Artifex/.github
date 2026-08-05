@@ -1,0 +1,47 @@
+name: Validate release artifacts
+description: Validate public NuGet and npm package metadata before registry publication.
+inputs:
+  version:
+    description: Exact SemVer package version.
+    required: true
+  artifact-directory:
+    description: Directory containing the completed package artifacts.
+    required: true
+  repository-url:
+    description: Canonical HTTPS repository URL.
+    required: true
+  repository-commit:
+    description: Full source commit represented by the artifacts.
+    required: true
+  expected-nuget-count:
+    description: Expected number of .nupkg files; zero disables NuGet validation.
+    required: false
+    default: "0"
+  expected-npm-count:
+    description: Expected number of .tgz files; zero disables npm validation.
+    required: false
+    default: "0"
+runs:
+  using: composite
+  steps:
+    - name: Validate NuGet artifacts
+      if: ${{ inputs.expected-nuget-count != '0' }}
+      shell: pwsh
+      run: >-
+        & '${{ github.action_path }}/verify-nuget.ps1'
+        -Version '${{ inputs.version }}'
+        -ArtifactDirectory '${{ inputs.artifact-directory }}'
+        -RepositoryUrl '${{ inputs.repository-url }}'
+        -RepositoryCommit '${{ inputs.repository-commit }}'
+        -ExpectedCount ${{ inputs.expected-nuget-count }}
+
+    - name: Validate npm artifacts
+      if: ${{ inputs.expected-npm-count != '0' }}
+      shell: bash
+      run: >-
+        node '${{ github.action_path }}/verify-npm.mjs'
+        '${{ inputs.version }}'
+        '${{ inputs.artifact-directory }}'
+        '${{ inputs.repository-url }}'
+        '${{ inputs.repository-commit }}'
+        '${{ inputs.expected-npm-count }}'
