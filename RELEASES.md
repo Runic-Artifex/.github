@@ -42,6 +42,31 @@ are public, package namespaces are controlled, and the registry trusted-publishe
 policies have been configured. A manual workflow dispatch may build release
 artifacts without publishing at any time.
 
+The private-repository plan currently permits the `main` deployment policy but
+not required environment reviewers. Add Viktor Jannicke as the required reviewer
+to every `public-release` environment when the repositories become public and
+before configuring either registry as a trusted publisher.
+
+## Initial public preview train
+
+The first publication uses the already verified private-preview versions so
+cross-product package dependencies resolve without rewriting their histories:
+
+| Product | Initial public version | Order constraint |
+| --- | --- | --- |
+| CsWebUi | `2.5.0-beta.4.3` | Already available on nuget.org |
+| Runic Command Line | `0.1.0-preview.3.1` | Independent |
+| Runic Text Resources | `0.1.0-preview.2.1` | Independent |
+| Runic Toolkit | `0.1.0-preview.4.1` | Publish before Toolkit integrations |
+| Runic Flow | `0.1.0-preview.4.1` | After Runic Toolkit |
+| Runic Assets | `0.1.0-preview.5.1` | After Runic Toolkit |
+| Runic Markup | `0.1.0-preview.9.1` | After Runic Toolkit |
+
+Runic Toolkit publishes its NuGet and npm families from the same source commit
+and version. Command Line and Text Resources may be released before or after it;
+Flow, Assets, and Markup follow only after their exact Toolkit dependencies are
+visible on nuget.org.
+
 ## npm bootstrap
 
 npm trusted publishers are configured per existing package. The first public
