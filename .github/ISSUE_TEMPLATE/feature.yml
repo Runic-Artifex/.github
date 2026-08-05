@@ -1,0 +1,30 @@
+name: Feature proposal
+description: Propose a product-scoped capability
+title: "[Proposal]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Describe the user problem without assuming a particular implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed capability
+    validations:
+      required: true
+  - type: textarea
+    id: boundaries
+    attributes:
+      label: Product and compatibility boundaries
+      description: Identify affected packages, protocols, frameworks, and NativeAOT behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
