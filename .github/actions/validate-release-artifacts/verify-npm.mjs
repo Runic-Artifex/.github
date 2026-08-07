@@ -58,11 +58,21 @@ for (const archive of archives) {
     throw new Error(`${manifest.name} does not include built distribution files.`);
   }
 
-  for (const field of ["dependencies", "optionalDependencies", "peerDependencies"]) {
+  for (const field of ["dependencies", "optionalDependencies"]) {
     for (const [dependency, range] of Object.entries(manifest[field] ?? {})) {
       if (dependency.startsWith("@runic-artifex/") && range !== version) {
         throw new Error(`${manifest.name} does not pin ${dependency} to ${version}.`);
       }
+    }
+  }
+  for (const [dependency, range] of Object.entries(manifest.peerDependencies ?? {})) {
+    if (!dependency.startsWith("@runic-artifex/")) continue;
+    if (
+      typeof range !== "string" ||
+      range.trim().length === 0 ||
+      /^(?:\*|latest|workspace:|file:|https?:|git(?:\+|:))/iu.test(range.trim())
+    ) {
+      throw new Error(`${manifest.name} has an unbounded or non-registry peer range for ${dependency}.`);
     }
   }
 }
