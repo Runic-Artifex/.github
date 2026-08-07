@@ -79,7 +79,6 @@ cross-product package dependencies resolve without rewriting their histories:
 | Runic Toolkit | `0.1.0-preview.4.1` | Publish before Toolkit integrations |
 | Runic Flow | `0.1.0-preview.4.1` | After Runic Toolkit |
 | Runic Assets | `0.1.0-preview.5.1` | After Runic Toolkit |
-| Runic Markup | `0.1.0-preview.9.1` | After Runic Toolkit |
 
 Runic Toolkit publishes its NuGet and npm families from the same source commit
 and version. Command Line and Text Resources may be released before or after it;
