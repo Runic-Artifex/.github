@@ -1,3 +1,5 @@
+![Runic Artifex banner](.github/assets/brand/banner.png)
+
 # Runic Artifex organization foundation
 
 This private repository owns the shared governance and release contracts for
