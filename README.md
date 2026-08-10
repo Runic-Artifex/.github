@@ -2,9 +2,10 @@
 
 # Runic Artifex organization foundation
 
-This private repository owns the shared governance and release contracts for
-the Runic Artifex organization. Product documentation will be added only after
-all package families pass their public-release readiness gates.
+This repository owns the shared governance, organization profile, and release
+contracts for the Runic Artifex organization. It is made public before the
+product repositories so community health files and shared release validation
+resolve for public contributors.
 
 Current responsibilities:
 
@@ -13,4 +14,5 @@ Current responsibilities:
 - reusable validation for public NuGet artifacts;
 - workflow templates that keep registry publishing explicit and product-owned.
 
-The repository remains private until the documentation and public-launch phase.
+See [the release policy](RELEASES.md) and [first-preview launch
+runbook](LAUNCH.md) for the current publication gates.

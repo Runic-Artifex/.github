@@ -1,94 +1,92 @@
 # Runic Artifex release policy
 
-Each product owns its packages and may release independently. Integration
-packages are released by the product named first: for example,
-`RunicFlow.RunicToolkit` belongs to Runic Flow.
+Each product owns its packages and releases independently. Integration packages
+belong to the product that implements the integration. Compatibility is recorded
+explicitly; repositories do not share a version merely because they share an
+organization.
 
-## Versioning
+## Versioning and identity
 
-- Packages use SemVer 2.0 versions.
-- A repository releases one version across its package family.
-- Dependencies on another Runic Artifex product use an exact version.
+- Packages use SemVer 2.0 and one version across a repository's shipping family.
+- Cross-product dependencies use exact versions during the public preview.
 - Preview tags use `vMAJOR.MINOR.PATCH-preview.N`; stable tags use
   `vMAJOR.MINOR.PATCH`.
-- Compatibility is recorded explicitly; releases are not synchronized merely
-  because products share an organization.
+- Public npm packages use the controlled `@runic-artifex` scope. The unhyphenated
+  `@runicartifex` scope is retained defensively and is not a second package family.
+- Runic Translations uses `RunicTranslations.*` for NuGet packages and code,
+  `runic.translations/1` for the protocol family, and
+  `@runic-artifex/vite-plugin-runic-translations` for its Vite integration.
 
 ## Required evidence
 
 Before a public release is approved, the repository must:
 
-1. restore and verify from a clean checkout;
+1. restore and verify from a clean checkout of the final `main` commit;
 2. produce the exact expected NuGet and npm artifact set;
 3. validate MIT metadata, README inclusion, repository provenance, and version;
 4. consume the packaged artifacts from an isolated cache;
 5. pass applicable NativeAOT and frontend production gates;
 6. leave the source tree unchanged;
-7. upload the verified artifacts before any registry job starts.
+7. upload the verified artifacts and record their digests before publishing;
+8. complete a verify-only `Public release` dispatch for the exact release commit;
+9. prove downstream exact-version canaries against the final private candidates.
+
+Green source CI is necessary but is not release-candidate evidence by itself.
+A candidate becomes stale when shipping code, package metadata, or provenance
+changes after it was produced. A stale version is never rebuilt from a different
+commit for another registry.
 
 ## Publication
 
-New Runic package families use the top-level workflow
-`.github/workflows/public-release.yml`, because NuGet and npm trusted-publisher
-policies bind to the calling repository and workflow filename. Registry jobs use
-the protected `public-release` environment and OIDC trusted publishing.
-Long-lived write tokens are not the steady-state publication mechanism.
+New Runic package families use their top-level
+`.github/workflows/public-release.yml`. NuGet and npm trusted-publisher policies
+bind to the calling repository, workflow filename, and `public-release`
+environment. Long-lived write tokens are not the steady-state publication
+mechanism.
 
 CsWebUi retains its established `.github/workflows/nuget-gallery.yml` identity
 until its existing NuGet trusted-publisher policy is deliberately migrated.
 
-Publishing stays disabled until product documentation is complete, repositories
-are public, package namespaces are controlled, and the registry trusted-publisher
-policies have been configured. A manual workflow dispatch may build release
-artifacts without publishing at any time.
+The first npm.org publication uses a narrowly scoped, short-lived bootstrap token
+to create each package record. Immediately afterward, connect each package to its
+owning repository's `public-release.yml`, disable token publishing, remove the
+bootstrap secret, and use OIDC with provenance for subsequent releases.
+
+## Current first-preview families
+
+Exact first-public versions are recorded in the launch runbook only after fresh
+private candidates have passed the final-commit gates.
+
+| Product | Public artifacts | Order constraint |
+| --- | --- | --- |
+| CsWebUi | Existing NuGet family | Already public |
+| Runic Command Line | 4 NuGet packages | Independent |
+| Runic Translations | 7 NuGet packages and 1 npm package | Independent; Editor consumes it |
+| Runic Toolkit | 15 NuGet packages and `@runic-artifex/application-bridge` | Before exact-version Toolkit integrations |
+| Runic Svelte | `@runic-artifex/svelte` and `@runic-artifex/sveltekit` | Same launch window as Toolkit |
+| Runic Vite | `@runic-artifex/vite-plugin-runic-toolkit` | Same launch window as Toolkit |
+| Runic Assets | 4 NuGet packages | After its exact Toolkit dependency is public |
+| Runic Flow | `RunicFlow` and `RunicFlow.ApplicationBridge` | After its exact Toolkit dependency is public |
+| Runic Translations Editor | Self-contained application archives | Separate preview after Translations; currently pending |
+
+The retired Flow MVVM/navigation packages are not part of the public train.
+Runic Flow is the headless two-package process runtime. Archived Runic Markup is
+also not part of the launch.
 
 ## Documentation gate
 
-The source of truth for ecosystem documentation is the private
-[`Runic-Artifex/runic-docs`](https://github.com/Runic-Artifex/runic-docs)
-repository. An owner-only hosted version may be used for launch review, but a
-successful deployment is not authorization to make the portal, repositories,
-or packages public.
+The documentation portal is the public source of truth. Before approving a
+package launch, verify that:
 
-Before approving the first public release, verify that:
-
-1. the documentation CI build and dependency audit pass on `main`;
+1. documentation checks and the production deployment build pass on `main`;
 2. every package name, version, dependency direction, and install command matches
-   the artifacts produced by the release workflows;
-3. source, support, security, and license links resolve to their intended public
-   destinations;
-4. the owner-only portal has been reviewed as the release candidate; and
-5. the final public hostname and repository visibility sequence are recorded in
-   the launch runbook.
+   the final workflow artifacts;
+3. Flow is described as the headless two-package runtime and Translations uses
+   its canonical product, package, protocol, and integration identifiers;
+4. source, support, security, license, and registry links resolve publicly;
+5. the final hostname has been reviewed and recorded; and
+6. the portal does not claim that pending candidates or publication steps are
+   complete.
 
-The private-repository plan currently permits the `main` deployment policy but
-not required environment reviewers. Add Viktor Jannicke as the required reviewer
-to every `public-release` environment when the repositories become public and
-before configuring either registry as a trusted publisher.
-
-## Initial public preview train
-
-The first publication uses the already verified private-preview versions so
-cross-product package dependencies resolve without rewriting their histories:
-
-| Product | Initial public version | Order constraint |
-| --- | --- | --- |
-| CsWebUi | `2.5.0-beta.4.3` | Already available on nuget.org |
-| Runic Command Line | `0.1.0-preview.3.1` | Independent |
-| Runic Text Resources | `0.1.0-preview.2.1` | Independent |
-| Runic Toolkit | `0.1.0-preview.4.1` | Publish before Toolkit integrations |
-| Runic Flow | `0.1.0-preview.4.1` | After Runic Toolkit |
-| Runic Assets | `0.1.0-preview.5.1` | After Runic Toolkit |
-
-Runic Toolkit publishes its NuGet and npm families from the same source commit
-and version. Command Line and Text Resources may be released before or after it;
-Flow, Assets, and Markup follow only after their exact Toolkit dependencies are
-visible on nuget.org.
-
-## npm bootstrap
-
-npm trusted publishers are configured per existing package. The first public
-publication therefore requires a narrowly scoped, short-lived bootstrap token.
-Immediately afterward, each package is connected to the repository's
-`public-release.yml` workflow, token publishing is disabled, and subsequent
-releases use OIDC with automatic provenance.
+The operational visibility and publication sequence is maintained in
+[`LAUNCH.md`](LAUNCH.md).
