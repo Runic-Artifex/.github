@@ -89,15 +89,30 @@ disabled in every run.
 
 ## 5. Registry trust
 
-- [ ] Verify `NUGET_USER` in the NuGet publishing environments.
-- [ ] Configure NuGet trusted publishers for every owning repository,
+- [x] Verify `NUGET_USER` in the NuGet publishing environments.
+- [x] Configure NuGet trusted publishers for every owning repository,
       `public-release.yml`, and `public-release` environment.
 - [ ] Create `public-release` environments for `runic-svelte` and `runic-vite` with
       a `main` deployment policy.
-- [ ] Add one short-lived, scope-limited `NPM_BOOTSTRAP_TOKEN` to Toolkit, Svelte,
+- [x] Add one short-lived, scope-limited `NPM_BOOTSTRAP_TOKEN` to Toolkit, Svelte,
       Vite, and Translations.
-- [ ] Confirm all intended npm names belong to `@runic-artifex`; do not publish a
+- [x] Confirm all intended npm names belong to `@runic-artifex`; do not publish a
       duplicate family under `@runicartifex`.
+
+Registry bootstrap evidence recorded on 2026-08-11:
+
+- the existing `Runic-Artifex-CS-WebUI` NuGet policy was preserved;
+- five active NuGet policies use GitHub owner `Runic-Artifex`, workflow
+  `public-release.yml`, and environment `public-release` for Command Line,
+  Translations, Toolkit, Assets, and Flow;
+- `NUGET_USER` remains `ArtificerLabsEU` in all five publishing environments;
+- the npm token is read/write only for `@runic-artifex`, bypasses 2FA, expires
+  2026-08-18, and has not been used; and
+- `NPM_BOOTSTRAP_TOKEN` is present only in the `public-release` environments for
+  Toolkit, Svelte, Vite, and Translations.
+
+No public-release workflow was triggered during registry setup, and no public
+package was published.
 
 ## 6. Publish
 
