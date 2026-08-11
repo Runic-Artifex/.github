@@ -44,7 +44,7 @@ bind to the calling repository, workflow filename, and `public-release`
 environment. Long-lived write tokens are not the steady-state publication
 mechanism.
 
-CsWebUi retains its established `.github/workflows/nuget-gallery.yml` identity
+CS-WebUI retains its established `.github/workflows/nuget-gallery.yml` identity
 until its existing NuGet trusted-publisher policy is deliberately migrated.
 
 The first npm.org publication uses a narrowly scoped, short-lived bootstrap token
@@ -59,7 +59,7 @@ private candidates have passed the final-commit gates.
 
 | Product | Public artifacts | Order constraint |
 | --- | --- | --- |
-| CsWebUi | Existing NuGet family | Already public |
+| CS-WebUI | Existing NuGet family | Already public |
 | Runic Command Line | 4 NuGet packages | Independent |
 | Runic Translations | 7 NuGet packages and 1 npm package | Independent; Editor consumes it |
 | Runic Toolkit | 15 NuGet packages and `@runic-artifex/application-bridge` | Before exact-version Toolkit integrations |
