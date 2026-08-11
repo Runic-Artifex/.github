@@ -7,11 +7,11 @@ commit.
 ## 1. Freeze and record
 
 - [ ] Freeze shipping changes on every launch repository.
-- [ ] Record each final `main` commit and confirm there are no open release PRs.
+- [x] Record each final `main` commit and confirm there are no open release PRs.
 - [x] Choose fresh, monotonically increasing candidate versions; do not reuse the
       stale private versions documented before the final source and branding work.
 - [x] Record the final documentation hostname: `https://docs.runic-artifex.eu`.
-- [ ] Keep archived `runic-markup` out of the visibility and package train.
+- [x] Keep archived `runic-markup` out of the visibility and package train.
 
 ## 2. Produce final private candidates
 
@@ -76,30 +76,36 @@ NativeAOT consumers, and the Windows real-browser/native-host roundtrip.
 
 - [ ] Confirm the portal contains the final versions and install commands.
 - [ ] Confirm the portal and repository descriptions use the headless Flow model.
-- [ ] Confirm Runic Translations consistently uses `RunicTranslations.*`,
+- [x] Confirm Runic Translations consistently uses `RunicTranslations.*`,
       `runic.translations/1`, `runic-translations`, and
       `vite-plugin-runic-translations` identifiers.
 - [ ] Confirm the portal production build and deployment preview.
 
 ## 4. Visibility and repository protection
 
-- [ ] Make `Runic-Artifex/.github` public first so organization community files and
+- [x] Make `Runic-Artifex/.github` public first so organization community files and
       the shared validation action resolve for public contributors.
-- [ ] Make `runic-docs` and `runic-brand` public.
-- [ ] Make active product and integration repositories public.
-- [ ] Make `runic-toolkit-examples` public after its final canaries pass.
-- [ ] Make `runic-translations-editor` public with its first download explicitly
+- [x] Make `runic-docs` and `runic-brand` public.
+- [x] Make active product and integration repositories public.
+- [x] Make `runic-toolkit-examples` public after its final canaries pass.
+- [x] Make `runic-translations-editor` public with its first download explicitly
       marked pending.
-- [ ] Enable branch protection/rulesets and public-repository security features.
-- [ ] Add Viktor Jannicke as required reviewer to every `public-release`
+- [x] Enable branch protection/rulesets and public-repository security features.
+- [x] Add Viktor Jannicke as required reviewer to every `public-release`
       environment.
+
+Platform audit recorded on 2026-08-11: every launch repository is public, each
+has an active `safe-main` ruleset, and Dependabot security updates, secret
+scanning, and push protection are enabled. All seven `public-release`
+environments restrict deployment to `main` and require Viktor Jannicke's
+approval. The archived `runic-markup` repository remains private and excluded.
 
 ## 5. Registry trust
 
 - [x] Verify `NUGET_USER` in the NuGet publishing environments.
 - [x] Configure NuGet trusted publishers for every owning repository,
       `public-release.yml`, and `public-release` environment.
-- [ ] Create `public-release` environments for `runic-svelte` and `runic-vite` with
+- [x] Create `public-release` environments for `runic-svelte` and `runic-vite` with
       a `main` deployment policy.
 - [x] Add one short-lived, scope-limited `NPM_BOOTSTRAP_TOKEN` to Toolkit, Svelte,
       Vite, and Translations.
