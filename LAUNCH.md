@@ -45,7 +45,7 @@ workflow runs.
       NuGet/npm candidate from its final commit.
 - [x] Update Assets and Flow to the exact new Toolkit version.
 - [x] Publish fresh Assets and headless two-package Flow candidates.
-- [ ] Migrate `runic-toolkit-examples` to the final Translations and two-package
+- [x] Migrate `runic-toolkit-examples` to the final Translations and two-package
       Flow candidates and pass every package-only canary.
 - [x] Run every `Public release` workflow in verify-only mode with its exact final
       version and final `main` commit.
@@ -64,6 +64,13 @@ disabled in every run.
 | Runic Toolkit `0.1.0-preview.27.1` | `de65ac256df7653b741ef041fc1f36f4c314d577` | [Public release #25](https://github.com/Runic-Artifex/runic-toolkit/actions/runs/31476899566) | `sha256:50b74ec34f7179eb08304980b22510b0c4b85b92b388206a909777bf53c73602` |
 | Runic Assets `0.1.0-preview.20.1` | `1efd319ba3c73302ce388e86840355b21c21fab2` | [Public release #15](https://github.com/Runic-Artifex/runic-assets/actions/runs/31477235416) | `sha256:14c32f36fd489e4256ee994119b790119f5a08e1095eef8f742d921e8453507b` |
 | Runic Flow `0.1.0-preview.15.1` | `e195f214f4a14c05314f0dfc82092db87b457c87` | [Public release #13](https://github.com/Runic-Artifex/runic-flow/actions/runs/31477237658) | `sha256:0c207e86f31651da88cccaf18a9ee82f73c2d0ff210780363efff2fda42aba10` |
+
+Final package-consumer evidence recorded on 2026-08-11: [examples PR
+#19](https://github.com/Runic-Artifex/runic-toolkit-examples/pull/19) migrated
+every exact NuGet/npm dependency, adopted the Runic Translations ABI 2 exact-key
+`m` namespace, and passed all seven repository gates. Those gates covered four
+independent package canaries, the full Linux restore/build/test matrix, Linux
+NativeAOT consumers, and the Windows real-browser/native-host roundtrip.
 
 ## 3. Correct public presentation
 
