@@ -7,7 +7,7 @@ applications. Each product owns its contracts, history, packages, and release
 cadence while composing through explicit integrations.
 
 - [Runic Toolkit](https://github.com/Runic-Artifex/runic-toolkit) composes application hosts and frontends.
-- [CsWebUi](https://github.com/Runic-Artifex/cs-webui) provides a lightweight native host for web-powered .NET UI.
+- [CS-WebUI](https://github.com/Runic-Artifex/cs-webui) provides a lightweight native host for web-powered .NET UI.
 - [Runic Flow](https://github.com/Runic-Artifex/runic-flow) owns deterministic application processes and operations.
 - [Runic Assets](https://github.com/Runic-Artifex/runic-assets) carries portable static assets across hosts.
 - [Runic Translations](https://github.com/Runic-Artifex/runic-translations) provides deterministic localization contracts and tooling.
