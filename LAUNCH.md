@@ -74,12 +74,20 @@ NativeAOT consumers, and the Windows real-browser/native-host roundtrip.
 
 ## 3. Correct public presentation
 
-- [ ] Confirm the portal contains the final versions and install commands.
-- [ ] Confirm the portal and repository descriptions use the headless Flow model.
+- [x] Confirm the portal contains the final versions and install commands.
+- [x] Confirm the portal and repository descriptions use the headless Flow model.
 - [x] Confirm Runic Translations consistently uses `RunicTranslations.*`,
       `runic.translations/1`, `runic-translations`, and
       `vite-plugin-runic-translations` identifiers.
-- [ ] Confirm the portal production build and deployment preview.
+- [x] Confirm the portal production build and deployment preview.
+
+Public-presentation evidence recorded on 2026-08-11: the redeployed portal
+serves the final Toolkit, Flow, Assets, Svelte, Translations, Command Line, and
+Vite candidate versions; exposes the intended NuGet/npm install names; and uses
+the headless Flow model. The Runic Flow GitHub description now reads “Headless
+.NET runtime for typed, deterministic application processes and coordinated
+operations—without a UI dependency,” consistent with the canonical brand
+tagline while remaining repository-owned metadata.
 
 ## 4. Visibility and repository protection
 
