@@ -6,7 +6,7 @@ commit.
 
 ## 1. Freeze and record
 
-- [ ] Freeze shipping changes on every launch repository.
+- [x] Freeze shipping changes on every launch repository.
 - [x] Record each final `main` commit and confirm there are no open release PRs.
 - [x] Choose fresh, monotonically increasing candidate versions; do not reuse the
       stale private versions documented before the final source and branding work.
@@ -15,19 +15,19 @@ commit.
 
 ## 2. Produce final private candidates
 
-The next workflow run numbers currently imply the following planned versions.
-They are coordination targets, not verified candidates, until their private
-publication and canaries succeed.
+The following frozen versions are the verified candidates. Toolkit, Assets, and
+Flow were rebuilt after the final CS-WebUI display-branding merge; no version was
+reused across different source commits.
 
-| Product | Planned candidate |
+| Product | Frozen candidate |
 | --- | --- |
 | Runic Command Line | `0.1.0-preview.4.1` |
 | Runic Translations | `0.1.0-preview.8.1` |
 | Runic Svelte | `0.1.0-preview.14.1` |
 | Runic Vite | `0.1.0-preview.8.1` |
-| Runic Toolkit | `0.1.0-preview.27.1` |
-| Runic Assets | `0.1.0-preview.20.1` |
-| Runic Flow | `0.1.0-preview.15.1` |
+| Runic Toolkit | `0.1.0-preview.30.1` |
+| Runic Assets | `0.1.0-preview.23.1` |
+| Runic Flow | `0.1.0-preview.18.1` |
 
 Local composition evidence recorded on 2026-08-10: Toolkit produced and
 validated 15 NuGet packages at the planned version; Assets produced and
@@ -61,16 +61,16 @@ disabled in every run.
 | Runic Translations `0.1.0-preview.8.1` | `2dd9e264434c7076bdef2bc2b49449cd07dd009f` | [Public release #20](https://github.com/Runic-Artifex/runic-translations/actions/runs/31475867991) | `sha256:751ef1448080967c534473b6349b0cc84427e248d60bd1fba9ce31e44993dfb8` |
 | Runic Svelte `0.1.0-preview.14.1` | `2af64cebad10b58da4599b67d9eaf4bffc874511` | [Public release #12](https://github.com/Runic-Artifex/runic-svelte/actions/runs/31475865977) | `sha256:19939f2cb8bc1e655365029cb69b8fe1d48fc24294a4a1dfb3b55b61d4e016a2` |
 | Runic Vite `0.1.0-preview.8.1` | `a17add71a240392f8e422326f1d760f5230cc9d4` | [Public release #7](https://github.com/Runic-Artifex/runic-vite/actions/runs/31371959471) | `sha256:bb2198eb4a7144f5d8771289e027559b6c08be42483455610916989fafc1ea55` |
-| Runic Toolkit `0.1.0-preview.27.1` | `de65ac256df7653b741ef041fc1f36f4c314d577` | [Public release #25](https://github.com/Runic-Artifex/runic-toolkit/actions/runs/31476899566) | `sha256:50b74ec34f7179eb08304980b22510b0c4b85b92b388206a909777bf53c73602` |
-| Runic Assets `0.1.0-preview.20.1` | `1efd319ba3c73302ce388e86840355b21c21fab2` | [Public release #15](https://github.com/Runic-Artifex/runic-assets/actions/runs/31477235416) | `sha256:14c32f36fd489e4256ee994119b790119f5a08e1095eef8f742d921e8453507b` |
-| Runic Flow `0.1.0-preview.15.1` | `e195f214f4a14c05314f0dfc82092db87b457c87` | [Public release #13](https://github.com/Runic-Artifex/runic-flow/actions/runs/31477237658) | `sha256:0c207e86f31651da88cccaf18a9ee82f73c2d0ff210780363efff2fda42aba10` |
+| Runic Toolkit `0.1.0-preview.30.1` | `092a8f913857f73789f3033005f40d3e625f58a1` | [Public release #27](https://github.com/Runic-Artifex/runic-toolkit/actions/runs/31503027950) | `sha256:f1f86dfa99ce26bcc157a117140037c7cc94f358938521e06902bc92e48d4ebb` |
+| Runic Assets `0.1.0-preview.23.1` | `8920f690d412df9ce4bf2dd0a39d8e63af5bbced` | [Public release #18](https://github.com/Runic-Artifex/runic-assets/actions/runs/31503320519) | `sha256:b1abbcf6daabaca06705addb6f788bff0f42188f6cdc704bd1d006813c0593ac` |
+| Runic Flow `0.1.0-preview.18.1` | `033598b65aba186c852810082716dd7df7fcd81b` | [Public release #15](https://github.com/Runic-Artifex/runic-flow/actions/runs/31503326505) | `sha256:296fbf72285bdfbde1ffd51b72bed02d87976ef903a70948876876e3eadc735a` |
 
 Final package-consumer evidence recorded on 2026-08-11: [examples PR
-#19](https://github.com/Runic-Artifex/runic-toolkit-examples/pull/19) migrated
-every exact NuGet/npm dependency, adopted the Runic Translations ABI 2 exact-key
-`m` namespace, and passed all seven repository gates. Those gates covered four
-independent package canaries, the full Linux restore/build/test matrix, Linux
-NativeAOT consumers, and the Windows real-browser/native-host roundtrip.
+#21](https://github.com/Runic-Artifex/runic-toolkit-examples/pull/21) refreshed
+every branding-affected exact NuGet/npm dependency and passed the repository
+gates. Those gates covered four independent package canaries, the full Linux
+restore/build/test matrix, Linux NativeAOT consumers, and the Windows
+real-browser/native-host roundtrip.
 
 ## 3. Correct public presentation
 
@@ -139,8 +139,9 @@ package was published.
 
 - [ ] Publish Command Line and Translations, including the Translations Vite npm
       plugin.
-- [ ] Publish Toolkit and its Application Bridge npm package.
 - [ ] Publish Svelte and Vite integrations in the same launch window.
+- [ ] Publish Toolkit and its Application Bridge npm package after the exact
+      Svelte and Vite integrations resolve publicly.
 - [ ] Install the Toolkit/Svelte/Vite combination from public registries in a
       clean application.
 - [ ] Publish Assets and Flow only after their exact Toolkit dependency resolves
