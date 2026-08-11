@@ -8,9 +8,9 @@ commit.
 
 - [ ] Freeze shipping changes on every launch repository.
 - [ ] Record each final `main` commit and confirm there are no open release PRs.
-- [ ] Choose fresh, monotonically increasing candidate versions; do not reuse the
+- [x] Choose fresh, monotonically increasing candidate versions; do not reuse the
       stale private versions documented before the final source and branding work.
-- [ ] Record the final documentation hostname: `____________________________`.
+- [x] Record the final documentation hostname: `https://docs.runic-artifex.eu`.
 - [ ] Keep archived `runic-markup` out of the visibility and package train.
 
 ## 2. Produce final private candidates
@@ -22,12 +22,12 @@ publication and canaries succeed.
 | Product | Planned candidate |
 | --- | --- |
 | Runic Command Line | `0.1.0-preview.4.1` |
-| Runic Translations | `0.1.0-preview.4.1` |
-| Runic Svelte | `0.1.0-preview.8.1` |
+| Runic Translations | `0.1.0-preview.8.1` |
+| Runic Svelte | `0.1.0-preview.14.1` |
 | Runic Vite | `0.1.0-preview.8.1` |
-| Runic Toolkit | `0.1.0-preview.22.1` |
-| Runic Assets | `0.1.0-preview.17.1` |
-| Runic Flow | `0.1.0-preview.5.1` |
+| Runic Toolkit | `0.1.0-preview.27.1` |
+| Runic Assets | `0.1.0-preview.20.1` |
+| Runic Flow | `0.1.0-preview.15.1` |
 
 Local composition evidence recorded on 2026-08-10: Toolkit produced and
 validated 15 NuGet packages at the planned version; Assets produced and
@@ -38,19 +38,32 @@ full verification and produced its 4 planned packages. This evidence proves the
 prepared graph, but does not replace private registry candidates or final-commit
 workflow runs.
 
-- [ ] Publish fresh Command Line and Translations candidates.
-- [ ] Publish fresh Runic Svelte and Runic Vite candidates for Toolkit's template
+- [x] Publish fresh Command Line and Translations candidates.
+- [x] Publish fresh Runic Svelte and Runic Vite candidates for Toolkit's template
       acceptance gate.
-- [ ] Update Toolkit's integration-candidate inputs, then publish a fresh Toolkit
+- [x] Update Toolkit's integration-candidate inputs, then publish a fresh Toolkit
       NuGet/npm candidate from its final commit.
-- [ ] Update Assets and Flow to the exact new Toolkit version.
-- [ ] Publish fresh Assets and headless two-package Flow candidates.
+- [x] Update Assets and Flow to the exact new Toolkit version.
+- [x] Publish fresh Assets and headless two-package Flow candidates.
 - [ ] Migrate `runic-toolkit-examples` to the final Translations and two-package
       Flow candidates and pass every package-only canary.
-- [ ] Run every `Public release` workflow in verify-only mode with its exact final
+- [x] Run every `Public release` workflow in verify-only mode with its exact final
       version and final `main` commit.
-- [ ] Record workflow URLs and artifact digests in the launch issue or release
+- [x] Record workflow URLs and artifact digests in the launch issue or release
       record.
+
+Final public-artifact verification recorded on 2026-08-11. Publication was
+disabled in every run.
+
+| Product | Final `main` commit | Verify-only workflow | Artifact digest |
+| --- | --- | --- | --- |
+| Runic Command Line `0.1.0-preview.4.1` | `099948453ff5c0230f646a383078a1348415c196` | [Public release #9](https://github.com/Runic-Artifex/runic-command-line/actions/runs/31371955750) | `sha256:b01d22e09e1c2c8eefbf6ed781e6d93ffcfc595d879661c0edf9c6797868f135` |
+| Runic Translations `0.1.0-preview.8.1` | `2dd9e264434c7076bdef2bc2b49449cd07dd009f` | [Public release #20](https://github.com/Runic-Artifex/runic-translations/actions/runs/31475867991) | `sha256:751ef1448080967c534473b6349b0cc84427e248d60bd1fba9ce31e44993dfb8` |
+| Runic Svelte `0.1.0-preview.14.1` | `2af64cebad10b58da4599b67d9eaf4bffc874511` | [Public release #12](https://github.com/Runic-Artifex/runic-svelte/actions/runs/31475865977) | `sha256:19939f2cb8bc1e655365029cb69b8fe1d48fc24294a4a1dfb3b55b61d4e016a2` |
+| Runic Vite `0.1.0-preview.8.1` | `a17add71a240392f8e422326f1d760f5230cc9d4` | [Public release #7](https://github.com/Runic-Artifex/runic-vite/actions/runs/31371959471) | `sha256:bb2198eb4a7144f5d8771289e027559b6c08be42483455610916989fafc1ea55` |
+| Runic Toolkit `0.1.0-preview.27.1` | `de65ac256df7653b741ef041fc1f36f4c314d577` | [Public release #25](https://github.com/Runic-Artifex/runic-toolkit/actions/runs/31476899566) | `sha256:50b74ec34f7179eb08304980b22510b0c4b85b92b388206a909777bf53c73602` |
+| Runic Assets `0.1.0-preview.20.1` | `1efd319ba3c73302ce388e86840355b21c21fab2` | [Public release #15](https://github.com/Runic-Artifex/runic-assets/actions/runs/31477235416) | `sha256:14c32f36fd489e4256ee994119b790119f5a08e1095eef8f742d921e8453507b` |
+| Runic Flow `0.1.0-preview.15.1` | `e195f214f4a14c05314f0dfc82092db87b457c87` | [Public release #13](https://github.com/Runic-Artifex/runic-flow/actions/runs/31477237658) | `sha256:0c207e86f31651da88cccaf18a9ee82f73c2d0ff210780363efff2fda42aba10` |
 
 ## 3. Correct public presentation
 
