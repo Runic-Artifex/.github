@@ -14,5 +14,6 @@ cadence while composing through explicit integrations.
 - [Runic Translations Editor](https://github.com/Runic-Artifex/runic-translations-editor) gives translators a focused desktop authoring environment.
 - [Runic Command Line](https://github.com/Runic-Artifex/runic-command-line) builds reflection-free command applications.
 
-The shared product map, architecture boundaries, and release policy live in
-[Runic Artifex Documentation](https://github.com/Runic-Artifex/runic-docs).
+Visit [runic-artifex.eu](https://runic-artifex.eu) for the project story and
+product family. Technical guides, package versions, architecture boundaries,
+and release status live in [Runic Artifex Documentation](https://docs.runic-artifex.eu).
