@@ -1,0 +1,603 @@
+{
+  "schema": "runic.w110-desktop-quality-repeat/1",
+  "journeys": [
+    {
+      "schema": "runic.w110-desktop-quality/1",
+      "publication": "forbidden",
+      "externalActions": {
+        "requests": 0,
+        "publications": 0,
+        "signatures": 0,
+        "updates": 0,
+        "uploads": 0,
+        "releases": 0,
+        "tags": 0
+      },
+      "authority": {
+        "release": {
+          "sha256": "44509da940d238738427d2cce4a8d2d58863b21f1d976daf854c04be9c086b3f",
+          "schema": "./runic.release.schema.json",
+          "schemaVersion": 1
+        },
+        "compatibility": {
+          "sha256": "b2a16619f8a3f2a8a60df19d583ba7f531bda47886efdc4c1bbf9d440d62bce0",
+          "id": "runic-1.0-preview.1",
+          "releaseTrainVersion": "1.0.0-preview.1",
+          "schemaVersion": 1
+        }
+      },
+      "sources": [
+        {
+          "repository": "runic-assets",
+          "revision": "e9affd725903077339c5df5a23c44f898121c0b5",
+          "tree": "6e3dbc27ee5dd36871f6f66b9287f46e73e36c08"
+        },
+        {
+          "repository": "runic-command-line",
+          "revision": "beadc31d91746a2cb005207ac1161cf579e128e5",
+          "tree": "1d0b2e15583f599e6d2c6f0db3a33ced154e0dd0"
+        },
+        {
+          "repository": "runic-desktop",
+          "revision": "a0d1432e9a7b8dcf3d6311fcbdf4e824bc0d479f",
+          "tree": "01a002232712c358c6757cc9fb8ef28d6bdd84c7"
+        },
+        {
+          "repository": "runic-svelte",
+          "revision": "39af8c08bb8cf1168789093bdfb575f420a51f39",
+          "tree": "429bbd59ff3d08e6e93d27037b291bad10a4b54c"
+        },
+        {
+          "repository": "runic-toolkit",
+          "revision": "0046557bb3b4ae2f1f8ebc54655d108db50f5db3",
+          "tree": "a4722bda832558c75b8f011c2c4399ef9931f494"
+        },
+        {
+          "repository": "runic-toolkit-examples",
+          "revision": "7ee07aa68341573e103ac34578413dff97375941",
+          "tree": "d54b9c8ddbd0c8010ee9ad1620e0f0ce02247181"
+        },
+        {
+          "repository": "runic-translations",
+          "revision": "233b1f08e86210a5320c52d1cb0ad6535f2182e0",
+          "tree": "8f54d22d638c880c6273161d297883ff23020eba"
+        },
+        {
+          "repository": "runic-translations-editor",
+          "revision": "2b8a3c9627ab6dc1b0cefecaf05bdc26fd79712b",
+          "tree": "5b9e04abaa6c4a03075f9c05b43339f887f7179d"
+        },
+        {
+          "repository": "runic-vite",
+          "revision": "a5f94c90948e20324e8d4f168763d4f858dd1b10",
+          "tree": "1592ea2e9cd80d854bee1b4d183effd7ffd91fa5"
+        }
+      ],
+      "contracts": [
+        {
+          "id": "runic-application-bridge",
+          "repository": "runic-toolkit",
+          "path": "protocol/application-bridge",
+          "algorithm": "sha256-git-file-set-v1",
+          "sha256": "7bd6a593bcd869d6a7dfe35f0f1b8816379893a0b418c806370d4145cf72db61"
+        },
+        {
+          "id": "runic-assets",
+          "repository": "runic-assets",
+          "path": "spec",
+          "algorithm": "sha256-git-file-set-v1",
+          "sha256": "51cb8c006db23c662f2721318efa96b38474f6addf7dc81608dda65583fde2d4"
+        },
+        {
+          "id": "runic-desktop-presentation",
+          "repository": "runic-desktop",
+          "path": "contract",
+          "algorithm": "sha256-git-file-set-v1",
+          "sha256": "a201e03c06e818d63d3410a84f005e533420911d189fa75245e14c38ee4632e7"
+        },
+        {
+          "id": "runic-translations",
+          "repository": "runic-translations",
+          "path": "spec",
+          "algorithm": "sha256-git-file-set-v1",
+          "sha256": "c279ae727b5a0a674444b0f90cf4cd99f2dca8fedff8c86ac188c30b361388c2"
+        }
+      ],
+      "platformAuthority": [
+        "linux-x64",
+        "osx-arm64",
+        "osx-x64",
+        "win-x64"
+      ],
+      "observedPlatforms": [
+        "linux-x64"
+      ],
+      "application": {
+        "product": "runic-translations-editor",
+        "source": {
+          "repository": "runic-translations-editor",
+          "revision": "2b8a3c9627ab6dc1b0cefecaf05bdc26fd79712b"
+        },
+        "accessibility": {
+          "scope": "static editor UI semantics and catalog coverage",
+          "checks": [
+            {
+              "id": "application-accessibility",
+              "facts": [
+                "Svelte compiler accessibility diagnostics",
+                "keyboard focus ownership",
+                "landmarks and accessible names",
+                "forced-colors focus",
+                "reduced motion"
+              ]
+            },
+            {
+              "id": "catalog-backed-ui-copy",
+              "facts": [
+                "English and German visible/accessibility copy catalog coverage"
+              ]
+            },
+            {
+              "id": "catalog-backed-message-list",
+              "facts": [
+                "message list visible/accessibility copy catalog coverage"
+              ]
+            }
+          ]
+        },
+        "scale": {
+          "checks": [
+            {
+              "id": "virtualized-10k-50k",
+              "facts": [
+                "10,000 and 50,000 message virtual tree build budgets",
+                "bounded viewport rows",
+                "100 scroll-window interaction budget"
+              ]
+            },
+            {
+              "id": "indexed-search-10k-50k",
+              "facts": [
+                "10,000 and 50,000 multi-locale index/query budgets"
+              ]
+            },
+            {
+              "id": "review-model-50k-memory",
+              "facts": [
+                "50,000 messages across 100 review locales",
+                "256 MiB retained heap-growth ceiling",
+                "bounded translation-memory suggestions"
+              ]
+            }
+          ]
+        },
+        "evidenceFiles": [
+          {
+            "path": "Frontend/src/lib/message-search.ts",
+            "sha256": "72d664f65123a4fc439dc0185b49406bc501606d5f1c536fcc11ca70dc5fd206"
+          },
+          {
+            "path": "Frontend/src/lib/message-virtualization.ts",
+            "sha256": "c9d267e9898324d2be21f9a89eaebb681ca00d59a985129879e64d4a425a4fb7"
+          },
+          {
+            "path": "Frontend/src/lib/review-model.ts",
+            "sha256": "f910742db8155a2943558a21943e105a1ab651c988b1303dced55e0c22c9eaf6"
+          },
+          {
+            "path": "Frontend/test/verify-keyboard-a11y.mjs",
+            "sha256": "9b77caafed203717bad9d47911a79a187360133a26dc0c803c84f606d24a0772"
+          },
+          {
+            "path": "Frontend/test/verify-message-list-catalog.mjs",
+            "sha256": "7bc95f00d2659933d7d1136c93ea8de5ac5b47b80f2663b7329fe29ddbcdca8c"
+          },
+          {
+            "path": "Frontend/test/verify-message-search.mjs",
+            "sha256": "969c87d285ebeb7cca068b279864bb3206adcc1b768a1ac232cc48559fbe594b"
+          },
+          {
+            "path": "Frontend/test/verify-message-virtualization.mjs",
+            "sha256": "437765b194e2b5fe2f34e3d3b15a445344fc08e9fe2e26c11c5dfdf6d0657f7a"
+          },
+          {
+            "path": "Frontend/test/verify-review-model.mjs",
+            "sha256": "43e97e5dfcd5a420d3b956a551d02f445d90cbbd4a7cab871403eadf7fa1fa10"
+          },
+          {
+            "path": "Frontend/test/verify-ui-catalog.mjs",
+            "sha256": "40eec1b0f2c8c31607623ff386f53eec054ae44d309f207bc3425903fff08c02"
+          }
+        ]
+      },
+      "desktopRuntime": {
+        "source": {
+          "repository": "runic-desktop",
+          "revision": "a0d1432e9a7b8dcf3d6311fcbdf4e824bc0d479f",
+          "path": "evidence/native-quality/linux-x64.json",
+          "sha256": "9136368d99fd8a5c808927be8803448a68c7144907e4e92c4b8510c7a3b19725"
+        },
+        "platform": "linux-x64",
+        "profile": {
+          "os": {
+            "family": "linux",
+            "name": "NixOS 26.11 (Zokor)"
+          },
+          "architecture": "x64",
+          "runtime": {
+            "sdk": "10.0.302",
+            "framework": "Microsoft.NETCore.App 10.0.10"
+          },
+          "browser": {
+            "kind": "Chromium",
+            "version": "150.0.7871.186",
+            "executable": "/nix/store/wjs8nzn73dd8kqkg1sl06071syl2hxxh-chromium-150.0.7871.186/bin/chromium"
+          },
+          "embeddedWebView": {
+            "kind": "WebKitGTK",
+            "package": "webkitgtk-2.52.5+abi=4.1",
+            "driver": "/nix/store/clhasr1lfayv6akwlbfz84g05v55yys9-webkitgtk-2.52.5+abi=4.1/bin/WebKitWebDriver"
+          }
+        },
+        "claims": {
+          "multiWindow": {
+            "surfaces": 2,
+            "concurrentWindowCycles": 24,
+            "postcondition": "application-not-running"
+          },
+          "streaming": {
+            "headStreamFactoryCalls": 0,
+            "streamedFirstChunkBytes": 5,
+            "streamFactoryCalls": 1,
+            "cancellation": "request-disconnect-and-window-close",
+            "disposal": "required"
+          },
+          "reconnect": {
+            "authenticatedConnections": 2,
+            "connectionIds": "distinct"
+          },
+          "cleanRecovery": {
+            "ownedBrowserLaunches": 2,
+            "generatedProfiles": "unique-and-cleaned",
+            "unexpectedBrowserExit": "detected-and-cleaned",
+            "embeddedWebViewRestart": "second-surface-window"
+          }
+        },
+        "exclusions": [
+          {
+            "id": "accessibility",
+            "status": "not-certified",
+            "reason": "Runic Desktop hosts consumer content; this runtime receipt has no representative application accessibility tree or assistive-technology journey."
+          },
+          {
+            "id": "performance",
+            "status": "not-certified",
+            "reason": "The retained 150000-byte bridge check is a structural capacity check, not a calibrated latency or throughput budget."
+          },
+          {
+            "id": "memory",
+            "status": "not-certified",
+            "reason": "No profiler-backed managed or native memory budget is measured by this receipt."
+          },
+          {
+            "id": "windows",
+            "status": "not-certified",
+            "reason": "This Linux-only receipt cannot certify WebView2 lifecycle, recovery, or diagnostics."
+          },
+          {
+            "id": "macos",
+            "status": "not-certified",
+            "reason": "This Linux-only receipt cannot certify WKWebView lifecycle, recovery, or diagnostics."
+          }
+        ]
+      },
+      "exclusions": {
+        "windows": "not-certified-by-this-local-evidence",
+        "macos": "not-certified-by-this-local-evidence",
+        "applicationAssistiveTechnology": "not-certified-by-static-checks",
+        "nativeLatencyOrThroughput": "not-certified-by-structural-capacity-check",
+        "nativeMemory": "not-certified-by-this-local-evidence",
+        "publication": "forbidden"
+      }
+    },
+    {
+      "schema": "runic.w110-desktop-quality/1",
+      "publication": "forbidden",
+      "externalActions": {
+        "requests": 0,
+        "publications": 0,
+        "signatures": 0,
+        "updates": 0,
+        "uploads": 0,
+        "releases": 0,
+        "tags": 0
+      },
+      "authority": {
+        "release": {
+          "sha256": "44509da940d238738427d2cce4a8d2d58863b21f1d976daf854c04be9c086b3f",
+          "schema": "./runic.release.schema.json",
+          "schemaVersion": 1
+        },
+        "compatibility": {
+          "sha256": "b2a16619f8a3f2a8a60df19d583ba7f531bda47886efdc4c1bbf9d440d62bce0",
+          "id": "runic-1.0-preview.1",
+          "releaseTrainVersion": "1.0.0-preview.1",
+          "schemaVersion": 1
+        }
+      },
+      "sources": [
+        {
+          "repository": "runic-assets",
+          "revision": "e9affd725903077339c5df5a23c44f898121c0b5",
+          "tree": "6e3dbc27ee5dd36871f6f66b9287f46e73e36c08"
+        },
+        {
+          "repository": "runic-command-line",
+          "revision": "beadc31d91746a2cb005207ac1161cf579e128e5",
+          "tree": "1d0b2e15583f599e6d2c6f0db3a33ced154e0dd0"
+        },
+        {
+          "repository": "runic-desktop",
+          "revision": "a0d1432e9a7b8dcf3d6311fcbdf4e824bc0d479f",
+          "tree": "01a002232712c358c6757cc9fb8ef28d6bdd84c7"
+        },
+        {
+          "repository": "runic-svelte",
+          "revision": "39af8c08bb8cf1168789093bdfb575f420a51f39",
+          "tree": "429bbd59ff3d08e6e93d27037b291bad10a4b54c"
+        },
+        {
+          "repository": "runic-toolkit",
+          "revision": "0046557bb3b4ae2f1f8ebc54655d108db50f5db3",
+          "tree": "a4722bda832558c75b8f011c2c4399ef9931f494"
+        },
+        {
+          "repository": "runic-toolkit-examples",
+          "revision": "7ee07aa68341573e103ac34578413dff97375941",
+          "tree": "d54b9c8ddbd0c8010ee9ad1620e0f0ce02247181"
+        },
+        {
+          "repository": "runic-translations",
+          "revision": "233b1f08e86210a5320c52d1cb0ad6535f2182e0",
+          "tree": "8f54d22d638c880c6273161d297883ff23020eba"
+        },
+        {
+          "repository": "runic-translations-editor",
+          "revision": "2b8a3c9627ab6dc1b0cefecaf05bdc26fd79712b",
+          "tree": "5b9e04abaa6c4a03075f9c05b43339f887f7179d"
+        },
+        {
+          "repository": "runic-vite",
+          "revision": "a5f94c90948e20324e8d4f168763d4f858dd1b10",
+          "tree": "1592ea2e9cd80d854bee1b4d183effd7ffd91fa5"
+        }
+      ],
+      "contracts": [
+        {
+          "id": "runic-application-bridge",
+          "repository": "runic-toolkit",
+          "path": "protocol/application-bridge",
+          "algorithm": "sha256-git-file-set-v1",
+          "sha256": "7bd6a593bcd869d6a7dfe35f0f1b8816379893a0b418c806370d4145cf72db61"
+        },
+        {
+          "id": "runic-assets",
+          "repository": "runic-assets",
+          "path": "spec",
+          "algorithm": "sha256-git-file-set-v1",
+          "sha256": "51cb8c006db23c662f2721318efa96b38474f6addf7dc81608dda65583fde2d4"
+        },
+        {
+          "id": "runic-desktop-presentation",
+          "repository": "runic-desktop",
+          "path": "contract",
+          "algorithm": "sha256-git-file-set-v1",
+          "sha256": "a201e03c06e818d63d3410a84f005e533420911d189fa75245e14c38ee4632e7"
+        },
+        {
+          "id": "runic-translations",
+          "repository": "runic-translations",
+          "path": "spec",
+          "algorithm": "sha256-git-file-set-v1",
+          "sha256": "c279ae727b5a0a674444b0f90cf4cd99f2dca8fedff8c86ac188c30b361388c2"
+        }
+      ],
+      "platformAuthority": [
+        "linux-x64",
+        "osx-arm64",
+        "osx-x64",
+        "win-x64"
+      ],
+      "observedPlatforms": [
+        "linux-x64"
+      ],
+      "application": {
+        "product": "runic-translations-editor",
+        "source": {
+          "repository": "runic-translations-editor",
+          "revision": "2b8a3c9627ab6dc1b0cefecaf05bdc26fd79712b"
+        },
+        "accessibility": {
+          "scope": "static editor UI semantics and catalog coverage",
+          "checks": [
+            {
+              "id": "application-accessibility",
+              "facts": [
+                "Svelte compiler accessibility diagnostics",
+                "keyboard focus ownership",
+                "landmarks and accessible names",
+                "forced-colors focus",
+                "reduced motion"
+              ]
+            },
+            {
+              "id": "catalog-backed-ui-copy",
+              "facts": [
+                "English and German visible/accessibility copy catalog coverage"
+              ]
+            },
+            {
+              "id": "catalog-backed-message-list",
+              "facts": [
+                "message list visible/accessibility copy catalog coverage"
+              ]
+            }
+          ]
+        },
+        "scale": {
+          "checks": [
+            {
+              "id": "virtualized-10k-50k",
+              "facts": [
+                "10,000 and 50,000 message virtual tree build budgets",
+                "bounded viewport rows",
+                "100 scroll-window interaction budget"
+              ]
+            },
+            {
+              "id": "indexed-search-10k-50k",
+              "facts": [
+                "10,000 and 50,000 multi-locale index/query budgets"
+              ]
+            },
+            {
+              "id": "review-model-50k-memory",
+              "facts": [
+                "50,000 messages across 100 review locales",
+                "256 MiB retained heap-growth ceiling",
+                "bounded translation-memory suggestions"
+              ]
+            }
+          ]
+        },
+        "evidenceFiles": [
+          {
+            "path": "Frontend/src/lib/message-search.ts",
+            "sha256": "72d664f65123a4fc439dc0185b49406bc501606d5f1c536fcc11ca70dc5fd206"
+          },
+          {
+            "path": "Frontend/src/lib/message-virtualization.ts",
+            "sha256": "c9d267e9898324d2be21f9a89eaebb681ca00d59a985129879e64d4a425a4fb7"
+          },
+          {
+            "path": "Frontend/src/lib/review-model.ts",
+            "sha256": "f910742db8155a2943558a21943e105a1ab651c988b1303dced55e0c22c9eaf6"
+          },
+          {
+            "path": "Frontend/test/verify-keyboard-a11y.mjs",
+            "sha256": "9b77caafed203717bad9d47911a79a187360133a26dc0c803c84f606d24a0772"
+          },
+          {
+            "path": "Frontend/test/verify-message-list-catalog.mjs",
+            "sha256": "7bc95f00d2659933d7d1136c93ea8de5ac5b47b80f2663b7329fe29ddbcdca8c"
+          },
+          {
+            "path": "Frontend/test/verify-message-search.mjs",
+            "sha256": "969c87d285ebeb7cca068b279864bb3206adcc1b768a1ac232cc48559fbe594b"
+          },
+          {
+            "path": "Frontend/test/verify-message-virtualization.mjs",
+            "sha256": "437765b194e2b5fe2f34e3d3b15a445344fc08e9fe2e26c11c5dfdf6d0657f7a"
+          },
+          {
+            "path": "Frontend/test/verify-review-model.mjs",
+            "sha256": "43e97e5dfcd5a420d3b956a551d02f445d90cbbd4a7cab871403eadf7fa1fa10"
+          },
+          {
+            "path": "Frontend/test/verify-ui-catalog.mjs",
+            "sha256": "40eec1b0f2c8c31607623ff386f53eec054ae44d309f207bc3425903fff08c02"
+          }
+        ]
+      },
+      "desktopRuntime": {
+        "source": {
+          "repository": "runic-desktop",
+          "revision": "a0d1432e9a7b8dcf3d6311fcbdf4e824bc0d479f",
+          "path": "evidence/native-quality/linux-x64.json",
+          "sha256": "9136368d99fd8a5c808927be8803448a68c7144907e4e92c4b8510c7a3b19725"
+        },
+        "platform": "linux-x64",
+        "profile": {
+          "os": {
+            "family": "linux",
+            "name": "NixOS 26.11 (Zokor)"
+          },
+          "architecture": "x64",
+          "runtime": {
+            "sdk": "10.0.302",
+            "framework": "Microsoft.NETCore.App 10.0.10"
+          },
+          "browser": {
+            "kind": "Chromium",
+            "version": "150.0.7871.186",
+            "executable": "/nix/store/wjs8nzn73dd8kqkg1sl06071syl2hxxh-chromium-150.0.7871.186/bin/chromium"
+          },
+          "embeddedWebView": {
+            "kind": "WebKitGTK",
+            "package": "webkitgtk-2.52.5+abi=4.1",
+            "driver": "/nix/store/clhasr1lfayv6akwlbfz84g05v55yys9-webkitgtk-2.52.5+abi=4.1/bin/WebKitWebDriver"
+          }
+        },
+        "claims": {
+          "multiWindow": {
+            "surfaces": 2,
+            "concurrentWindowCycles": 24,
+            "postcondition": "application-not-running"
+          },
+          "streaming": {
+            "headStreamFactoryCalls": 0,
+            "streamedFirstChunkBytes": 5,
+            "streamFactoryCalls": 1,
+            "cancellation": "request-disconnect-and-window-close",
+            "disposal": "required"
+          },
+          "reconnect": {
+            "authenticatedConnections": 2,
+            "connectionIds": "distinct"
+          },
+          "cleanRecovery": {
+            "ownedBrowserLaunches": 2,
+            "generatedProfiles": "unique-and-cleaned",
+            "unexpectedBrowserExit": "detected-and-cleaned",
+            "embeddedWebViewRestart": "second-surface-window"
+          }
+        },
+        "exclusions": [
+          {
+            "id": "accessibility",
+            "status": "not-certified",
+            "reason": "Runic Desktop hosts consumer content; this runtime receipt has no representative application accessibility tree or assistive-technology journey."
+          },
+          {
+            "id": "performance",
+            "status": "not-certified",
+            "reason": "The retained 150000-byte bridge check is a structural capacity check, not a calibrated latency or throughput budget."
+          },
+          {
+            "id": "memory",
+            "status": "not-certified",
+            "reason": "No profiler-backed managed or native memory budget is measured by this receipt."
+          },
+          {
+            "id": "windows",
+            "status": "not-certified",
+            "reason": "This Linux-only receipt cannot certify WebView2 lifecycle, recovery, or diagnostics."
+          },
+          {
+            "id": "macos",
+            "status": "not-certified",
+            "reason": "This Linux-only receipt cannot certify WKWebView lifecycle, recovery, or diagnostics."
+          }
+        ]
+      },
+      "exclusions": {
+        "windows": "not-certified-by-this-local-evidence",
+        "macos": "not-certified-by-this-local-evidence",
+        "applicationAssistiveTechnology": "not-certified-by-static-checks",
+        "nativeLatencyOrThroughput": "not-certified-by-structural-capacity-check",
+        "nativeMemory": "not-certified-by-this-local-evidence",
+        "publication": "forbidden"
+      }
+    }
+  ]
+}

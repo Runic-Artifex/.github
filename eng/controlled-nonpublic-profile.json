@@ -1,0 +1,21 @@
+{
+  "schema": "runic.controlled-nonpublic-profile-input/1",
+  "publication": "forbidden",
+  "profiles": {
+    "csharp-host": { "source": { "repository": "https://github.com/Runic-Artifex/runic-toolkit", "revision": "d1af7a0c8cf5d14ca65ecf667fbbdf06dad2c4ae", "tree": "138e82be377f70bec1d3f290b8cae480ffdb0e5e" } },
+    "local-application-bridge": { "source": { "repository": "https://github.com/Runic-Artifex/runic-toolkit", "revision": "99204832e95d3432c4056310fccf474f1713331f", "tree": "601f93f179da459494e3d83b3155851a7f3c5735" } },
+    "editor-desktop": { "source": { "repository": "https://github.com/Runic-Artifex/runic-translations-editor", "revision": "82f0adcf7474883ead99c85e52022d43908307df", "tree": "a5f13d4c4f2836d85fcf6d05cc31ce167d25405b" }, "artifacts": [{ "runtimeIdentifier": "linux-x64", "sha256": "9f64a747e1b97f131fabb6b447296c9b6f0201e79fb3c5356e6c77e89b6a806a" }, { "runtimeIdentifier": "osx-arm64", "sha256": "9f64a747e1b97f131fabb6b447296c9b6f0201e79fb3c5356e6c77e89b6a806a" }, { "runtimeIdentifier": "win-x64", "sha256": "9f64a747e1b97f131fabb6b447296c9b6f0201e79fb3c5356e6c77e89b6a806a" }] },
+    "d008-hosted-product": { "authority": { "revision": "054119b89c15a93210641fbde00585dc3d30edac", "tree": "61e32131b712331502e92d66b7f143cc69e486d7", "sha256": "dc7990bc4adbb4836e8232d1c260944d4e22f307229f138a40a1b730fdd91628" } }
+  },
+  "citations": [
+    { "id": "w30-rollout", "profile": "d008-hosted-product", "schema": "runic.current-hosted-rollout-repeat/1", "sha256": "19a2063c6ef8f71d9c585e9c566eb07573b4fbb1461bc4aaef19dfec20adcc0a", "facts": [{ "revision": "054119b89c15a93210641fbde00585dc3d30edac", "tree": "61e32131b712331502e92d66b7f143cc69e486d7" }] },
+    { "id": "w40-localization", "profile": "editor-desktop", "schema": "runic.w40-localization-compatibility-repeat/1", "sha256": "8e806efd2fdd88eded46b0896f4e312062eb75b55a56fa1b5885e9b05cea95d2", "facts": [{ "sha256": "198a20cc692e7721b22d16be601ba3b933029854bad8c3da8300a6b4c2d238db" }] },
+    { "id": "w50-support", "profile": "csharp-host", "schema": "runic.support-envelope-consumer-repeat/1", "sha256": "43120757be3d04de5c2230d43598254c6647c98cb7552b454cac6a0316eeda14", "facts": [{ "sha256": "832cd2b40fa05d2f59cf7530880257b0882603af21ba1d5b28440ed7e032cf15" }] },
+    { "id": "w50-recovery", "profile": "csharp-host", "schema": "runic.recovery-capability-consumer-repeat/1", "sha256": "88139bd10f506a0d2efda375d03de7744071ecf3259b382f936f08399d56fb79", "facts": [{ "diagnostics": { "schema": "runic.translations.editor-diagnostics/1" } }] },
+    { "id": "w50-quality", "profile": "local-application-bridge", "schema": "runic.editor-structural-quality-repeat/1", "sha256": "eecfd7f0931b24f8310404ff2413ccfd4b62bedcbb8cdc9e4de0cfe41271a0f3", "facts": [{ "revision": "99204832e95d3432c4056310fccf474f1713331f", "tree": "601f93f179da459494e3d83b3155851a7f3c5735" }] },
+    { "id": "w60-candidate", "profile": "editor-desktop", "schema": "runic.unsigned-candidate-set-consumer-repeat/1", "sha256": "644bd6f236ed1e4e5c2bde658bd751196b8aee0c2d7f9a54f2852eec89a4435b", "facts": [{ "revision": "82f0adcf7474883ead99c85e52022d43908307df", "tree": "a5f13d4c4f2836d85fcf6d05cc31ce167d25405b" }] },
+    { "id": "w60-tool", "profile": "csharp-host", "schema": "runic.unsigned-tool-staging-consumer-repeat/1", "sha256": "e27ac3f8b7e518f68a9f78bfe8fd8003dd27184bf921e7aa3ecaa8c44fe70186", "facts": [{ "revision": "d1af7a0c8cf5d14ca65ecf667fbbdf06dad2c4ae", "tree": "138e82be377f70bec1d3f290b8cae480ffdb0e5e" }] },
+    { "id": "w60-preflight", "profile": "editor-desktop", "schema": "runic.manual-replacement-preflight-consumer-repeat/1", "sha256": "c7b2347da28de36863bdb95543a8bbb4cebc8e0a9b801710801dd251ca2c5b6b", "facts": [{ "sha256": "644bd6f236ed1e4e5c2bde658bd751196b8aee0c2d7f9a54f2852eec89a4435b" }] },
+    { "id": "w60-handoff", "profile": "csharp-host", "schema": "runic.authorized-publication-handoff-repeat/1", "sha256": "7f3ce9e52b43218a62c2fefa53841362d2a8a4025a22a20a55330c1cc3dafe57", "facts": [{ "transport": { "outboundRequests": 0, "signaturesIssued": 0, "signedMetadataEmitted": 0, "releaseMutations": 0, "uploads": 0, "tags": 0 } }] }
+  ]
+}

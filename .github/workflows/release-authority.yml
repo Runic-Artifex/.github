@@ -1,0 +1,97 @@
+name: Release authority
+
+on:
+  pull_request:
+    paths:
+      - runic.release.json
+      - runic.release.schema.json
+      - runic.compatibility-set.json
+      - runic.compatibility-set.schema.json
+      - eng/verify-compatibility-set.mjs
+      - eng/verify-compatibility-set.test.mjs
+      - eng/verify-release-manifest.mjs
+      - eng/verify-release-manifest.test.mjs
+      - eng/release-evidence.mjs
+      - eng/release-evidence.test.mjs
+      - eng/release-evidence-schemas/**
+      - eng/link-unsigned-candidate-set.mjs
+      - eng/link-unsigned-candidate-set.test.mjs
+      - RELEASES.md
+      - LAUNCH.md
+      - .github/workflows/release-authority.yml
+  push:
+    branches: [main]
+    paths:
+      - runic.release.json
+      - runic.release.schema.json
+      - runic.compatibility-set.json
+      - runic.compatibility-set.schema.json
+      - eng/verify-compatibility-set.mjs
+      - eng/verify-compatibility-set.test.mjs
+      - eng/verify-release-manifest.mjs
+      - eng/verify-release-manifest.test.mjs
+      - eng/release-evidence.mjs
+      - eng/release-evidence.test.mjs
+      - eng/release-evidence-schemas/**
+      - eng/link-unsigned-candidate-set.mjs
+      - eng/link-unsigned-candidate-set.test.mjs
+      - RELEASES.md
+      - LAUNCH.md
+      - .github/workflows/release-authority.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Materialize exact compatibility workspace
+        env:
+          COMPATIBILITY_SET: ${{ github.workspace }}/runic.compatibility-set.json
+          COMPATIBILITY_WORKSPACE: ${{ github.workspace }}/..
+        run: |
+          node --input-type=module <<'NODE'
+          import { execFileSync } from 'node:child_process';
+          import { mkdirSync, readFileSync } from 'node:fs';
+          import { resolve } from 'node:path';
+
+          const revisionPattern = /^[a-f0-9]{40}$/;
+          const repositoryPattern = /^[a-z0-9][a-z0-9-]*$/;
+          const authority = JSON.parse(readFileSync(process.env.COMPATIBILITY_SET, 'utf8'));
+          const workspace = resolve(process.env.COMPATIBILITY_WORKSPACE);
+
+          for (const source of authority.sources ?? []) {
+            const { repository, revision } = source;
+            const url = `https://github.com/Runic-Artifex/${repository}`;
+            if (!repositoryPattern.test(repository ?? '') || !revisionPattern.test(revision ?? '') || source.url !== url) {
+              throw new Error(`invalid compatibility source '${repository ?? 'missing'}'`);
+            }
+            const destination = resolve(workspace, repository);
+            if (!destination.startsWith(`${workspace}/`)) throw new Error(`unsafe compatibility source '${repository}'`);
+            mkdirSync(destination);
+            execFileSync('git', ['init', '--quiet'], { cwd: destination, stdio: 'inherit' });
+            execFileSync('git', ['fetch', '--no-tags', '--depth=1', url, revision], { cwd: destination, stdio: 'inherit' });
+            execFileSync('git', ['checkout', '--quiet', '--detach', revision], { cwd: destination, stdio: 'inherit' });
+          }
+          NODE
+      - name: Install pinned GitHub CLI for attestation verification
+        run: |
+          curl --fail --location --retry 3 --output gh_2.97.0_linux_amd64.tar.gz https://github.com/cli/cli/releases/download/v2.97.0/gh_2.97.0_linux_amd64.tar.gz
+          echo 'a2c9b8497e1f85b1ad0dfcb78b5a622e098801b8e461e459e88e1ee12f018112  gh_2.97.0_linux_amd64.tar.gz' | sha256sum --check --status
+          tar -xzf gh_2.97.0_linux_amd64.tar.gz
+          echo "$PWD/gh_2.97.0_linux_amd64/bin" >> "$GITHUB_PATH"
+          "$PWD/gh_2.97.0_linux_amd64/bin/gh" --version
+      - run: node --test eng/verify-release-manifest.test.mjs
+      - run: node --test eng/verify-compatibility-set.test.mjs
+      - run: node --test eng/release-evidence.test.mjs
+      - run: node --test eng/link-unsigned-candidate-set.test.mjs
+      - run: node eng/verify-release-manifest.mjs runic.release.json runic.release.schema.json
+      - run: node eng/verify-compatibility-set.mjs runic.compatibility-set.json runic.compatibility-set.schema.json runic.release.json
