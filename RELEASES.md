@@ -1,92 +1,195 @@
 # Runic Artifex release policy
 
-Each product owns its packages and releases independently. Integration packages
-belong to the product that implements the integration. Compatibility is recorded
-explicitly; repositories do not share a version merely because they share an
-organization.
+[`runic.release.json`](runic.release.json), validated by the committed schema
+and verifier, is the sole release-train authority for product identity, package
+disposition, compatibility lanes, artifact ownership, and format support. This
+policy is not a second package inventory.
 
-## Versioning and identity
+## Historical v0.2 breaking changes and migration
 
-- Packages use SemVer 2.0 and one version across a repository's shipping family.
-- Cross-product dependencies use exact versions during the public preview.
-- Preview tags use `vMAJOR.MINOR.PATCH-preview.N`; stable tags use
-  `vMAJOR.MINOR.PATCH`.
-- Public npm packages use the controlled `@runic-artifex` scope. The unhyphenated
-  `@runicartifex` scope is retained defensively and is not a second package family.
-- Runic Translations uses `RunicTranslations.*` for NuGet packages and code,
-  `runic.translations/1` for the protocol family, and
-  `@runic-artifex/vite-plugin-runic-translations` for its Vite integration.
+The v0.2 work was an intentional breaking migration. Its retired identities are
+no longer current release authority; retained historical documentation and Git
+history provide the migration record. Before a release is approved, any
+accepted breaking command, configuration, diagnostic, generated API, serialized
+format, or wire-contract change must provide actionable migration guidance. The
+owning product supplies diagnostics and, where safe, analyzers, code fixes, or
+migration tooling.
 
-## Required evidence
+Renamed, merged, internalized, and retired preview NuGet identities receive one
+final deprecation release with the manifest's migration destination, then stop
+evolving. There are no permanent forwarding packages, compatibility facades,
+namespace aliases, or second package identities. npm identities remain only when
+the manifest explicitly says `keep`.
 
-Before a public release is approved, the repository must:
+Serialized formats and wire contracts are independent commitments: writers state
+their format version, readers state supported versions, and a breaking writer
+provides a reader or migration path for retained data and supported peers. A
+package rename never waives a wire contract obligation.
 
-1. restore and verify from a clean checkout of the final `main` commit;
-2. produce the exact expected NuGet and npm artifact set;
-3. validate MIT metadata, README inclusion, repository provenance, and version;
-4. consume the packaged artifacts from an isolated cache;
-5. pass applicable NativeAOT and frontend production gates;
-6. leave the source tree unchanged;
-7. upload the verified artifacts and record their digests before publishing;
-8. complete a verify-only `Public release` dispatch for the exact release commit;
-9. prove downstream exact-version canaries against the final private candidates.
+## Compatibility lanes and release candidates
 
-Green source CI is necessary but is not release-candidate evidence by itself.
-A candidate becomes stale when shipping code, package metadata, or provenance
-changes after it was produced. A stale version is never rebuilt from a different
-commit for another registry.
+The `v1.0` train has current, previous-supported, and next-candidate lanes.
+Publication versions remain unassigned until verified from registry evidence;
+roadmap targets never infer a published version. Runic Flow remains an archived
+historical product outside the train. The accepted archive decision is the
+immutable pointer in the release authority to `runic-flow` ADR 0002.
 
-## Publication
+### Flow archive prerequisite
 
-New Runic package families use their top-level
-`.github/workflows/public-release.yml`. NuGet and npm trusted-publisher policies
-bind to the calling repository, workflow filename, and `public-release`
-environment. Long-lived write tokens are not the steady-state publication
-mechanism.
+Before the v1.0 launch candidate, complete the separate historical Flow archive operation:
+publish exactly one final deprecation release for `RunicFlow` and
+`RunicFlow.ApplicationBridge`, set each NuGet registry deprecation and migration
+link to the archive guidance, and retain the resulting upstream receipt and
+attestation evidence. This is not a v1.0 package candidate, does not add either
+identity to `canonicalPackages` or a compatibility lane, and does not create an
+Operations replacement or forwarding alias.
 
-CS-WebUI retains its established `.github/workflows/nuget-gallery.yml` identity
-until its existing NuGet trusted-publisher policy is deliberately migrated.
+At release candidate freeze, the exact commit, package metadata, artifact set,
+provenance, compatibility set, documentation, and migration guides freeze
+together. An exception needs an owner, impact and compatibility review, a new
+candidate version from a new commit, full rebuild of affected artifacts,
+package-only canaries, and every release gate repeated. A stale candidate is
+never rebuilt from a different commit under the same version.
 
-The first npm.org publication uses a narrowly scoped, short-lived bootstrap token
-to create each package record. Immediately afterward, connect each package to its
-owning repository's `public-release.yml`, disable token publishing, remove the
-bootstrap secret, and use OIDC with provenance for subsequent releases.
+`runic.compatibility-set.json` is the pre-1.0 composition authority. It pins the
+ordered candidate version, every canonical NuGet and npm identity, source
+revisions, contract fingerprints, toolchain, and certified platform profiles.
+It is explicitly publication-forbidden: selecting or verifying the set never
+constitutes release approval. Consumers must fail when exact pins disagree and
+must stage candidates in process-local temporary feeds rather than modifying
+user-level NuGet or npm configuration.
 
-## Current first-preview families
+### Expanded v1 readiness index
 
-Exact first-public versions are recorded in the launch runbook only after fresh
-private candidates have passed the final-commit gates.
+`eng/expanded-v1-readiness-index.mjs` is the local-only W110 decision input. It
+does not replace the historical W80 receipt: it retains W80 only as a hashed
+historical reference while requiring four new deterministic, zero-action
+receipts for W90 conformance, W100 golden-path integration, W105 experience
+closure, and W110 Desktop quality. Each citation binds its receipt hash to the
+exact current compatibility sources, contract fingerprints, and—where
+applicable—the certified platform profile. The evidence input must leave Rust
+and C++ unassigned, keep the declared exclusions exact, and mark W105 complete.
 
-| Product | Public artifacts | Order constraint |
-| --- | --- | --- |
-| CS-WebUI | Existing NuGet family | Already public |
-| Runic Command Line | 4 NuGet packages | Independent |
-| Runic Translations | 7 NuGet packages and 1 npm package | Independent; Editor consumes it |
-| Runic Toolkit | 15 NuGet packages and `@runic-artifex/application-bridge` | Before exact-version Toolkit integrations |
-| Runic Svelte | `@runic-artifex/svelte` and `@runic-artifex/sveltekit` | Same launch window as Toolkit |
-| Runic Vite | `@runic-artifex/vite-plugin-runic-toolkit` | Same launch window as Toolkit |
-| Runic Assets | 4 NuGet packages | After its exact Toolkit dependency is public |
-| Runic Flow | `RunicFlow` and `RunicFlow.ApplicationBridge` | After its exact Toolkit dependency is public |
-| Runic Translations Editor | Self-contained application archives | Separate preview after Translations; currently pending |
+After collecting those receipts in one local evidence directory, construct and
+then re-verify the index without network access:
 
-The retired Flow MVVM/navigation packages are not part of the public train.
-Runic Flow is the headless two-package process runtime. Archived Runic Markup is
-also not part of the launch.
+```sh
+node eng/expanded-v1-readiness-index.mjs run-twice \
+  --release runic.release.json --release-schema runic.release.schema.json \
+  --compatibility runic.compatibility-set.json \
+  --compatibility-schema runic.compatibility-set.schema.json \
+  --evidence ./expanded-v1-evidence/evidence.json \
+  --workspace .. > ./expanded-v1-readiness.json
+node eng/expanded-v1-readiness-index.mjs verify-twice \
+  --release runic.release.json --release-schema runic.release.schema.json \
+  --compatibility runic.compatibility-set.json \
+  --compatibility-schema runic.compatibility-set.schema.json \
+  --evidence ./expanded-v1-evidence/evidence.json \
+  --workspace .. --receipt ./expanded-v1-readiness.json
+```
 
-## Documentation gate
+The verifier rejects missing or replayed receipts, authority/source/contract
+drift, a W80-only claim, incomplete W105 closure, undeclared language or
+platform support, softened exclusions, and any publication-bearing input.
 
-The documentation portal is the public source of truth. Before approving a
-package launch, verify that:
+### W110 Desktop quality citation
 
-1. documentation checks and the production deployment build pass on `main`;
-2. every package name, version, dependency direction, and install command matches
-   the final workflow artifacts;
-3. Flow is described as the headless two-package runtime and Translations uses
-   its canonical product, package, protocol, and integration identifiers;
-4. source, support, security, license, and registry links resolve publicly;
-5. the final hostname has been reviewed and recorded; and
-6. the portal does not claim that pending candidates or publication steps are
-   complete.
+`eng/w110-desktop-quality.mjs` composes the local, retained Linux native
+receipt with the Translation Editor's application accessibility, 10,000/50,000
+message scale, and 50,000-message heap-budget checks. It requires a clean
+workspace at the exact compatibility revisions and runs each Editor check twice
+before writing an exact two-run receipt. It binds every compatibility source,
+contract fingerprint, release authority digest, and platform-selection fact.
 
-The operational visibility and publication sequence is maintained in
-[`LAUNCH.md`](LAUNCH.md).
+It deliberately observes only `linux-x64`: Windows WebView2 and macOS WKWebView
+are excluded, as are assistive-technology certification and native latency or
+memory claims. A passing local receipt can be collected only after all cited
+Editor checks pass. The retained local-only citation is
+`evidence/w110-desktop-quality.json`; its verification reruns the same checks:
+
+```sh
+node eng/w110-desktop-quality.mjs run-twice \
+  --release runic.release.json --release-schema runic.release.schema.json \
+  --compatibility runic.compatibility-set.json \
+  --compatibility-schema runic.compatibility-set.schema.json \
+  --workspace .. > ./expanded-v1-evidence/w110-desktop-quality.json
+node eng/w110-desktop-quality.mjs verify-twice \
+  --release runic.release.json --release-schema runic.release.schema.json \
+  --compatibility runic.compatibility-set.json \
+  --compatibility-schema runic.compatibility-set.schema.json \
+  --workspace .. --receipt ./expanded-v1-evidence/w110-desktop-quality.json
+```
+
+## Required evidence and publication
+
+Before public release approval, restore the final `main` commit in a clean
+checkout; produce the exact NuGet and npm artifact set; verify metadata,
+provenance, version, isolated-cache consumption, applicable NativeAOT and
+frontend production gates, and unchanged source; record artifact digests; run
+the verify-only public-release dispatch; and prove exact-version downstream
+canaries. Green source CI alone is not release-candidate evidence.
+
+### Attestation-backed release evidence
+
+`eng/release-evidence.mjs` is the Phase 5, non-publishing evidence step. It
+derives the package inventory from `canonicalPackages` and distributions from
+`distributions` in `runic.release.json`; no second package list is accepted.
+It performs GitHub attestation verification entirely from a local, receipt-bound
+GitHub attestation bundle with the pinned GitHub CLI; no GitHub API fallback is
+permitted. For a release
+authority with explicit, published current-lane values and staged
+artifacts, collect one upstream build receipt for each artifact, then run:
+
+```sh
+node eng/release-evidence.mjs \
+  --manifest runic.release.json --schema runic.release.schema.json \
+  --artifacts ./release-artifacts --receipts ./upstream-receipts \
+  --attestation-bundles ./github-attestation-bundles \
+  --out ./release-evidence --lane current --created 2026-08-20T00:00:00Z
+node eng/release-evidence.mjs \
+  --manifest runic.release.json --schema runic.release.schema.json \
+  --artifacts ./release-artifacts --receipts ./upstream-receipts \
+  --attestation-bundles ./github-attestation-bundles \
+  --out ./release-evidence --lane current --created 2026-08-20T00:00:00Z --check
+```
+
+The staged paths are deterministic: `nuget/<identity>.<version>.nupkg`,
+`npm/<scope-name>-<version>.tgz`, and
+`distribution/<identity>-<version>.zip`. The tool requires one valid upstream
+receipt per artifact. A receipt binds its artifact's SHA-256, size,
+media type, canonical identity/version, source repository/revision/tree,
+builder, invocation, and tool/config materials. The collector rejects
+unassigned versions, missing or extra files or receipts, duplicate paths,
+symlinks, traversal, mismatched npm/NuGet embedded metadata, invalid ZIP
+distributions, changed input trees, and altered or non-closed evidence output.
+It writes a canonical inventory, a valid SPDX 2.3 SBOM with conservative
+`NOASSERTION` license conclusions (raw package license metadata is not treated
+as a validated SPDX expression), and an in-toto collection statement that references
+the upstream receipts. That statement is collection evidence, not a claim that
+this collector built the artifacts. `--check` regenerates and byte-verifies it.
+
+The collector deliberately records only deterministic inventory, SBOM, and
+provenance evidence. Signing, notarization, signed update metadata, registry
+upload, and update-manifest publication are not part of the 1.0 staging path.
+
+### Unsigned local candidate sets
+
+`eng/link-unsigned-candidate-set.mjs` links an already closed three-platform
+Editor staging set to the **unassigned** `translations-editor-archive`
+distribution. Its receipt is explicitly `publication: "forbidden"`, binds the
+authority digest and every platform archive/staging record, and accepts only
+placeholder attestation fields. It is not accepted by the published-only
+collector and has no upload, tag, release, signing, or update behavior.
+
+Product support-envelope and native-capability evidence may be cited only by
+their product-owned receipt hash; their payloads are not distribution inputs.
+
+New package families use their owning repository's `public-release.yml` with
+trusted publishing bound to repository, workflow, and environment. Long-lived
+write tokens are not the steady-state mechanism. The first npm publication may
+use a narrowly scoped bootstrap token only to establish the package record; it
+must then be removed in favor of OIDC provenance.
+
+The documentation portal is the public source of truth. It must match the final
+artifacts, migration guides, compatibility data, package names, and publication
+state, and must not claim pending candidates are complete.

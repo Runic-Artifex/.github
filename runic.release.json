@@ -1,0 +1,1617 @@
+{
+  "$schema": "./runic.release.schema.json",
+  "schemaVersion": 1,
+  "policy": {
+    "noForwardingPackages": true,
+    "finalDeprecationRelease": true,
+    "archivedProductsAreNotReleaseBearing": true
+  },
+  "repositories": [
+    {
+      "id": "application",
+      "currentIdentity": "runic-toolkit",
+      "v02Identity": "runic-application",
+      "githubRepository": "https://github.com/Runic-Artifex/runic-toolkit",
+      "attestationWorkflow": "Runic-Artifex/runic-toolkit/.github/workflows/public-release.yml"
+    },
+    {
+      "id": "desktop",
+      "currentIdentity": "runic-desktop",
+      "v02Identity": "runic-desktop",
+      "githubRepository": "https://github.com/Runic-Artifex/runic-desktop",
+      "attestationWorkflow": "Runic-Artifex/runic-desktop/.github/workflows/public-release.yml"
+    },
+    {
+      "id": "command-line",
+      "currentIdentity": "runic-command-line",
+      "v02Identity": "runic-command-line",
+      "githubRepository": "https://github.com/Runic-Artifex/runic-command-line",
+      "attestationWorkflow": "Runic-Artifex/runic-command-line/.github/workflows/public-release.yml"
+    },
+    {
+      "id": "assets",
+      "currentIdentity": "runic-assets",
+      "v02Identity": "runic-assets",
+      "githubRepository": "https://github.com/Runic-Artifex/runic-assets",
+      "attestationWorkflow": "Runic-Artifex/runic-assets/.github/workflows/public-release.yml"
+    },
+    {
+      "id": "translations",
+      "currentIdentity": "runic-translations",
+      "v02Identity": "runic-translations",
+      "githubRepository": "https://github.com/Runic-Artifex/runic-translations",
+      "attestationWorkflow": "Runic-Artifex/runic-translations/.github/workflows/public-release.yml"
+    },
+    {
+      "id": "translations-editor",
+      "currentIdentity": "runic-translations-editor",
+      "v02Identity": "runic-translations-editor",
+      "githubRepository": "https://github.com/Runic-Artifex/runic-translations-editor",
+      "attestationWorkflow": "Runic-Artifex/runic-translations-editor/.github/workflows/public-release.yml"
+    },
+    {
+      "id": "flow",
+      "currentIdentity": "runic-flow",
+      "v02Identity": "runic-flow",
+      "githubRepository": "https://github.com/Runic-Artifex/runic-flow",
+      "attestationWorkflow": "Runic-Artifex/runic-flow/.github/workflows/public-release.yml"
+    },
+    {
+      "id": "svelte",
+      "currentIdentity": "runic-svelte",
+      "v02Identity": "runic-application",
+      "githubRepository": "https://github.com/Runic-Artifex/runic-svelte",
+      "attestationWorkflow": "Runic-Artifex/runic-svelte/.github/workflows/public-release.yml"
+    },
+    {
+      "id": "vite",
+      "currentIdentity": "runic-vite",
+      "v02Identity": "runic-application",
+      "githubRepository": "https://github.com/Runic-Artifex/runic-vite",
+      "attestationWorkflow": "Runic-Artifex/runic-vite/.github/workflows/public-release.yml"
+    },
+    {
+      "id": "examples",
+      "currentIdentity": "runic-toolkit-examples",
+      "v02Identity": "runic-examples",
+      "githubRepository": "https://github.com/Runic-Artifex/runic-toolkit-examples",
+      "attestationWorkflow": "Runic-Artifex/runic-toolkit-examples/.github/workflows/public-release.yml"
+    },
+    {
+      "id": "docs",
+      "currentIdentity": "runic-docs",
+      "v02Identity": "runic-docs",
+      "githubRepository": "https://github.com/Runic-Artifex/runic-docs",
+      "attestationWorkflow": "Runic-Artifex/runic-docs/.github/workflows/public-release.yml"
+    },
+    {
+      "id": "release-automation",
+      "currentIdentity": "Runic-Artifex/.github",
+      "v02Identity": "Runic-Artifex/.github",
+      "githubRepository": "https://github.com/Runic-Artifex/.github",
+      "attestationWorkflow": "Runic-Artifex/.github/.github/workflows/public-release.yml"
+    },
+    {
+      "id": "brand",
+      "currentIdentity": "runic-brand",
+      "v02Identity": "runic-brand",
+      "githubRepository": "https://github.com/Runic-Artifex/runic-brand",
+      "attestationWorkflow": "Runic-Artifex/runic-brand/.github/workflows/public-release.yml"
+    }
+  ],
+  "products": [
+    {
+      "id": "application",
+      "stableOwner": "Runic Application",
+      "repository": "application",
+      "support": "supported",
+      "documentation": {
+        "state": "available",
+        "path": "/products/runic-toolkit/"
+      }
+    },
+    {
+      "id": "desktop",
+      "stableOwner": "Runic Desktop",
+      "repository": "desktop",
+      "support": "supported",
+      "documentation": {
+        "state": "available",
+        "path": "/products/runic-desktop/"
+      }
+    },
+    {
+      "id": "command-line",
+      "stableOwner": "Runic Command Line",
+      "repository": "command-line",
+      "support": "supported",
+      "documentation": {
+        "state": "available",
+        "path": "/products/runic-command-line/"
+      }
+    },
+    {
+      "id": "assets",
+      "stableOwner": "Runic Assets",
+      "repository": "assets",
+      "support": "supported",
+      "documentation": {
+        "state": "available",
+        "path": "/products/runic-assets/"
+      }
+    },
+    {
+      "id": "translations",
+      "stableOwner": "Runic Translations",
+      "repository": "translations",
+      "support": "supported",
+      "documentation": {
+        "state": "available",
+        "path": "/products/runic-translations/"
+      }
+    },
+    {
+      "id": "flow",
+      "stableOwner": "Runic Flow",
+      "repository": "flow",
+      "support": "archived",
+      "documentation": {
+        "state": "available",
+        "path": "/products/runic-flow/"
+      },
+      "archive": {
+        "status": "archived",
+        "evidence": {
+          "repository": "flow",
+          "revision": "54782e00e85574b1f99cd81ef51958613226ca6a",
+          "path": "docs/adr/0002-v02-operations-probation-archive.md"
+        }
+      }
+    },
+    {
+      "id": "svelte",
+      "stableOwner": "Runic Svelte",
+      "repository": "svelte",
+      "support": "supported",
+      "documentation": {
+        "state": "pending",
+        "path": null
+      }
+    },
+    {
+      "id": "vite",
+      "stableOwner": "Runic Vite",
+      "repository": "vite",
+      "support": "supported",
+      "documentation": {
+        "state": "pending",
+        "path": null
+      }
+    },
+    {
+      "id": "editor",
+      "stableOwner": "Runic Translations Editor",
+      "repository": "translations-editor",
+      "support": "supported",
+      "documentation": {
+        "state": "available",
+        "path": "/products/runic-translations-editor/"
+      }
+    },
+    {
+      "id": "release-automation",
+      "stableOwner": "Release Automation",
+      "repository": "release-automation",
+      "support": "supported",
+      "documentation": {
+        "state": "available",
+        "path": "/releases/"
+      }
+    }
+  ],
+  "canonicalPackages": [
+    {
+      "identity": "Runic.Application",
+      "ecosystem": "nuget",
+      "installKind": "nuget-package",
+      "product": "application",
+      "state": "approved"
+    },
+    {
+      "identity": "Runic.Application.Bridge",
+      "ecosystem": "nuget",
+      "installKind": "nuget-package",
+      "product": "application",
+      "state": "approved"
+    },
+    {
+      "identity": "Runic.Application.Desktop",
+      "ecosystem": "nuget",
+      "installKind": "nuget-package",
+      "product": "application",
+      "state": "approved"
+    },
+    {
+      "identity": "Runic.Application.Hosting",
+      "ecosystem": "nuget",
+      "installKind": "nuget-package",
+      "product": "application",
+      "state": "approved"
+    },
+    {
+      "identity": "Runic.Application.Testing",
+      "ecosystem": "nuget",
+      "installKind": "nuget-package",
+      "product": "application",
+      "state": "approved"
+    },
+    {
+      "identity": "Runic.Application.Templates",
+      "ecosystem": "nuget",
+      "installKind": "dotnet-template",
+      "product": "application",
+      "state": "approved"
+    },
+    {
+      "identity": "dotnet-runic",
+      "ecosystem": "nuget",
+      "installKind": "dotnet-tool",
+      "product": "application",
+      "state": "approved"
+    },
+    {
+      "identity": "Runic.CommandLine",
+      "ecosystem": "nuget",
+      "installKind": "nuget-package",
+      "product": "command-line",
+      "state": "approved"
+    },
+    {
+      "identity": "Runic.CommandLine.Processes",
+      "ecosystem": "nuget",
+      "installKind": "nuget-package",
+      "product": "command-line",
+      "state": "approved"
+    },
+    {
+      "identity": "Runic.CommandLine.Testing",
+      "ecosystem": "nuget",
+      "installKind": "nuget-package",
+      "product": "command-line",
+      "state": "approved"
+    },
+    {
+      "identity": "Runic.Assets",
+      "ecosystem": "nuget",
+      "installKind": "nuget-package",
+      "product": "assets",
+      "state": "approved"
+    },
+    {
+      "identity": "Runic.Assets.AspNetCore",
+      "ecosystem": "nuget",
+      "installKind": "nuget-package",
+      "product": "assets",
+      "state": "approved"
+    },
+    {
+      "identity": "Runic.Assets.Desktop",
+      "ecosystem": "nuget",
+      "installKind": "nuget-package",
+      "product": "assets",
+      "state": "approved"
+    },
+    {
+      "identity": "Runic.Translations",
+      "ecosystem": "nuget",
+      "installKind": "nuget-package",
+      "product": "translations",
+      "state": "approved"
+    },
+    {
+      "identity": "Runic.Translations.Tooling",
+      "ecosystem": "nuget",
+      "installKind": "nuget-package",
+      "product": "translations",
+      "state": "approved"
+    },
+    {
+      "identity": "Runic.Translations.Build",
+      "ecosystem": "nuget",
+      "installKind": "nuget-package",
+      "product": "translations",
+      "state": "approved"
+    },
+    {
+      "identity": "dotnet-runic-translations",
+      "ecosystem": "nuget",
+      "installKind": "dotnet-tool",
+      "product": "translations",
+      "state": "approved"
+    },
+    {
+      "identity": "Runic.Translations.Templates",
+      "ecosystem": "nuget",
+      "installKind": "dotnet-template",
+      "product": "translations",
+      "state": "approved"
+    },
+    {
+      "identity": "Runic.Desktop",
+      "ecosystem": "nuget",
+      "installKind": "nuget-package",
+      "product": "desktop",
+      "state": "approved"
+    },
+    {
+      "identity": "@runic-artifex/desktop",
+      "ecosystem": "npm",
+      "installKind": "npm-package",
+      "product": "desktop",
+      "state": "approved"
+    },
+    {
+      "identity": "@runic-artifex/application-bridge",
+      "ecosystem": "npm",
+      "installKind": "npm-package",
+      "product": "application",
+      "state": "approved"
+    },
+    {
+      "identity": "@runic-artifex/angular",
+      "ecosystem": "npm",
+      "installKind": "npm-package",
+      "product": "application",
+      "state": "approved"
+    },
+    {
+      "identity": "@runic-artifex/vite-plugin-runic-translations",
+      "ecosystem": "npm",
+      "installKind": "npm-package",
+      "product": "translations",
+      "state": "approved"
+    },
+    {
+      "identity": "@runic-artifex/svelte",
+      "ecosystem": "npm",
+      "installKind": "npm-package",
+      "product": "svelte",
+      "state": "approved"
+    },
+    {
+      "identity": "@runic-artifex/sveltekit",
+      "ecosystem": "npm",
+      "installKind": "npm-package",
+      "product": "svelte",
+      "state": "approved"
+    },
+    {
+      "identity": "@runic-artifex/vite-plugin-runic",
+      "ecosystem": "npm",
+      "installKind": "npm-package",
+      "product": "vite",
+      "state": "approved"
+    }
+  ],
+  "currentPackages": [
+    {
+      "identity": "Runic.Application",
+      "ecosystem": "nuget",
+      "product": "application",
+      "stableOwner": "Runic Application",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "Runic.Application",
+      "migration": {
+        "kind": "package",
+        "target": "Runic.Application",
+        "guidance": "Keep references."
+      }
+    },
+    {
+      "identity": "Runic.Application.Bridge",
+      "ecosystem": "nuget",
+      "product": "application",
+      "stableOwner": "Runic Application",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "Runic.Application.Bridge",
+      "migration": {
+        "kind": "package",
+        "target": "Runic.Application.Bridge",
+        "guidance": "Keep references."
+      }
+    },
+    {
+      "identity": "Runic.Application.Desktop",
+      "ecosystem": "nuget",
+      "product": "application",
+      "stableOwner": "Runic Application",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "Runic.Application.Desktop",
+      "migration": {
+        "kind": "package",
+        "target": "Runic.Application.Desktop",
+        "guidance": "Keep references."
+      }
+    },
+    {
+      "identity": "Runic.Application.Hosting",
+      "ecosystem": "nuget",
+      "product": "application",
+      "stableOwner": "Runic Application",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "Runic.Application.Hosting",
+      "migration": {
+        "kind": "package",
+        "target": "Runic.Application.Hosting",
+        "guidance": "Keep references."
+      }
+    },
+    {
+      "identity": "Runic.Application.Testing",
+      "ecosystem": "nuget",
+      "product": "application",
+      "stableOwner": "Runic Application",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "Runic.Application.Testing",
+      "migration": {
+        "kind": "package",
+        "target": "Runic.Application.Testing",
+        "guidance": "Keep references."
+      }
+    },
+    {
+      "identity": "Runic.Application.Templates",
+      "ecosystem": "nuget",
+      "product": "application",
+      "stableOwner": "Runic Application",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "Runic.Application.Templates",
+      "migration": {
+        "kind": "package",
+        "target": "Runic.Application.Templates",
+        "guidance": "Keep references."
+      }
+    },
+    {
+      "identity": "dotnet-runic",
+      "ecosystem": "nuget",
+      "product": "application",
+      "stableOwner": "Runic Application",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "dotnet-runic",
+      "migration": {
+        "kind": "package",
+        "target": "dotnet-runic",
+        "guidance": "Keep references."
+      }
+    },
+    {
+      "identity": "Runic.CommandLine",
+      "ecosystem": "nuget",
+      "product": "command-line",
+      "stableOwner": "Runic Command Line",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "Runic.CommandLine",
+      "migration": {
+        "kind": "package",
+        "target": "Runic.CommandLine",
+        "guidance": "Keep references."
+      }
+    },
+    {
+      "identity": "Runic.CommandLine.Processes",
+      "ecosystem": "nuget",
+      "product": "command-line",
+      "stableOwner": "Runic Command Line",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "Runic.CommandLine.Processes",
+      "migration": {
+        "kind": "package",
+        "target": "Runic.CommandLine.Processes",
+        "guidance": "Keep references."
+      }
+    },
+    {
+      "identity": "Runic.CommandLine.Testing",
+      "ecosystem": "nuget",
+      "product": "command-line",
+      "stableOwner": "Runic Command Line",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "Runic.CommandLine.Testing",
+      "migration": {
+        "kind": "package",
+        "target": "Runic.CommandLine.Testing",
+        "guidance": "Keep references."
+      }
+    },
+    {
+      "identity": "Runic.Assets",
+      "ecosystem": "nuget",
+      "product": "assets",
+      "stableOwner": "Runic Assets",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "Runic.Assets",
+      "migration": {
+        "kind": "package",
+        "target": "Runic.Assets",
+        "guidance": "Keep references."
+      }
+    },
+    {
+      "identity": "Runic.Assets.AspNetCore",
+      "ecosystem": "nuget",
+      "product": "assets",
+      "stableOwner": "Runic Assets",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "Runic.Assets.AspNetCore",
+      "migration": {
+        "kind": "package",
+        "target": "Runic.Assets.AspNetCore",
+        "guidance": "Keep references."
+      }
+    },
+    {
+      "identity": "Runic.Assets.Desktop",
+      "ecosystem": "nuget",
+      "product": "assets",
+      "stableOwner": "Runic Assets",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "Runic.Assets.Desktop",
+      "migration": {
+        "kind": "package",
+        "target": "Runic.Assets.Desktop",
+        "guidance": "Keep references."
+      }
+    },
+    {
+      "identity": "Runic.Translations",
+      "ecosystem": "nuget",
+      "product": "translations",
+      "stableOwner": "Runic Translations",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "Runic.Translations",
+      "migration": {
+        "kind": "package",
+        "target": "Runic.Translations",
+        "guidance": "Keep references."
+      }
+    },
+    {
+      "identity": "Runic.Translations.Tooling",
+      "ecosystem": "nuget",
+      "product": "translations",
+      "stableOwner": "Runic Translations",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "Runic.Translations.Tooling",
+      "migration": {
+        "kind": "package",
+        "target": "Runic.Translations.Tooling",
+        "guidance": "Keep references."
+      }
+    },
+    {
+      "identity": "Runic.Translations.Build",
+      "ecosystem": "nuget",
+      "product": "translations",
+      "stableOwner": "Runic Translations",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "Runic.Translations.Build",
+      "migration": {
+        "kind": "package",
+        "target": "Runic.Translations.Build",
+        "guidance": "Keep references."
+      }
+    },
+    {
+      "identity": "dotnet-runic-translations",
+      "ecosystem": "nuget",
+      "product": "translations",
+      "stableOwner": "Runic Translations",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "dotnet-runic-translations",
+      "migration": {
+        "kind": "package",
+        "target": "dotnet-runic-translations",
+        "guidance": "Keep references."
+      }
+    },
+    {
+      "identity": "Runic.Translations.Templates",
+      "ecosystem": "nuget",
+      "product": "translations",
+      "stableOwner": "Runic Translations",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "Runic.Translations.Templates",
+      "migration": {
+        "kind": "package",
+        "target": "Runic.Translations.Templates",
+        "guidance": "Keep references."
+      }
+    },
+    {
+      "identity": "Runic.Desktop",
+      "ecosystem": "nuget",
+      "product": "desktop",
+      "stableOwner": "Runic Desktop",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "Runic.Desktop",
+      "migration": {
+        "kind": "package",
+        "target": "Runic.Desktop",
+        "guidance": "Keep references."
+      }
+    },
+    {
+      "identity": "@runic-artifex/desktop",
+      "ecosystem": "npm",
+      "product": "desktop",
+      "stableOwner": "Runic Desktop",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "@runic-artifex/desktop",
+      "migration": {
+        "kind": "package",
+        "target": "@runic-artifex/desktop",
+        "guidance": "Keep imports."
+      }
+    },
+    {
+      "identity": "@runic-artifex/application-bridge",
+      "ecosystem": "npm",
+      "product": "application",
+      "stableOwner": "Runic Application",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "@runic-artifex/application-bridge",
+      "migration": {
+        "kind": "package",
+        "target": "@runic-artifex/application-bridge",
+        "guidance": "Keep imports."
+      }
+    },
+    {
+      "identity": "@runic-artifex/angular",
+      "ecosystem": "npm",
+      "product": "application",
+      "stableOwner": "Runic Application",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "@runic-artifex/angular",
+      "migration": {
+        "kind": "package",
+        "target": "@runic-artifex/angular",
+        "guidance": "Keep imports."
+      }
+    },
+    {
+      "identity": "@runic-artifex/vite-plugin-runic-translations",
+      "ecosystem": "npm",
+      "product": "translations",
+      "stableOwner": "Runic Translations",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "@runic-artifex/vite-plugin-runic-translations",
+      "migration": {
+        "kind": "package",
+        "target": "@runic-artifex/vite-plugin-runic-translations",
+        "guidance": "Keep imports."
+      }
+    },
+    {
+      "identity": "@runic-artifex/svelte",
+      "ecosystem": "npm",
+      "product": "svelte",
+      "stableOwner": "Runic Svelte",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "@runic-artifex/svelte",
+      "migration": {
+        "kind": "package",
+        "target": "@runic-artifex/svelte",
+        "guidance": "Keep imports."
+      }
+    },
+    {
+      "identity": "@runic-artifex/sveltekit",
+      "ecosystem": "npm",
+      "product": "svelte",
+      "stableOwner": "Runic Svelte",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "@runic-artifex/sveltekit",
+      "migration": {
+        "kind": "package",
+        "target": "@runic-artifex/sveltekit",
+        "guidance": "Keep imports."
+      }
+    },
+    {
+      "identity": "@runic-artifex/vite-plugin-runic",
+      "ecosystem": "npm",
+      "product": "vite",
+      "stableOwner": "Runic Vite",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "@runic-artifex/vite-plugin-runic",
+      "migration": {
+        "kind": "package",
+        "target": "@runic-artifex/vite-plugin-runic",
+        "guidance": "Keep imports."
+      }
+    }
+  ],
+  "artifactAuthorities": [
+    {
+      "artifact": "application-composition-manifest",
+      "product": "application",
+      "owner": "Runic Application generator",
+      "versioning": "not-yet-versioned",
+      "justification": "No verified public format version.",
+      "evidence": "application-composition-manifest-evidence"
+    },
+    {
+      "artifact": "bridge-contract",
+      "product": "application",
+      "owner": "Runic Application Bridge generator",
+      "versioning": "versioned",
+      "evidence": "bridge-contract-evidence"
+    },
+    {
+      "artifact": "desktop-and-lifecycle-contracts",
+      "product": "application",
+      "owner": "Runic Application",
+      "versioning": "not-yet-versioned",
+      "justification": "No verified public format version.",
+      "evidence": "desktop-and-lifecycle-contracts-evidence"
+    },
+    {
+      "artifact": "desktop-presentation-contract",
+      "product": "desktop",
+      "owner": "Runic Desktop",
+      "versioning": "versioned",
+      "evidence": "desktop-presentation-contract-evidence"
+    },
+    {
+      "artifact": "command-catalog-and-command-io-schema",
+      "product": "command-line",
+      "owner": "Runic Command Line generator",
+      "versioning": "not-yet-versioned",
+      "justification": "No verified public format version.",
+      "evidence": "command-catalog-and-command-io-schema-evidence"
+    },
+    {
+      "artifact": "asset-archive",
+      "product": "assets",
+      "owner": "Runic Assets",
+      "versioning": "versioned",
+      "evidence": "asset-archive-evidence"
+    },
+    {
+      "artifact": "translation-catalog-manifest",
+      "product": "translations",
+      "owner": "Runic Translations",
+      "versioning": "versioned",
+      "evidence": "translation-catalog-manifest-evidence"
+    },
+    {
+      "artifact": "translation-resource-document",
+      "product": "translations",
+      "owner": "Runic Translations",
+      "versioning": "versioned",
+      "evidence": "translation-resource-document-evidence"
+    },
+    {
+      "artifact": "translation-grammar-ast",
+      "product": "translations",
+      "owner": "Runic Translations",
+      "versioning": "versioned",
+      "evidence": "translation-grammar-ast-evidence"
+    },
+    {
+      "artifact": "translation-locale-artifact",
+      "product": "translations",
+      "owner": "Runic Translations",
+      "versioning": "versioned",
+      "evidence": "translation-locale-artifact-evidence"
+    },
+    {
+      "artifact": "translation-esm-abi",
+      "product": "translations",
+      "owner": "Runic Translations",
+      "versioning": "versioned",
+      "evidence": "translation-esm-abi-evidence"
+    },
+    {
+      "artifact": "translation-web-manifest",
+      "product": "translations",
+      "owner": "Runic Translations",
+      "versioning": "versioned",
+      "evidence": "translation-web-manifest-evidence"
+    },
+    {
+      "artifact": "translation-reference-transport",
+      "product": "translations",
+      "owner": "Runic Translations",
+      "versioning": "versioned",
+      "evidence": "translation-reference-transport-evidence"
+    },
+    {
+      "artifact": "release-manifest",
+      "product": "release-automation",
+      "owner": "Release Automation",
+      "versioning": "versioned",
+      "evidence": "release-manifest-evidence"
+    },
+    {
+      "artifact": "svelte-projection",
+      "product": "svelte",
+      "owner": "Runic Svelte",
+      "versioning": "not-yet-versioned",
+      "justification": "No verified public projection format version.",
+      "evidence": "svelte-projection-evidence"
+    },
+    {
+      "artifact": "vite-diagnostics",
+      "product": "vite",
+      "owner": "Runic Vite",
+      "versioning": "not-yet-versioned",
+      "justification": "No verified public diagnostics format version.",
+      "evidence": "vite-diagnostics-evidence"
+    }
+  ],
+  "formatSupport": [
+    {
+      "artifact": "bridge-contract",
+      "writer": {
+        "state": "published",
+        "value": "1"
+      },
+      "readerSupport": [
+        1
+      ],
+      "evidence": "bridge-contract-evidence"
+    },
+    {
+      "artifact": "desktop-presentation-contract",
+      "writer": {
+        "state": "published",
+        "value": "1"
+      },
+      "readerSupport": [
+        1
+      ],
+      "evidence": "desktop-presentation-contract-evidence"
+    },
+    {
+      "artifact": "asset-archive",
+      "writer": {
+        "state": "published",
+        "value": "1"
+      },
+      "readerSupport": [
+        1
+      ],
+      "evidence": "asset-archive-evidence"
+    },
+    {
+      "artifact": "translation-catalog-manifest",
+      "writer": {
+        "state": "published",
+        "value": "2"
+      },
+      "readerSupport": [
+        1,
+        2
+      ],
+      "evidence": "translation-catalog-manifest-evidence"
+    },
+    {
+      "artifact": "translation-resource-document",
+      "writer": {
+        "state": "published",
+        "value": "2"
+      },
+      "readerSupport": [
+        1,
+        2
+      ],
+      "evidence": "translation-resource-document-evidence"
+    },
+    {
+      "artifact": "translation-grammar-ast",
+      "writer": {
+        "state": "published",
+        "value": "2"
+      },
+      "readerSupport": [
+        2
+      ],
+      "evidence": "translation-grammar-ast-evidence"
+    },
+    {
+      "artifact": "translation-locale-artifact",
+      "writer": {
+        "state": "published",
+        "value": "2"
+      },
+      "readerSupport": [
+        1,
+        2
+      ],
+      "evidence": "translation-locale-artifact-evidence"
+    },
+    {
+      "artifact": "translation-esm-abi",
+      "writer": {
+        "state": "published",
+        "value": "2"
+      },
+      "readerSupport": [
+        2
+      ],
+      "evidence": "translation-esm-abi-evidence"
+    },
+    {
+      "artifact": "translation-web-manifest",
+      "writer": {
+        "state": "published",
+        "value": "1"
+      },
+      "readerSupport": [
+        1
+      ],
+      "evidence": "translation-web-manifest-evidence"
+    },
+    {
+      "artifact": "translation-reference-transport",
+      "writer": {
+        "state": "published",
+        "value": "1"
+      },
+      "readerSupport": [
+        1
+      ],
+      "evidence": "translation-reference-transport-evidence"
+    },
+    {
+      "artifact": "release-manifest",
+      "writer": {
+        "state": "published",
+        "value": "1"
+      },
+      "readerSupport": [
+        1
+      ],
+      "evidence": "release-manifest-evidence"
+    }
+  ],
+  "compatibilityTrains": [
+    {
+      "id": "v1.0",
+      "lanes": [
+        {
+          "name": "current",
+          "products": [
+            "application",
+            "desktop",
+            "command-line",
+            "assets",
+            "translations",
+            "svelte",
+            "vite",
+            "editor"
+          ],
+          "versions": [
+            {
+              "product": "application",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            },
+            {
+              "product": "desktop",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            },
+            {
+              "product": "command-line",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            },
+            {
+              "product": "assets",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            },
+            {
+              "product": "translations",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            },
+            {
+              "product": "svelte",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            },
+            {
+              "product": "vite",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            },
+            {
+              "product": "editor",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "previous-supported",
+          "products": [
+            "application",
+            "desktop",
+            "command-line",
+            "assets",
+            "translations",
+            "svelte",
+            "vite",
+            "editor"
+          ],
+          "versions": [
+            {
+              "product": "application",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            },
+            {
+              "product": "desktop",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            },
+            {
+              "product": "command-line",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            },
+            {
+              "product": "assets",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            },
+            {
+              "product": "translations",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            },
+            {
+              "product": "svelte",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            },
+            {
+              "product": "vite",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            },
+            {
+              "product": "editor",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "next-candidate",
+          "products": [
+            "application",
+            "desktop",
+            "command-line",
+            "assets",
+            "translations",
+            "svelte",
+            "vite",
+            "editor"
+          ],
+          "versions": [
+            {
+              "product": "application",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            },
+            {
+              "product": "desktop",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            },
+            {
+              "product": "command-line",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            },
+            {
+              "product": "assets",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            },
+            {
+              "product": "translations",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            },
+            {
+              "product": "svelte",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            },
+            {
+              "product": "vite",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            },
+            {
+              "product": "editor",
+              "version": {
+                "state": "unassigned",
+                "value": null
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "distributions": [
+    {
+      "id": "translations-editor-archive",
+      "product": "editor",
+      "kind": "application-archive",
+      "identity": "Runic.Translations.Editor",
+      "version": {
+        "state": "unassigned",
+        "value": null
+      }
+    },
+    {
+      "id": "dotnet-runic-command",
+      "product": "application",
+      "kind": "developer-command",
+      "identity": "dotnet runic",
+      "version": {
+        "state": "unassigned",
+        "value": null
+      }
+    }
+  ],
+  "formatEvidence": [
+    {
+      "id": "application-composition-manifest-evidence",
+      "artifact": "application-composition-manifest",
+      "state": "unverified",
+      "writer": null,
+      "readerSupport": null,
+      "repository": null,
+      "sources": null,
+      "verification": null
+    },
+    {
+      "id": "bridge-contract-evidence",
+      "artifact": "bridge-contract",
+      "state": "verified",
+      "writer": {
+        "state": "published",
+        "value": "1"
+      },
+      "readerSupport": [
+        1
+      ],
+      "repository": "application",
+      "sources": [
+        {
+          "path": "protocol/application-bridge/setup/contract.mjs",
+          "role": "producer"
+        },
+        {
+          "path": "protocol/application-bridge/counter/contract.mjs",
+          "role": "producer"
+        },
+        {
+          "path": "src/Runic.Application.Bridge.Generators/ApplicationBridgeGenerator.cs",
+          "role": "consumer"
+        }
+      ],
+      "verification": {
+        "method": "deterministic-regeneration",
+        "command": "node --input-type=module -e \"for (const path of ['./protocol/application-bridge/setup/contract.mjs', './protocol/application-bridge/counter/contract.mjs']) { const { default: contract } = await import(path); if (contract.formatVersion !== 1) process.exitCode = 1; console.log(path + ' formatVersion=' + contract.formatVersion); }\" && rg -n -F 'root.GetProperty(\"generatorFormatVersion\").GetInt32() != 1' src/Runic.Application.Bridge.Generators/ApplicationBridgeGenerator.cs && node eng/generate-application-bridge-contract.mjs --check"
+      }
+    },
+    {
+      "id": "desktop-and-lifecycle-contracts-evidence",
+      "artifact": "desktop-and-lifecycle-contracts",
+      "state": "unverified",
+      "writer": null,
+      "readerSupport": null,
+      "repository": null,
+      "sources": null,
+      "verification": null
+    },
+    {
+      "id": "desktop-presentation-contract-evidence",
+      "artifact": "desktop-presentation-contract",
+      "state": "verified",
+      "writer": {
+        "state": "published",
+        "value": "1"
+      },
+      "readerSupport": [
+        1
+      ],
+      "repository": "desktop",
+      "sources": [
+        {
+          "path": "contract/README.md",
+          "role": "authority"
+        },
+        {
+          "path": "contract/conformance/scenario.schema.json",
+          "role": "schema"
+        },
+        {
+          "path": "contract/conformance/codec-vector.schema.json",
+          "role": "schema"
+        }
+      ],
+      "verification": {
+        "method": "deterministic-validation",
+        "command": "npm run verify:contract"
+      }
+    },
+    {
+      "id": "command-catalog-and-command-io-schema-evidence",
+      "artifact": "command-catalog-and-command-io-schema",
+      "state": "unverified",
+      "writer": null,
+      "readerSupport": null,
+      "repository": null,
+      "sources": null,
+      "verification": null
+    },
+    {
+      "id": "asset-archive-evidence",
+      "artifact": "asset-archive",
+      "state": "verified",
+      "writer": {
+        "state": "published",
+        "value": "1"
+      },
+      "readerSupport": [
+        1
+      ],
+      "repository": "assets",
+      "sources": [
+        {
+          "path": "src/Runic.Assets/AssetArchive.cs",
+          "role": "producer-and-consumer"
+        }
+      ],
+      "verification": {
+        "method": "source-inspection",
+        "command": "rg -n -F 'public const string CurrentVersion = \"runic.assets.archive/1\";' src/Runic.Assets/AssetArchive.cs && rg -n -F 'writer.WriteString(\"version\", CurrentVersion);' src/Runic.Assets/AssetArchive.cs && rg -n -F 'StringComparer.Ordinal.Equals(version.GetString(), CurrentVersion)' src/Runic.Assets/AssetArchive.cs"
+      }
+    },
+    {
+      "id": "translation-catalog-manifest-evidence",
+      "artifact": "translation-catalog-manifest",
+      "state": "verified",
+      "writer": {
+        "state": "published",
+        "value": "2"
+      },
+      "readerSupport": [
+        1,
+        2
+      ],
+      "repository": "translations",
+      "sources": [
+        {
+          "path": "dotnet/src/RunicTranslations.Authoring/TranslationProjectScaffolder.cs",
+          "role": "producer"
+        },
+        {
+          "path": "dotnet/src/RunicTranslations.Compiler/TranslationCompiler.cs",
+          "role": "consumer"
+        },
+        {
+          "path": "spec/schemas/catalog-v2.schema.json",
+          "role": "schema"
+        }
+      ],
+      "verification": {
+        "method": "source-inspection",
+        "command": "rg -n -F 'private static byte[] RenderManifest' dotnet/src/RunicTranslations.Authoring/TranslationProjectScaffolder.cs && rg -n -F 'writer.WriteNumber(\"schemaVersion\", 2);' dotnet/src/RunicTranslations.Authoring/TranslationProjectScaffolder.cs && rg -n -F 'Unsupported schemaVersion; expected integer 1 or 2.' dotnet/src/RunicTranslations.Compiler/TranslationCompiler.cs"
+      }
+    },
+    {
+      "id": "translation-resource-document-evidence",
+      "artifact": "translation-resource-document",
+      "state": "verified",
+      "writer": {
+        "state": "published",
+        "value": "2"
+      },
+      "readerSupport": [
+        1,
+        2
+      ],
+      "repository": "translations",
+      "sources": [
+        {
+          "path": "dotnet/src/RunicTranslations.Authoring/TranslationProjectScaffolder.cs",
+          "role": "producer"
+        },
+        {
+          "path": "dotnet/src/RunicTranslations.Compiler/TranslationCompiler.cs",
+          "role": "consumer"
+        },
+        {
+          "path": "spec/schemas/resources-v2.schema.json",
+          "role": "schema"
+        }
+      ],
+      "verification": {
+        "method": "source-inspection",
+        "command": "rg -n -F 'private static byte[] RenderDocument' dotnet/src/RunicTranslations.Authoring/TranslationProjectScaffolder.cs && rg -n -F 'writer.WriteNumber(\"schemaVersion\", 2);' dotnet/src/RunicTranslations.Authoring/TranslationProjectScaffolder.cs && rg -n -F 'Unsupported schemaVersion; expected integer 1 or 2.' dotnet/src/RunicTranslations.Compiler/TranslationCompiler.cs"
+      }
+    },
+    {
+      "id": "translation-grammar-ast-evidence",
+      "artifact": "translation-grammar-ast",
+      "state": "verified",
+      "writer": {
+        "state": "published",
+        "value": "2"
+      },
+      "readerSupport": [
+        2
+      ],
+      "repository": "translations",
+      "sources": [
+        {
+          "path": "dotnet/src/RunicTranslations.Compiler/Generation/EdgeOutputRenderer.cs",
+          "role": "producer"
+        },
+        {
+          "path": "dotnet/src/RunicTranslations/Runtime/ExternalPacks/TranslationPackV2Loader.cs",
+          "role": "consumer"
+        }
+      ],
+      "verification": {
+        "method": "source-inspection",
+        "command": "rg -n -F 'json.Append(\"{\\\"astVersion\\\":2,\\\"inputs\\\":{\");' dotnet/src/RunicTranslations.Compiler/Generation/EdgeOutputRenderer.cs && rg -n -F 'Integer(message[\"astVersion\"]) != 2' dotnet/src/RunicTranslations/Runtime/ExternalPacks/TranslationPackV2Loader.cs"
+      }
+    },
+    {
+      "id": "translation-locale-artifact-evidence",
+      "artifact": "translation-locale-artifact",
+      "state": "verified",
+      "writer": {
+        "state": "published",
+        "value": "2"
+      },
+      "readerSupport": [
+        1,
+        2
+      ],
+      "repository": "translations",
+      "sources": [
+        {
+          "path": "dotnet/src/RunicTranslations.Compiler/Generation/TranslationOutputRenderer.cs",
+          "role": "producer"
+        },
+        {
+          "path": "dotnet/src/RunicTranslations/Runtime/ExternalPacks/TranslationPackLoader.cs",
+          "role": "consumer"
+        },
+        {
+          "path": "dotnet/src/RunicTranslations/Runtime/ExternalPacks/TranslationPackV2Loader.cs",
+          "role": "consumer"
+        }
+      ],
+      "verification": {
+        "method": "source-inspection",
+        "command": "rg -n -F 'public const int LocaleArtifactVersion = 1;' dotnet/src/RunicTranslations.Compiler/Generation/TranslationOutputRenderer.cs && rg -n -F 'public const int LocaleArtifactV2Version = 2;' dotnet/src/RunicTranslations.Compiler/Generation/TranslationOutputRenderer.cs && rg -n -F 'artifactVersion.Value != 1' dotnet/src/RunicTranslations/Runtime/ExternalPacks/TranslationPackLoader.cs && rg -n -F 'Integer(root[\"artifactVersion\"]) != 2' dotnet/src/RunicTranslations/Runtime/ExternalPacks/TranslationPackV2Loader.cs"
+      }
+    },
+    {
+      "id": "translation-esm-abi-evidence",
+      "artifact": "translation-esm-abi",
+      "state": "verified",
+      "writer": {
+        "state": "published",
+        "value": "2"
+      },
+      "readerSupport": [
+        2
+      ],
+      "repository": "translations",
+      "sources": [
+        {
+          "path": "dotnet/src/RunicTranslations.Compiler/Generation/TranslationOutputRenderer.cs",
+          "role": "producer"
+        },
+        {
+          "path": "web/index.js",
+          "role": "consumer"
+        }
+      ],
+      "verification": {
+        "method": "source-inspection",
+        "command": "rg -n -F 'public const int EsmAbiVersion = 2;' dotnet/src/RunicTranslations.Compiler/Generation/TranslationOutputRenderer.cs && rg -n -F 'const supportedEsmAbiVersion = 2;' web/index.js"
+      }
+    },
+    {
+      "id": "translation-web-manifest-evidence",
+      "artifact": "translation-web-manifest",
+      "state": "verified",
+      "writer": {
+        "state": "published",
+        "value": "1"
+      },
+      "readerSupport": [
+        1
+      ],
+      "repository": "translations",
+      "sources": [
+        {
+          "path": "dotnet/src/RunicTranslations.Compiler/Generation/EsmOutputRenderer.cs",
+          "role": "producer"
+        },
+        {
+          "path": "web/index.js",
+          "role": "consumer"
+        }
+      ],
+      "verification": {
+        "method": "source-inspection",
+        "command": "rg -n -F 'json.Append(\"{\\\"webModuleManifestVersion\\\":1,\\\"esmAbiVersion\\\":\")' dotnet/src/RunicTranslations.Compiler/Generation/EsmOutputRenderer.cs && rg -n -F 'document.webModuleManifestVersion !== 1' web/index.js"
+      }
+    },
+    {
+      "id": "translation-reference-transport-evidence",
+      "artifact": "translation-reference-transport",
+      "state": "verified",
+      "writer": {
+        "state": "published",
+        "value": "1"
+      },
+      "readerSupport": [
+        1
+      ],
+      "repository": "translations",
+      "sources": [
+        {
+          "path": "dotnet/src/RunicTranslations/TranslationReference.cs",
+          "role": "producer"
+        },
+        {
+          "path": "dotnet/src/RunicTranslations/TranslationReferenceJson.cs",
+          "role": "consumer"
+        }
+      ],
+      "verification": {
+        "method": "source-inspection",
+        "command": "rg -n -F 'public const int Version = 1;' dotnet/src/RunicTranslations/TranslationReference.cs && rg -n -F 'version != TranslationTransport.Version' dotnet/src/RunicTranslations/TranslationReferenceJson.cs"
+      }
+    },
+    {
+      "id": "release-manifest-evidence",
+      "artifact": "release-manifest",
+      "state": "verified",
+      "writer": {
+        "state": "published",
+        "value": "1"
+      },
+      "readerSupport": [
+        1
+      ],
+      "repository": "release-automation",
+      "sources": [
+        {
+          "path": "runic.release.schema.json",
+          "role": "schema"
+        },
+        {
+          "path": "eng/verify-release-manifest.mjs",
+          "role": "consumer"
+        }
+      ],
+      "verification": {
+        "method": "semantic-verification",
+        "command": "node eng/verify-release-manifest.mjs runic.release.json runic.release.schema.json && node -e \"const { formatEvidence } = require('./runic.release.json'); const evidence = formatEvidence.find(({ artifact }) => artifact === 'release-manifest'); if (evidence.writer.value !== '1') process.exitCode = 1; else console.log('release-manifest format version 1');\""
+      }
+    },
+    {
+      "id": "svelte-projection-evidence",
+      "artifact": "svelte-projection",
+      "state": "unverified",
+      "writer": null,
+      "readerSupport": null,
+      "repository": null,
+      "sources": null,
+      "verification": null
+    },
+    {
+      "id": "vite-diagnostics-evidence",
+      "artifact": "vite-diagnostics",
+      "state": "unverified",
+      "writer": null,
+      "readerSupport": null,
+      "repository": null,
+      "sources": null,
+      "verification": null
+    }
+  ]
+}
