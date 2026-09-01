@@ -13,6 +13,10 @@ Current responsibilities:
 - the organization release policy;
 - reusable validation for public NuGet artifacts;
 - workflow templates that keep registry publishing explicit and product-owned.
+- the shared CI graph, GitHub Packages candidate policy, and registry retention
+  reporting.
 
 See [the release policy](RELEASES.md) and [first-preview launch
-runbook](LAUNCH.md) for the current publication gates.
+runbook](LAUNCH.md) for the current publication gates. See
+[the CI architecture](CI.md) for the Bun migration, package ordering, and
+retention model.

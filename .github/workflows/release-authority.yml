@@ -7,6 +7,13 @@ on:
       - runic.release.schema.json
       - runic.compatibility-set.json
       - runic.compatibility-set.schema.json
+      - runic.ci.json
+      - runic.ci.schema.json
+      - eng/candidate-version.mjs
+      - eng/registry-maintenance.mjs
+      - eng/registry-retention.mjs
+      - eng/verify-ci-policy.mjs
+      - eng/verify-ci-policy.test.mjs
       - eng/verify-compatibility-set.mjs
       - eng/verify-compatibility-set.test.mjs
       - eng/verify-release-manifest.mjs
@@ -17,8 +24,10 @@ on:
       - eng/link-unsigned-candidate-set.mjs
       - eng/link-unsigned-candidate-set.test.mjs
       - RELEASES.md
+      - CI.md
       - LAUNCH.md
       - .github/workflows/release-authority.yml
+      - .github/workflows/registry-maintenance.yml
   push:
     branches: [main]
     paths:
@@ -26,6 +35,13 @@ on:
       - runic.release.schema.json
       - runic.compatibility-set.json
       - runic.compatibility-set.schema.json
+      - runic.ci.json
+      - runic.ci.schema.json
+      - eng/candidate-version.mjs
+      - eng/registry-maintenance.mjs
+      - eng/registry-retention.mjs
+      - eng/verify-ci-policy.mjs
+      - eng/verify-ci-policy.test.mjs
       - eng/verify-compatibility-set.mjs
       - eng/verify-compatibility-set.test.mjs
       - eng/verify-release-manifest.mjs
@@ -36,8 +52,10 @@ on:
       - eng/link-unsigned-candidate-set.mjs
       - eng/link-unsigned-candidate-set.test.mjs
       - RELEASES.md
+      - CI.md
       - LAUNCH.md
       - .github/workflows/release-authority.yml
+      - .github/workflows/registry-maintenance.yml
   workflow_dispatch:
 
 permissions:
@@ -93,5 +111,7 @@ jobs:
       - run: node --test eng/verify-compatibility-set.test.mjs
       - run: node --test eng/release-evidence.test.mjs
       - run: node --test eng/link-unsigned-candidate-set.test.mjs
+      - run: node --test eng/verify-ci-policy.test.mjs
       - run: node eng/verify-release-manifest.mjs runic.release.json runic.release.schema.json
       - run: node eng/verify-compatibility-set.mjs runic.compatibility-set.json runic.compatibility-set.schema.json runic.release.json
+      - run: node eng/verify-ci-policy.mjs
