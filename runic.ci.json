@@ -1,0 +1,58 @@
+{
+  "$schema": "./runic.ci.schema.json",
+  "schemaVersion": 1,
+  "toolchain": {
+    "bun": "1.4.0",
+    "node": "24.18.0",
+    "npmPublisher": "11.16.0"
+  },
+  "registry": {
+    "owner": "Runic-Artifex",
+    "npm": "https://npm.pkg.github.com",
+    "nuget": "https://nuget.pkg.github.com/Runic-Artifex/index.json",
+    "candidateMarker": "-ci.sha",
+    "revisionLength": 16
+  },
+  "stages": [
+    {
+      "id": "independent-producers",
+      "kind": "materialize",
+      "repositories": ["runic-command-line", "runic-desktop", "runic-vite"],
+      "after": []
+    },
+    {
+      "id": "shared-services",
+      "kind": "materialize",
+      "repositories": ["runic-assets", "runic-translations"],
+      "after": ["independent-producers"]
+    },
+    {
+      "id": "application-core",
+      "kind": "materialize",
+      "repositories": ["runic-toolkit"],
+      "after": ["shared-services"]
+    },
+    {
+      "id": "frontend-adapters",
+      "kind": "materialize",
+      "repositories": ["runic-svelte"],
+      "after": ["application-core"]
+    },
+    {
+      "id": "integrated-validation",
+      "kind": "validate",
+      "repositories": [
+        "runic-toolkit",
+        "runic-toolkit-examples",
+        "runic-translations-editor"
+      ],
+      "after": ["frontend-adapters"]
+    }
+  ],
+  "retention": {
+    "minimumAgeDays": 30,
+    "expirationGraceDays": 7,
+    "keepSuccessfulPerPackage": 5,
+    "automaticDeletion": false
+  }
+}
