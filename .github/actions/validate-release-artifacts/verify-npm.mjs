@@ -4,7 +4,7 @@ import { readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { spawnSync } from "node:child_process";
 
-const [, , version, suppliedDirectory, repositoryUrl, repositoryCommit, suppliedCount] = process.argv;
+const [, , version, suppliedDirectory, repositoryUrl, repositoryCommit, suppliedCount, expectedRegistry, expectedAccess] = process.argv;
 const expectedCount = Number.parseInt(suppliedCount, 10);
 if (!/^[0-9]+\.[0-9]+\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$/u.test(version ?? "")) {
   throw new Error(`Invalid package version '${version}'.`);
@@ -14,6 +14,12 @@ if (!/^[0-9a-f]{40}$/iu.test(repositoryCommit ?? "")) {
 }
 if (!Number.isSafeInteger(expectedCount) || expectedCount < 1) {
   throw new Error("Expected npm artifact count must be positive.");
+}
+if (!["https://registry.npmjs.org", "https://npm.pkg.github.com"].includes(expectedRegistry)) {
+  throw new Error(`Unsupported npm registry '${expectedRegistry}'.`);
+}
+if (!["public", "restricted"].includes(expectedAccess)) {
+  throw new Error(`Unsupported npm access level '${expectedAccess}'.`);
 }
 
 const directory = resolve(suppliedDirectory);
@@ -50,8 +56,8 @@ for (const archive of archives) {
   if (manifest.gitHead !== repositoryCommit) {
     throw new Error(`${manifest.name} has gitHead '${manifest.gitHead}'; expected '${repositoryCommit}'.`);
   }
-  if (manifest.publishConfig?.registry !== "https://registry.npmjs.org" || manifest.publishConfig?.access !== "public") {
-    throw new Error(`${manifest.name} is not staged for public npm publication.`);
+  if (manifest.publishConfig?.registry !== expectedRegistry || manifest.publishConfig?.access !== expectedAccess) {
+    throw new Error(`${manifest.name} is not staged for ${expectedAccess} publication at ${expectedRegistry}.`);
   }
   if (!entries.includes("package/README.md")) throw new Error(`${manifest.name} does not include README.md.`);
   if (!entries.some((entry) => entry.startsWith("package/dist/"))) {
@@ -77,4 +83,4 @@ for (const archive of archives) {
   }
 }
 
-console.log(`Validated ${expectedCount} public npm artifacts for ${version}.`);
+console.log(`Validated ${expectedCount} npm artifacts for ${expectedAccess} publication at ${expectedRegistry}.`);
