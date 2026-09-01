@@ -1,5 +1,5 @@
 name: Validate release artifacts
-description: Validate public NuGet and npm package metadata before registry publication.
+description: Validate NuGet and npm package metadata before registry publication.
 inputs:
   version:
     description: Exact SemVer package version.
@@ -21,6 +21,14 @@ inputs:
     description: Expected number of .tgz files; zero disables npm validation.
     required: false
     default: "0"
+  npm-registry:
+    description: Exact npm registry declared by publishConfig.
+    required: false
+    default: https://registry.npmjs.org
+  npm-access:
+    description: Exact npm access level declared by publishConfig.
+    required: false
+    default: public
 runs:
   using: composite
   steps:
@@ -45,3 +53,5 @@ runs:
         '${{ inputs.repository-url }}'
         '${{ inputs.repository-commit }}'
         '${{ inputs.expected-npm-count }}'
+        '${{ inputs.npm-registry }}'
+        '${{ inputs.npm-access }}'
