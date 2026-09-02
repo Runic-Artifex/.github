@@ -10,15 +10,16 @@ const lane = (candidate, name = 'current') => candidate.compatibilityTrains[0].l
 const authority = (candidate, artifact) => candidate.artifactAuthorities.find((item) => item.artifact === artifact);
 const evidence = (candidate, artifact) => candidate.formatEvidence.find((item) => item.artifact === artifact);
 
-test('the committed authority inventories only the 19 NuGet and seven npm v1 package identities', () => {
+test('the committed authority inventories only the 19 NuGet and eight npm v1 package identities', () => {
   assert.deepEqual(verify(manifest, schema), []);
   assert.equal(manifest.currentPackages.filter((item) => item.ecosystem === 'nuget').length, 19);
-  assert.equal(manifest.currentPackages.filter((item) => item.ecosystem === 'npm').length, 7);
-  assert.equal(manifest.canonicalPackages.length, 26);
-  assert.deepEqual(Object.fromEntries(['nuget-package', 'dotnet-template', 'dotnet-tool', 'npm-package'].map((kind) => [kind, manifest.canonicalPackages.filter((item) => item.installKind === kind).length])), { 'nuget-package': 15, 'dotnet-template': 2, 'dotnet-tool': 2, 'npm-package': 7 });
+  assert.equal(manifest.currentPackages.filter((item) => item.ecosystem === 'npm').length, 8);
+  assert.equal(manifest.canonicalPackages.length, 27);
+  assert.deepEqual(Object.fromEntries(['nuget-package', 'dotnet-template', 'dotnet-tool', 'npm-package'].map((kind) => [kind, manifest.canonicalPackages.filter((item) => item.installKind === kind).length])), { 'nuget-package': 15, 'dotnet-template': 2, 'dotnet-tool': 2, 'npm-package': 8 });
   assert.equal(manifest.repositories.length, 13);
   assert.deepEqual(manifest.canonicalPackages.filter((item) => item.identity === '@runic-artifex/angular'), [{ identity: '@runic-artifex/angular', ecosystem: 'npm', installKind: 'npm-package', product: 'application', state: 'approved' }]);
   assert.deepEqual(manifest.currentPackages.filter((item) => item.identity === '@runic-artifex/angular'), [{ identity: '@runic-artifex/angular', ecosystem: 'npm', product: 'application', stableOwner: 'Runic Application', support: 'supported', disposition: 'keep', target: '@runic-artifex/angular', migration: { kind: 'package', target: '@runic-artifex/angular', guidance: 'Keep imports.' } }]);
+  assert.deepEqual(manifest.canonicalPackages.filter((item) => item.identity === '@runic-artifex/application-bridge-tooling'), [{ identity: '@runic-artifex/application-bridge-tooling', ecosystem: 'npm', installKind: 'npm-package', product: 'application', state: 'approved' }]);
   assert.equal(authority(manifest, 'asset-manifest'), undefined);
   assert.deepEqual(authority(manifest, 'command-catalog-and-command-io-schema'), {
     artifact: 'command-catalog-and-command-io-schema', product: 'command-line', owner: 'Runic Command Line generator', versioning: 'not-yet-versioned', justification: 'No verified public format version.', evidence: 'command-catalog-and-command-io-schema-evidence'
@@ -147,14 +148,14 @@ test('format evidence rejects generated output path segments without rejecting h
   for (const path of ['generated-contract/bridge.manifest.json', 'protocol/distillery/bridge.manifest.json', 'nested/builds/file', 'nested/binary/file', 'protocol/object/file']) assert.deepEqual(verify((() => { const candidate = clone(); evidence(candidate, 'bridge-contract').sources = [{ path, role: 'specification' }]; return candidate; })(), schema), []);
   for (const path of ['/tmp/contract.mjs', '../outside/contract.mjs', 'src/../../outside/contract.mjs', 'C:\\temp\\contract.mjs', 'C:temp\\contract.mjs', 'https://example.invalid/source.cs', 'file:///tmp/source.cs', '.']) assert.match(errorsFor((item) => { evidence(item, 'bridge-contract').sources = [{ path, role: 'producer' }]; }), /must be repository-relative/);
 });
-test('bridge evidence cites authored producers, generatorFormatVersion consumer guard, and regeneration', () => {
+test('bridge evidence cites authored producers, formatVersion consumer guard, and regeneration', () => {
   const bridge = evidence(manifest, 'bridge-contract');
   assert.deepEqual(bridge.sources, [
-    { path: 'protocol/application-bridge/setup/contract.mjs', role: 'producer' },
-    { path: 'protocol/application-bridge/counter/contract.mjs', role: 'producer' },
+    { path: 'protocol/application-bridge/setup/application.bridge.ts', role: 'producer' },
+    { path: 'protocol/application-bridge/counter/application.bridge.ts', role: 'producer' },
     { path: 'src/Runic.Application.Bridge.Generators/ApplicationBridgeGenerator.cs', role: 'consumer' }
   ]);
-  assert.equal(bridge.verification.command, "node --input-type=module -e \"for (const path of ['./protocol/application-bridge/setup/contract.mjs', './protocol/application-bridge/counter/contract.mjs']) { const { default: contract } = await import(path); if (contract.formatVersion !== 1) process.exitCode = 1; console.log(path + ' formatVersion=' + contract.formatVersion); }\" && rg -n -F 'root.GetProperty(\"generatorFormatVersion\").GetInt32() != 1' src/Runic.Application.Bridge.Generators/ApplicationBridgeGenerator.cs && node eng/generate-application-bridge-contract.mjs --check");
+  assert.equal(bridge.verification.command, "rg -n -F 'root.GetProperty(\"formatVersion\").GetInt32() != 1' src/Runic.Application.Bridge.Generators/ApplicationBridgeGenerator.cs && bun run verify:application-bridge-artifacts");
 });
 test('coordinated unsupported Svelte and Vite promotions fail closed', () => {
   for (const [artifact, writer, readerSupport] of [['svelte-projection', '2', [2]], ['vite-diagnostics', '1', [1]]]) {

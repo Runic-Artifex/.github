@@ -358,6 +358,13 @@
       "state": "approved"
     },
     {
+      "identity": "@runic-artifex/application-bridge-tooling",
+      "ecosystem": "npm",
+      "installKind": "npm-package",
+      "product": "application",
+      "state": "approved"
+    },
+    {
       "identity": "@runic-artifex/angular",
       "ecosystem": "npm",
       "installKind": "npm-package",
@@ -685,6 +692,20 @@
       "migration": {
         "kind": "package",
         "target": "@runic-artifex/application-bridge",
+        "guidance": "Keep imports."
+      }
+    },
+    {
+      "identity": "@runic-artifex/application-bridge-tooling",
+      "ecosystem": "npm",
+      "product": "application",
+      "stableOwner": "Runic Application",
+      "support": "supported",
+      "disposition": "keep",
+      "target": "@runic-artifex/application-bridge-tooling",
+      "migration": {
+        "kind": "package",
+        "target": "@runic-artifex/application-bridge-tooling",
         "guidance": "Keep imports."
       }
     },
@@ -1271,11 +1292,11 @@
       "repository": "application",
       "sources": [
         {
-          "path": "protocol/application-bridge/setup/contract.mjs",
+          "path": "protocol/application-bridge/setup/application.bridge.ts",
           "role": "producer"
         },
         {
-          "path": "protocol/application-bridge/counter/contract.mjs",
+          "path": "protocol/application-bridge/counter/application.bridge.ts",
           "role": "producer"
         },
         {
@@ -1285,7 +1306,7 @@
       ],
       "verification": {
         "method": "deterministic-regeneration",
-        "command": "node --input-type=module -e \"for (const path of ['./protocol/application-bridge/setup/contract.mjs', './protocol/application-bridge/counter/contract.mjs']) { const { default: contract } = await import(path); if (contract.formatVersion !== 1) process.exitCode = 1; console.log(path + ' formatVersion=' + contract.formatVersion); }\" && rg -n -F 'root.GetProperty(\"generatorFormatVersion\").GetInt32() != 1' src/Runic.Application.Bridge.Generators/ApplicationBridgeGenerator.cs && node eng/generate-application-bridge-contract.mjs --check"
+        "command": "rg -n -F 'root.GetProperty(\"formatVersion\").GetInt32() != 1' src/Runic.Application.Bridge.Generators/ApplicationBridgeGenerator.cs && bun run verify:application-bridge-artifacts"
       }
     },
     {
