@@ -1,0 +1,63 @@
+{
+  "schema": "runic.native-comparative-stress-matrix/1",
+  "sources": {
+    "runicDesktop": "ffe377a4d4eb798e3487670b2a079c6aebadeaa4",
+    "csWebui": "63ca35589dc71d7ed21e159c6382d577426375c5"
+  },
+  "toolchain": {
+    "node": "v24.18.0",
+    "dotnetSdk": "10.0.302"
+  },
+  "workloadSha256": "53c5a3ae8a42cb020f7c3c32f45c04f6065be8a89e8b66f6ac749561be04005c",
+  "platforms": [
+    {
+      "rid": "win-x64",
+      "host": {
+        "platform": "win32",
+        "architecture": "x64",
+        "release": "10.0.20348",
+        "cpuModel": "AMD EPYC 7763 64-Core Processor                ",
+        "logicalCpuCount": 4,
+        "node": "v24.18.0",
+        "dotnetSdk": "10.0.302"
+      },
+      "receipt": {
+        "path": "native-parity-and-stress-win-x64/comparative-stress/win-x64.json",
+        "sha256": "24c4e7a9423e1ee93f0dd17241ec5d290a0dafbb7a1a452b72980605c77d4de4"
+      }
+    },
+    {
+      "rid": "osx-x64",
+      "host": {
+        "platform": "darwin",
+        "architecture": "x64",
+        "release": "24.6.0",
+        "cpuModel": "Intel(R) Core(TM) i7-8700B CPU @ 3.20GHz",
+        "logicalCpuCount": 4,
+        "node": "v24.18.0",
+        "dotnetSdk": "10.0.302"
+      },
+      "receipt": {
+        "path": "native-parity-and-stress-osx-x64/comparative-stress/osx-x64.json",
+        "sha256": "1e88163f026f379c3def15a45a96ab4fa6a3eacb16d8cd93fc10dfab7f1e2d92"
+      }
+    },
+    {
+      "rid": "osx-arm64",
+      "host": {
+        "platform": "darwin",
+        "architecture": "arm64",
+        "release": "23.6.0",
+        "cpuModel": "Apple M1 (Virtual)",
+        "logicalCpuCount": 3,
+        "node": "v24.18.0",
+        "dotnetSdk": "10.0.302"
+      },
+      "receipt": {
+        "path": "native-parity-and-stress-osx-arm64/comparative-stress/osx-arm64.json",
+        "sha256": "f218528f7d62aba42616eaac4b968573b0bbe23c838094ff1df236e0c6e0502d"
+      }
+    }
+  ],
+  "interpretation": "raw-same-host-observations-only-not-a-cross-host-or-release-sla"
+}

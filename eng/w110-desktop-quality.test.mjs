@@ -19,9 +19,9 @@ const input = (native = false) => ({
   ...(native ? {
     nativeCertificationPath: resolve(root, 'evidence/w110-native-certification.json'),
     nativeCertification: load('evidence/w110-native-certification.json'),
-    nativeEvidenceRoot: resolve(root, 'evidence/native-certification/33621048164'),
-    nativeMatrixPath: resolve(root, 'evidence/native-certification/33621048164/matrix.json'),
-    nativeRunPath: resolve(root, 'evidence/native-certification/33621048164/run.json'),
+    nativeEvidenceRoot: resolve(root, 'evidence/native-certification/33639292906'),
+    nativeMatrixPath: resolve(root, 'evidence/native-certification/33639292906/matrix.json'),
+    nativeRunPath: resolve(root, 'evidence/native-certification/33639292906/run.json'),
   } : {}),
 });
 
@@ -72,7 +72,7 @@ test('native receipt citation is content-addressed at the pinned Desktop source 
 test('binds exact hosted Windows and macOS evidence without promoting observations to an SLA', () => {
   const journey = createQualityJourney(input(true));
   assert.deepEqual(journey.observedPlatforms, ['linux-x64', 'osx-arm64', 'osx-x64', 'win-x64']);
-  assert.equal(journey.nativeCertification.run.id, 33621048164);
+  assert.equal(journey.nativeCertification.run.id, 33639292906);
   assert.equal(journey.nativeCertification.toolchain.node, 'v24.18.0');
   assert.equal(journey.nativeCertification.toolchain.dotnetSdk, '10.0.302');
   assert.deepEqual(journey.nativeCertification.platforms.map((item) => item.tests.counters.passed), [58, 58, 58]);
