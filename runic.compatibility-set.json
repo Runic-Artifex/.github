@@ -23,8 +23,8 @@
   },
   "platformProfiles": ["linux-x64", "win-x64", "osx-x64", "osx-arm64"],
   "sources": [
-    { "repository": "runic-desktop", "url": "https://github.com/Runic-Artifex/runic-desktop", "revision": "a7d025d6090e7461d679f9b88af39d0b23099d2e" },
-    { "repository": "runic-toolkit", "url": "https://github.com/Runic-Artifex/runic-toolkit", "revision": "4f99ac27562e90374c63b8bcd538aee6896223b5" },
+    { "repository": "runic-desktop", "url": "https://github.com/Runic-Artifex/runic-desktop", "revision": "ffe377a4d4eb798e3487670b2a079c6aebadeaa4" },
+    { "repository": "runic-toolkit", "url": "https://github.com/Runic-Artifex/runic-toolkit", "revision": "62e6aa8d1aa1c4b5405cd3f45eec2231e69fae08" },
     { "repository": "runic-assets", "url": "https://github.com/Runic-Artifex/runic-assets", "revision": "a41596944d746196295fd0e220c6a1a3fbbc5956" },
     { "repository": "runic-translations", "url": "https://github.com/Runic-Artifex/runic-translations", "revision": "4e5540a29c8333f48256b9f93692531b54480daf" },
     { "repository": "runic-translations-editor", "url": "https://github.com/Runic-Artifex/runic-translations-editor", "revision": "32f81e7414b0d350865d92b9642867d0c1464e26" },

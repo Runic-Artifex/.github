@@ -14,17 +14,17 @@
         "tags": 0
       },
       "run": {
-        "id": 33621048164,
-        "url": "https://github.com/Runic-Artifex/runic-desktop/actions/runs/33621048164",
+        "id": 33639292906,
+        "url": "https://github.com/Runic-Artifex/runic-desktop/actions/runs/33639292906",
         "event": "workflow_dispatch",
-        "headSha": "a7d025d6090e7461d679f9b88af39d0b23099d2e",
+        "headSha": "ffe377a4d4eb798e3487670b2a079c6aebadeaa4",
         "conclusion": "success",
-        "createdAt": "2026-09-02T10:44:49Z",
-        "updatedAt": "2026-09-02T10:47:13Z",
-        "receiptSha256": "c2072c40841432c83426dcd5adb796a3951ced3fde610cc14bd4dc055fb76ad5"
+        "createdAt": "2026-09-02T14:00:48Z",
+        "updatedAt": "2026-09-02T14:03:53Z",
+        "receiptSha256": "28bb2979987809ec275a217f1a87b2dacc0e9aaea79be1a2187d1a190abd5369"
       },
       "sources": {
-        "runicDesktop": "a7d025d6090e7461d679f9b88af39d0b23099d2e",
+        "runicDesktop": "ffe377a4d4eb798e3487670b2a079c6aebadeaa4",
         "csWebui": "63ca35589dc71d7ed21e159c6382d577426375c5"
       },
       "toolchain": {
@@ -33,7 +33,7 @@
       },
       "workloadSha256": "53c5a3ae8a42cb020f7c3c32f45c04f6065be8a89e8b66f6ac749561be04005c",
       "matrix": {
-        "sha256": "7df659278129f800f887eb7dbb27185437da962118b220ae9fee9545532ad5dc",
+        "sha256": "23d303f9ded99c3020e5fbb1c5eacc724b5f43541fbdaca66157ed79d50d363e",
         "interpretation": "raw-same-host-observations-only-not-a-cross-host-or-release-sla"
       },
       "platforms": [
@@ -43,18 +43,18 @@
             "platform": "win32",
             "architecture": "x64",
             "release": "10.0.20348",
-            "cpuModel": "AMD EPYC 9V74 80-Core Processor                ",
+            "cpuModel": "AMD EPYC 7763 64-Core Processor                ",
             "logicalCpuCount": 4,
             "node": "v24.18.0",
             "dotnetSdk": "10.0.302"
           },
           "stressReceipt": {
             "path": "native-parity-and-stress-win-x64/comparative-stress/win-x64.json",
-            "sha256": "6bc22cd037fc77dc257c5cf8c7258b39d9eb0ed2bacbef7bd4deb62654a68c5a"
+            "sha256": "24c4e7a9423e1ee93f0dd17241ec5d290a0dafbb7a1a452b72980605c77d4de4"
           },
           "tests": {
             "path": "native-parity-and-stress-win-x64/test-results/win-x64/test-results.trx",
-            "sha256": "7f92b03daeea60734ef1d4cd5e97c10229a38258514600417dad6a6049265fec",
+            "sha256": "c6f68cefc7b4fb72027d84fb7c9d56c681c2d81ff438435d915c2d57aeacdebe",
             "counters": {
               "total": 58,
               "executed": 58,
@@ -80,11 +80,11 @@
           },
           "stressReceipt": {
             "path": "native-parity-and-stress-osx-x64/comparative-stress/osx-x64.json",
-            "sha256": "e2ec005a8e80366bdfae0e1228074cfbf6f28892ade9b8155d65f894549e676d"
+            "sha256": "1e88163f026f379c3def15a45a96ab4fa6a3eacb16d8cd93fc10dfab7f1e2d92"
           },
           "tests": {
             "path": "native-parity-and-stress-osx-x64/test-results/osx-x64/test-results.trx",
-            "sha256": "75bfd286988a1c26991b1976f8990ea06f1257e4a74c918d3f205c255369323e",
+            "sha256": "872131164819211da5dc44c20087bcb9375839a443a5dc5d63b98a6c4bb15d90",
             "counters": {
               "total": 58,
               "executed": 58,
@@ -110,11 +110,11 @@
           },
           "stressReceipt": {
             "path": "native-parity-and-stress-osx-arm64/comparative-stress/osx-arm64.json",
-            "sha256": "f4026c9ab0e551d818ed49057a379211ed58954584d971344744f01b9ddd13e2"
+            "sha256": "f218528f7d62aba42616eaac4b968573b0bbe23c838094ff1df236e0c6e0502d"
           },
           "tests": {
             "path": "native-parity-and-stress-osx-arm64/test-results/osx-arm64/test-results.trx",
-            "sha256": "e9cb8b575fc3713c57866f84eb0449d8884d6943afc81020a6166b4c16660860",
+            "sha256": "47418f83101a805279f79b750f380d56a52934face6c216062aacd1975c48cd1",
             "counters": {
               "total": 58,
               "executed": 58,
@@ -142,17 +142,17 @@
         "tags": 0
       },
       "run": {
-        "id": 33621048164,
-        "url": "https://github.com/Runic-Artifex/runic-desktop/actions/runs/33621048164",
+        "id": 33639292906,
+        "url": "https://github.com/Runic-Artifex/runic-desktop/actions/runs/33639292906",
         "event": "workflow_dispatch",
-        "headSha": "a7d025d6090e7461d679f9b88af39d0b23099d2e",
+        "headSha": "ffe377a4d4eb798e3487670b2a079c6aebadeaa4",
         "conclusion": "success",
-        "createdAt": "2026-09-02T10:44:49Z",
-        "updatedAt": "2026-09-02T10:47:13Z",
-        "receiptSha256": "c2072c40841432c83426dcd5adb796a3951ced3fde610cc14bd4dc055fb76ad5"
+        "createdAt": "2026-09-02T14:00:48Z",
+        "updatedAt": "2026-09-02T14:03:53Z",
+        "receiptSha256": "28bb2979987809ec275a217f1a87b2dacc0e9aaea79be1a2187d1a190abd5369"
       },
       "sources": {
-        "runicDesktop": "a7d025d6090e7461d679f9b88af39d0b23099d2e",
+        "runicDesktop": "ffe377a4d4eb798e3487670b2a079c6aebadeaa4",
         "csWebui": "63ca35589dc71d7ed21e159c6382d577426375c5"
       },
       "toolchain": {
@@ -161,7 +161,7 @@
       },
       "workloadSha256": "53c5a3ae8a42cb020f7c3c32f45c04f6065be8a89e8b66f6ac749561be04005c",
       "matrix": {
-        "sha256": "7df659278129f800f887eb7dbb27185437da962118b220ae9fee9545532ad5dc",
+        "sha256": "23d303f9ded99c3020e5fbb1c5eacc724b5f43541fbdaca66157ed79d50d363e",
         "interpretation": "raw-same-host-observations-only-not-a-cross-host-or-release-sla"
       },
       "platforms": [
@@ -171,18 +171,18 @@
             "platform": "win32",
             "architecture": "x64",
             "release": "10.0.20348",
-            "cpuModel": "AMD EPYC 9V74 80-Core Processor                ",
+            "cpuModel": "AMD EPYC 7763 64-Core Processor                ",
             "logicalCpuCount": 4,
             "node": "v24.18.0",
             "dotnetSdk": "10.0.302"
           },
           "stressReceipt": {
             "path": "native-parity-and-stress-win-x64/comparative-stress/win-x64.json",
-            "sha256": "6bc22cd037fc77dc257c5cf8c7258b39d9eb0ed2bacbef7bd4deb62654a68c5a"
+            "sha256": "24c4e7a9423e1ee93f0dd17241ec5d290a0dafbb7a1a452b72980605c77d4de4"
           },
           "tests": {
             "path": "native-parity-and-stress-win-x64/test-results/win-x64/test-results.trx",
-            "sha256": "7f92b03daeea60734ef1d4cd5e97c10229a38258514600417dad6a6049265fec",
+            "sha256": "c6f68cefc7b4fb72027d84fb7c9d56c681c2d81ff438435d915c2d57aeacdebe",
             "counters": {
               "total": 58,
               "executed": 58,
@@ -208,11 +208,11 @@
           },
           "stressReceipt": {
             "path": "native-parity-and-stress-osx-x64/comparative-stress/osx-x64.json",
-            "sha256": "e2ec005a8e80366bdfae0e1228074cfbf6f28892ade9b8155d65f894549e676d"
+            "sha256": "1e88163f026f379c3def15a45a96ab4fa6a3eacb16d8cd93fc10dfab7f1e2d92"
           },
           "tests": {
             "path": "native-parity-and-stress-osx-x64/test-results/osx-x64/test-results.trx",
-            "sha256": "75bfd286988a1c26991b1976f8990ea06f1257e4a74c918d3f205c255369323e",
+            "sha256": "872131164819211da5dc44c20087bcb9375839a443a5dc5d63b98a6c4bb15d90",
             "counters": {
               "total": 58,
               "executed": 58,
@@ -238,11 +238,11 @@
           },
           "stressReceipt": {
             "path": "native-parity-and-stress-osx-arm64/comparative-stress/osx-arm64.json",
-            "sha256": "f4026c9ab0e551d818ed49057a379211ed58954584d971344744f01b9ddd13e2"
+            "sha256": "f218528f7d62aba42616eaac4b968573b0bbe23c838094ff1df236e0c6e0502d"
           },
           "tests": {
             "path": "native-parity-and-stress-osx-arm64/test-results/osx-arm64/test-results.trx",
-            "sha256": "e9cb8b575fc3713c57866f84eb0449d8884d6943afc81020a6166b4c16660860",
+            "sha256": "47418f83101a805279f79b750f380d56a52934face6c216062aacd1975c48cd1",
             "counters": {
               "total": 58,
               "executed": 58,

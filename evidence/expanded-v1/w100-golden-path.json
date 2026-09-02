@@ -34,7 +34,7 @@
           },
           {
             "repository": "runic-desktop",
-            "revision": "a7d025d6090e7461d679f9b88af39d0b23099d2e"
+            "revision": "ffe377a4d4eb798e3487670b2a079c6aebadeaa4"
           },
           {
             "repository": "runic-svelte",
@@ -42,7 +42,7 @@
           },
           {
             "repository": "runic-toolkit",
-            "revision": "4f99ac27562e90374c63b8bcd538aee6896223b5"
+            "revision": "62e6aa8d1aa1c4b5405cd3f45eec2231e69fae08"
           },
           {
             "repository": "runic-toolkit-examples",
@@ -116,7 +116,7 @@
           },
           {
             "repository": "runic-desktop",
-            "revision": "a7d025d6090e7461d679f9b88af39d0b23099d2e"
+            "revision": "ffe377a4d4eb798e3487670b2a079c6aebadeaa4"
           },
           {
             "repository": "runic-svelte",
@@ -124,7 +124,7 @@
           },
           {
             "repository": "runic-toolkit",
-            "revision": "4f99ac27562e90374c63b8bcd538aee6896223b5"
+            "revision": "62e6aa8d1aa1c4b5405cd3f45eec2231e69fae08"
           },
           {
             "repository": "runic-toolkit-examples",
