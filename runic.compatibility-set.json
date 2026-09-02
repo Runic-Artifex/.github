@@ -24,18 +24,18 @@
   "platformProfiles": ["linux-x64", "win-x64", "osx-x64", "osx-arm64"],
   "sources": [
     { "repository": "runic-desktop", "url": "https://github.com/Runic-Artifex/runic-desktop", "revision": "ffe377a4d4eb798e3487670b2a079c6aebadeaa4" },
-    { "repository": "runic-toolkit", "url": "https://github.com/Runic-Artifex/runic-toolkit", "revision": "62e6aa8d1aa1c4b5405cd3f45eec2231e69fae08" },
+    { "repository": "runic-toolkit", "url": "https://github.com/Runic-Artifex/runic-toolkit", "revision": "839f10ae0e98be8bee167b28723a5dc870d2e033" },
     { "repository": "runic-assets", "url": "https://github.com/Runic-Artifex/runic-assets", "revision": "a41596944d746196295fd0e220c6a1a3fbbc5956" },
     { "repository": "runic-translations", "url": "https://github.com/Runic-Artifex/runic-translations", "revision": "3597a29ed9b078f6db8bdab0946e4fd2de0ebbcd" },
-    { "repository": "runic-translations-editor", "url": "https://github.com/Runic-Artifex/runic-translations-editor", "revision": "f5cab0854feb62314cedba99d37f6d57565fd46c" },
-    { "repository": "runic-svelte", "url": "https://github.com/Runic-Artifex/runic-svelte", "revision": "0ae2f35e3ac78bf89723946073800b9206a45c9a" },
-    { "repository": "runic-vite", "url": "https://github.com/Runic-Artifex/runic-vite", "revision": "a24af5478954309bd31dffd6b0bcba0b2e978fc7" },
-    { "repository": "runic-toolkit-examples", "url": "https://github.com/Runic-Artifex/runic-toolkit-examples", "revision": "79b43bee7115296a2470b9a85696eb208958976f" },
+    { "repository": "runic-translations-editor", "url": "https://github.com/Runic-Artifex/runic-translations-editor", "revision": "4fddbaef074094595428b8fa4813c489dbbce8a5" },
+    { "repository": "runic-svelte", "url": "https://github.com/Runic-Artifex/runic-svelte", "revision": "0f2a1ebcd6a2afaafbc82012f4bbf2b661d353f6" },
+    { "repository": "runic-vite", "url": "https://github.com/Runic-Artifex/runic-vite", "revision": "460d092cf65f794ce01a7b06c31fb07324d072df" },
+    { "repository": "runic-toolkit-examples", "url": "https://github.com/Runic-Artifex/runic-toolkit-examples", "revision": "47cf042d5de66dd94e7e6b8b2e851e0c88c043b5" },
     { "repository": "runic-command-line", "url": "https://github.com/Runic-Artifex/runic-command-line", "revision": "5d6a9aa6be25e19640c797730c5984cad9c17bd5" }
   ],
   "contracts": [
     { "id": "runic-desktop-presentation", "repository": "runic-desktop", "path": "contract", "algorithm": "sha256-git-file-set-v1", "sha256": "ab7081368d12f0a12556e1c125643fc881bee125c237a6b126314401673a8eeb" },
-    { "id": "runic-application-bridge", "repository": "runic-toolkit", "path": "protocol/application-bridge", "algorithm": "sha256-git-file-set-v1", "sha256": "7bd6a593bcd869d6a7dfe35f0f1b8816379893a0b418c806370d4145cf72db61" },
+    { "id": "runic-application-bridge", "repository": "runic-toolkit", "path": "protocol/application-bridge", "algorithm": "sha256-git-file-set-v1", "sha256": "e820ac27890d62ac19f41c468ac9e8989adb0378de9d158a699cb0b97d2f8151" },
     { "id": "runic-assets", "repository": "runic-assets", "path": "spec", "algorithm": "sha256-git-file-set-v1", "sha256": "51cb8c006db23c662f2721318efa96b38474f6addf7dc81608dda65583fde2d4" },
     { "id": "runic-translations", "repository": "runic-translations", "path": "spec", "algorithm": "sha256-git-file-set-v1", "sha256": "95c5e64c8dfd18b2b9e37ac1dbabb2833f9e81f647c32dd8a5122302b465c883" }
   ],
@@ -61,6 +61,7 @@
     { "ecosystem": "nuget", "identity": "Runic.Desktop", "version": "1.0.0-preview.1", "source": "runic-desktop" },
     { "ecosystem": "npm", "identity": "@runic-artifex/desktop", "version": "1.0.0-preview.1", "source": "runic-desktop" },
     { "ecosystem": "npm", "identity": "@runic-artifex/application-bridge", "version": "1.0.0-preview.1", "source": "runic-toolkit" },
+    { "ecosystem": "npm", "identity": "@runic-artifex/application-bridge-tooling", "version": "1.0.0-preview.1", "source": "runic-toolkit" },
     { "ecosystem": "npm", "identity": "@runic-artifex/angular", "version": "1.0.0-preview.1", "source": "runic-toolkit" },
     { "ecosystem": "npm", "identity": "@runic-artifex/vite-plugin-runic-translations", "version": "1.0.0-preview.1", "source": "runic-translations" },
     { "ecosystem": "npm", "identity": "@runic-artifex/svelte", "version": "1.0.0-preview.1", "source": "runic-svelte" },
