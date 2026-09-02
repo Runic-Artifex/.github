@@ -7,6 +7,7 @@
   "toolchain": {
     "dotnetSdk": "10.0.302",
     "node": "24.18.0",
+    "bun": "1.4.0",
     "npm": "11.16.0"
   },
   "languageProfiles": {
@@ -21,15 +22,15 @@
   },
   "platformProfiles": ["linux-x64", "win-x64", "osx-x64", "osx-arm64"],
   "sources": [
-    { "repository": "runic-desktop", "url": "https://github.com/Runic-Artifex/runic-desktop", "revision": "a0d1432e9a7b8dcf3d6311fcbdf4e824bc0d479f" },
-    { "repository": "runic-toolkit", "url": "https://github.com/Runic-Artifex/runic-toolkit", "revision": "0046557bb3b4ae2f1f8ebc54655d108db50f5db3" },
-    { "repository": "runic-assets", "url": "https://github.com/Runic-Artifex/runic-assets", "revision": "e9affd725903077339c5df5a23c44f898121c0b5" },
-    { "repository": "runic-translations", "url": "https://github.com/Runic-Artifex/runic-translations", "revision": "233b1f08e86210a5320c52d1cb0ad6535f2182e0" },
-    { "repository": "runic-translations-editor", "url": "https://github.com/Runic-Artifex/runic-translations-editor", "revision": "2b8a3c9627ab6dc1b0cefecaf05bdc26fd79712b" },
-    { "repository": "runic-svelte", "url": "https://github.com/Runic-Artifex/runic-svelte", "revision": "39af8c08bb8cf1168789093bdfb575f420a51f39" },
-    { "repository": "runic-vite", "url": "https://github.com/Runic-Artifex/runic-vite", "revision": "a5f94c90948e20324e8d4f168763d4f858dd1b10" },
-    { "repository": "runic-toolkit-examples", "url": "https://github.com/Runic-Artifex/runic-toolkit-examples", "revision": "7ee07aa68341573e103ac34578413dff97375941" },
-    { "repository": "runic-command-line", "url": "https://github.com/Runic-Artifex/runic-command-line", "revision": "beadc31d91746a2cb005207ac1161cf579e128e5" }
+    { "repository": "runic-desktop", "url": "https://github.com/Runic-Artifex/runic-desktop", "revision": "d1fe517f86890a7a25f6ae8d5092c53959c54b70" },
+    { "repository": "runic-toolkit", "url": "https://github.com/Runic-Artifex/runic-toolkit", "revision": "17b337f9826d463f5fab9e1bcf299581c3e58b5c" },
+    { "repository": "runic-assets", "url": "https://github.com/Runic-Artifex/runic-assets", "revision": "a41596944d746196295fd0e220c6a1a3fbbc5956" },
+    { "repository": "runic-translations", "url": "https://github.com/Runic-Artifex/runic-translations", "revision": "4e5540a29c8333f48256b9f93692531b54480daf" },
+    { "repository": "runic-translations-editor", "url": "https://github.com/Runic-Artifex/runic-translations-editor", "revision": "e2d1ac9d4b983878aa3be8e8f9dea30402d9df64" },
+    { "repository": "runic-svelte", "url": "https://github.com/Runic-Artifex/runic-svelte", "revision": "db4c793809657d00b541388cee545af95cd98ac5" },
+    { "repository": "runic-vite", "url": "https://github.com/Runic-Artifex/runic-vite", "revision": "a24af5478954309bd31dffd6b0bcba0b2e978fc7" },
+    { "repository": "runic-toolkit-examples", "url": "https://github.com/Runic-Artifex/runic-toolkit-examples", "revision": "412a31a92119b3349c5e615e1f94626afd22400e" },
+    { "repository": "runic-command-line", "url": "https://github.com/Runic-Artifex/runic-command-line", "revision": "5d6a9aa6be25e19640c797730c5984cad9c17bd5" }
   ],
   "contracts": [
     { "id": "runic-desktop-presentation", "repository": "runic-desktop", "path": "contract", "algorithm": "sha256-git-file-set-v1", "sha256": "a201e03c06e818d63d3410a84f005e533420911d189fa75245e14c38ee4632e7" },
