@@ -22,18 +22,18 @@
   },
   "platformProfiles": ["linux-x64", "win-x64", "osx-x64", "osx-arm64"],
   "sources": [
-    { "repository": "runic-desktop", "url": "https://github.com/Runic-Artifex/runic-desktop", "revision": "d1fe517f86890a7a25f6ae8d5092c53959c54b70" },
+    { "repository": "runic-desktop", "url": "https://github.com/Runic-Artifex/runic-desktop", "revision": "a7d025d6090e7461d679f9b88af39d0b23099d2e" },
     { "repository": "runic-toolkit", "url": "https://github.com/Runic-Artifex/runic-toolkit", "revision": "4f99ac27562e90374c63b8bcd538aee6896223b5" },
     { "repository": "runic-assets", "url": "https://github.com/Runic-Artifex/runic-assets", "revision": "a41596944d746196295fd0e220c6a1a3fbbc5956" },
     { "repository": "runic-translations", "url": "https://github.com/Runic-Artifex/runic-translations", "revision": "4e5540a29c8333f48256b9f93692531b54480daf" },
-    { "repository": "runic-translations-editor", "url": "https://github.com/Runic-Artifex/runic-translations-editor", "revision": "c9e8c7e7a468b75ad84bd11d633bc527cb570fe8" },
+    { "repository": "runic-translations-editor", "url": "https://github.com/Runic-Artifex/runic-translations-editor", "revision": "32f81e7414b0d350865d92b9642867d0c1464e26" },
     { "repository": "runic-svelte", "url": "https://github.com/Runic-Artifex/runic-svelte", "revision": "db4c793809657d00b541388cee545af95cd98ac5" },
     { "repository": "runic-vite", "url": "https://github.com/Runic-Artifex/runic-vite", "revision": "a24af5478954309bd31dffd6b0bcba0b2e978fc7" },
-    { "repository": "runic-toolkit-examples", "url": "https://github.com/Runic-Artifex/runic-toolkit-examples", "revision": "788220fb036b22f62a8d0224ca0de5ef9f12fa52" },
+    { "repository": "runic-toolkit-examples", "url": "https://github.com/Runic-Artifex/runic-toolkit-examples", "revision": "f1401b582993654dae2dbad85d5be1f2e85dd961" },
     { "repository": "runic-command-line", "url": "https://github.com/Runic-Artifex/runic-command-line", "revision": "5d6a9aa6be25e19640c797730c5984cad9c17bd5" }
   ],
   "contracts": [
-    { "id": "runic-desktop-presentation", "repository": "runic-desktop", "path": "contract", "algorithm": "sha256-git-file-set-v1", "sha256": "a201e03c06e818d63d3410a84f005e533420911d189fa75245e14c38ee4632e7" },
+    { "id": "runic-desktop-presentation", "repository": "runic-desktop", "path": "contract", "algorithm": "sha256-git-file-set-v1", "sha256": "ab7081368d12f0a12556e1c125643fc881bee125c237a6b126314401673a8eeb" },
     { "id": "runic-application-bridge", "repository": "runic-toolkit", "path": "protocol/application-bridge", "algorithm": "sha256-git-file-set-v1", "sha256": "7bd6a593bcd869d6a7dfe35f0f1b8816379893a0b418c806370d4145cf72db61" },
     { "id": "runic-assets", "repository": "runic-assets", "path": "spec", "algorithm": "sha256-git-file-set-v1", "sha256": "51cb8c006db23c662f2721318efa96b38474f6addf7dc81608dda65583fde2d4" },
     { "id": "runic-translations", "repository": "runic-translations", "path": "spec", "algorithm": "sha256-git-file-set-v1", "sha256": "c279ae727b5a0a674444b0f90cf4cd99f2dca8fedff8c86ac188c30b361388c2" }

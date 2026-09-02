@@ -29,10 +29,7 @@ const requiredEvidence = {
   'w90-desktop-conformance': { milestone: 'W90', schema: 'runic.w90-desktop-conformance-repeat/1', sources: ['runic-desktop'], contracts: ['runic-desktop-presentation'], platforms: certifiedPlatforms },
   'w100-golden-path': { milestone: 'W100', schema: 'runic.w100-golden-path-repeat/1', sources: ['runic-assets', 'runic-desktop', 'runic-svelte', 'runic-toolkit', 'runic-toolkit-examples', 'runic-translations', 'runic-translations-editor', 'runic-vite'], contracts: ['runic-application-bridge', 'runic-assets', 'runic-desktop-presentation', 'runic-translations'], platforms: [] },
   'w105-experience-closure': { milestone: 'W105', schema: 'runic.w105-experience-closure-repeat/1', sources: null, contracts: null, platforms: [] },
-  // The local W110 quality receipt binds the whole compatibility composition,
-  // but only certifies the observed Linux x64 profile. The other authority
-  // profiles remain selection facts, not quality claims.
-  'w110-desktop-quality': { milestone: 'W110', schema: 'runic.w110-desktop-quality-repeat/1', sources: null, contracts: null, platforms: ['linux-x64'] },
+  'w110-desktop-quality': { milestone: 'W110', schema: 'runic.w110-desktop-quality-repeat/1', sources: null, contracts: null, platforms: certifiedPlatforms },
 };
 
 function relativeInput(base, value, label) {
@@ -87,6 +84,8 @@ function receiptFact(base, citation, sourceMap, contractMap) {
 function evidenceFacts(evidence, path, compatibility) {
   if (evidence?.schema !== evidenceSchema || evidence.publication !== 'forbidden' || !same(evidence.externalActions, zeroActions)) fail('evidence input is not a local-only, zero-action W110 evidence set');
   if (evidence.w80?.status !== 'historical' || evidence.w80?.schema !== 'runic.local-1.0-readiness-index-repeat/1' || !shaPattern.test(evidence.w80?.sha256 ?? '')) fail('W80 must be retained only as a hashed historical receipt');
+  const w80Path = relativeInput(dirname(path), evidence.w80.path, 'W80 historical receipt');
+  if (hashFile(w80Path, 'W80 historical receipt') !== evidence.w80.sha256 || read(w80Path, 'W80 historical receipt')?.schema !== evidence.w80.schema) fail('W80 historical receipt is stale or replayed');
   exact(evidence.languageProfiles, compatibility.languageProfiles, 'evidence language profiles do not exactly match compatibility authority');
   exact(stable(evidence.exclusions ?? [], (item) => item), stable(exclusions, (item) => item), 'evidence exclusions are softened, missing, or extended');
   if (!Array.isArray(evidence.citations) || evidence.citations.length !== Object.keys(requiredEvidence).length) fail('evidence must contain exactly the required W90-W110 citations');

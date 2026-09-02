@@ -8,7 +8,7 @@ import { createQualityJourney, repeatSchema, runTwice, verifyReceipt } from './w
 const root = resolve(new URL('..', import.meta.url).pathname);
 const workspace = resolve(root, '..');
 const load = (name) => JSON.parse(readFileSync(resolve(root, name), 'utf8'));
-const input = () => ({
+const input = (native = false) => ({
   releasePath: resolve(root, 'runic.release.json'),
   compatibilityPath: resolve(root, 'runic.compatibility-set.json'),
   release: load('runic.release.json'),
@@ -16,6 +16,13 @@ const input = () => ({
   compatibility: load('runic.compatibility-set.json'),
   compatibilitySchema: load('runic.compatibility-set.schema.json'),
   workspace,
+  ...(native ? {
+    nativeCertificationPath: resolve(root, 'evidence/w110-native-certification.json'),
+    nativeCertification: load('evidence/w110-native-certification.json'),
+    nativeEvidenceRoot: resolve(root, 'evidence/native-certification/33621048164'),
+    nativeMatrixPath: resolve(root, 'evidence/native-certification/33621048164/matrix.json'),
+    nativeRunPath: resolve(root, 'evidence/native-certification/33621048164/run.json'),
+  } : {}),
 });
 
 test('composes exact source, contract, Linux runtime, application accessibility, scale, and memory facts without platform inflation', () => {
@@ -62,7 +69,17 @@ test('native receipt citation is content-addressed at the pinned Desktop source 
   assert.equal(journey.desktopRuntime.source.sha256, expected);
 });
 
+test('binds exact hosted Windows and macOS evidence without promoting observations to an SLA', () => {
+  const journey = createQualityJourney(input(true));
+  assert.deepEqual(journey.observedPlatforms, ['linux-x64', 'osx-arm64', 'osx-x64', 'win-x64']);
+  assert.equal(journey.nativeCertification.run.id, 33621048164);
+  assert.equal(journey.nativeCertification.toolchain.node, 'v24.18.0');
+  assert.equal(journey.nativeCertification.toolchain.dotnetSdk, '10.0.302');
+  assert.deepEqual(journey.nativeCertification.platforms.map((item) => item.tests.counters.passed), [58, 58, 58]);
+  assert.equal(journey.exclusions.calibratedNativePerformance, 'raw-same-host-observations-only-not-a-release-sla');
+});
+
 test('the retained local-only W110 quality receipt exactly verifies against current authority', () => {
   const receipt = JSON.parse(readFileSync(resolve(root, 'evidence/w110-desktop-quality.json'), 'utf8'));
-  verifyReceipt(input(), receipt, { verifyChecks: false });
+  verifyReceipt(input(true), receipt, { verifyChecks: false });
 });

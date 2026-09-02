@@ -1,0 +1,685 @@
+{
+  "schema": "runic.current-clean-install-repeat/3",
+  "journeys": [
+    {
+      "schema": "runic.current-clean-install/3",
+      "compatibilitySet": {
+        "id": "runic-1.0-preview.1",
+        "releaseTrainVersion": "1.0.0-preview.1",
+        "sha256": "971e47a9018df73bf28fabb29550b7bc8d9af127aad4cf2bb9f1798a76ef08ad",
+        "toolchain": {
+          "dotnetSdk": "10.0.302",
+          "node": "24.18.0",
+          "bun": "1.4.0",
+          "npm": "11.16.0"
+        },
+        "nuget": {
+          "Runic.Application.Templates": {
+            "identity": "Runic.Application.Templates",
+            "version": "1.0.0-preview.1"
+          },
+          "dotnet-runic": {
+            "identity": "dotnet-runic",
+            "version": "1.0.0-preview.1"
+          },
+          "Runic.Application": {
+            "identity": "Runic.Application",
+            "version": "1.0.0-preview.1"
+          },
+          "Runic.Application.Bridge": {
+            "identity": "Runic.Application.Bridge",
+            "version": "1.0.0-preview.1"
+          },
+          "Runic.Application.Desktop": {
+            "identity": "Runic.Application.Desktop",
+            "version": "1.0.0-preview.1"
+          },
+          "Runic.Assets": {
+            "identity": "Runic.Assets",
+            "version": "1.0.0-preview.1"
+          },
+          "Runic.Assets.Desktop": {
+            "identity": "Runic.Assets.Desktop",
+            "version": "1.0.0-preview.1"
+          },
+          "Runic.Desktop": {
+            "identity": "Runic.Desktop",
+            "version": "1.0.0-preview.1"
+          }
+        },
+        "npm": {
+          "@runic-artifex/application-bridge": {
+            "identity": "@runic-artifex/application-bridge",
+            "version": "1.0.0-preview.1"
+          },
+          "@runic-artifex/desktop": {
+            "identity": "@runic-artifex/desktop",
+            "version": "1.0.0-preview.1"
+          },
+          "@runic-artifex/svelte": {
+            "identity": "@runic-artifex/svelte",
+            "version": "1.0.0-preview.1"
+          },
+          "@runic-artifex/vite-plugin-runic": {
+            "identity": "@runic-artifex/vite-plugin-runic",
+            "version": "1.0.0-preview.1"
+          }
+        }
+      },
+      "feeds": {
+        "nuget": "explicit-local-directory",
+        "npm": "explicit-runic-registry",
+        "githubPackages": "prohibited"
+      },
+      "isolation": {
+        "dotnetCliHome": ".dotnet",
+        "nugetPackages": ".nuget/packages",
+        "nugetHttpCache": ".nuget/http-cache",
+        "npmCache": ".npm-cache"
+      },
+      "template": {
+        "shortName": "runic-app-svelte",
+        "framework": "svelte"
+      },
+      "phases": [
+        {
+          "name": "template-install",
+          "argv": [
+            "dotnet",
+            "new",
+            "install",
+            "/tmp/runic-w105-final-journeys.HDby3Q/nuget/Runic.Application.Templates.1.0.0-preview.1.nupkg",
+            "--force"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "tool-install",
+          "argv": [
+            "dotnet",
+            "tool",
+            "install",
+            "dotnet-runic",
+            "--tool-path",
+            "$WORKSPACE/.tools",
+            "--version",
+            "1.0.0-preview.1",
+            "--configfile",
+            "NuGet.config",
+            "--ignore-failed-sources"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "create",
+          "argv": [
+            "dotnet",
+            "new",
+            "runic-app-svelte",
+            "--name",
+            "GoldenPath",
+            "--output",
+            "$WORKSPACE/GoldenPath"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "npm-install",
+          "argv": [
+            "npm",
+            "ci",
+            "--ignore-scripts",
+            "--no-audit",
+            "--no-fund",
+            "--cache",
+            ".npm-cache"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "frontend-typecheck",
+          "argv": [
+            "npm",
+            "run",
+            "typecheck"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "frontend-build",
+          "argv": [
+            "npm",
+            "run",
+            "build"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "restore",
+          "argv": [
+            "dotnet",
+            "restore",
+            "GoldenPath.csproj",
+            "--configfile",
+            "$WORKSPACE/NuGet.config",
+            "--no-cache",
+            "--force-evaluate",
+            "--nologo"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "build",
+          "argv": [
+            "dotnet",
+            "build",
+            "GoldenPath.csproj",
+            "--configuration",
+            "Release",
+            "--no-restore",
+            "--nologo"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "doctor",
+          "argv": [
+            "$WORKSPACE/.tools/dotnet-runic",
+            "doctor",
+            "--project",
+            "GoldenPath.csproj",
+            "--configuration",
+            "Release"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "inspect",
+          "argv": [
+            "$WORKSPACE/.tools/dotnet-runic",
+            "inspect",
+            "--project",
+            "GoldenPath.csproj",
+            "--configuration",
+            "Release"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "develop",
+          "argv": [
+            "$WORKSPACE/.tools/dotnet-runic",
+            "dev",
+            "--project",
+            "GoldenPath.csproj",
+            "--configuration",
+            "Release",
+            "--dry-run"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "package",
+          "argv": [
+            "dotnet",
+            "publish",
+            "GoldenPath.csproj",
+            "--configuration",
+            "Release",
+            "--no-build",
+            "--output",
+            "$WORKSPACE/package",
+            "--nologo"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "run",
+          "argv": [
+            "dotnet",
+            "run",
+            "--project",
+            "GoldenPath.csproj",
+            "--configuration",
+            "Release",
+            "--no-build",
+            "--",
+            "--smoke-test"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "restart",
+          "argv": [
+            "dotnet",
+            "run",
+            "--project",
+            "GoldenPath.csproj",
+            "--configuration",
+            "Release",
+            "--no-build",
+            "--",
+            "--smoke-test"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        }
+      ],
+      "nugetPackages": {
+        "Runic.Application": {
+          "version": "1.0.0-preview.1",
+          "contentHash": "sha512-2eg0Lmv5w41fPR1ONv3CmYvgo4ziciXpQoj1VVQiS/bxzRtUmD9xBqO1MTlqiL1xLWL4Ll1HylbaNbksZr12xQ=="
+        },
+        "Runic.Application.Bridge": {
+          "version": "1.0.0-preview.1",
+          "contentHash": "sha512-oNddDKlG8f/WYYeBFLR5Q/PpTcHa7YL/VKlIuIR2c1dlC/dEZQDsv5RbeO0U+xX85CmtzziHw+kU9N7cWPlU9Q=="
+        },
+        "Runic.Application.Desktop": {
+          "version": "1.0.0-preview.1",
+          "contentHash": "sha512-ThuKVINbkEBf4lbO5VByx3yGCF2vni+I8U1CXlcN7R0Eoij1/Uci77TboFYujhlQbY4UXwJR/ktFZlVHIqj2NQ=="
+        },
+        "Runic.Assets": {
+          "version": "1.0.0-preview.1",
+          "contentHash": "sha512-jor8KzhP1iL3MpAzkmL4Fcu2x1e+aK850tRbmqJ3BYaWifqtFV02l4pFaHlt0aa1ZrA0zrf7O55NaguDfeMP5A=="
+        },
+        "Runic.Assets.Desktop": {
+          "version": "1.0.0-preview.1",
+          "contentHash": "sha512-o2V77cCCdDQ1rvX5Mu/ZISfAdWjTtCJ0wUIMNhp04b/qAh8I46IhWZ/Tji/oyRjN1YuDqWr2Um++X1lsXkOMhQ=="
+        },
+        "Runic.Desktop": {
+          "version": "1.0.0-preview.1",
+          "contentHash": "sha512-xpj9g+u4HHHoTa7+/o8mQiUVucLAgz//ykrtnAZESSXqAuiJGqg6wq/xBkHTESNP2o5PDBPm9jmgbnuXEFwkVA=="
+        }
+      },
+      "npmPackages": {
+        "@runic-artifex/application-bridge": {
+          "version": "1.0.0-preview.1",
+          "integrity": "sha512-uOy4tacjVg0KPzkLXNhCtEYkLhx2axPcwjaSXgzkjuPnh7wiZXU0Kp+3YvlYyRfFftpFxgyiiK1jd6AbckEeew==",
+          "registry": "http://127.0.0.1:4873"
+        },
+        "@runic-artifex/desktop": {
+          "version": "1.0.0-preview.1",
+          "integrity": "sha512-KXMzsnbRV7BPBpIAKjR+KZ3KcPnObLjq6tPV1jI++V8Ll+Dhppi53dAcu1NkGFXeV2ExnIiI/XkMLSjz7LKeVA==",
+          "registry": "http://127.0.0.1:4873"
+        },
+        "@runic-artifex/svelte": {
+          "version": "1.0.0-preview.1",
+          "integrity": "sha512-hEvwXvz8iVxHB4liK03nA9ifxJnkO8jTAHDGFhinrzxzh2yPOLktu4bbnyLL6aNmaD32zFakGSwx1T0G6IvVtQ==",
+          "registry": "http://127.0.0.1:4873"
+        },
+        "@runic-artifex/vite-plugin-runic": {
+          "version": "1.0.0-preview.1",
+          "integrity": "sha512-9sVI1xDMF0LJe7xx7DSKey6S7lqNsgF7ijnJ6daszWA6COtHYCjZb26BRUHfBSvXZmIeTLKKVXjJZaA7+AN8oA==",
+          "registry": "http://127.0.0.1:4873"
+        }
+      }
+    },
+    {
+      "schema": "runic.current-clean-install/3",
+      "compatibilitySet": {
+        "id": "runic-1.0-preview.1",
+        "releaseTrainVersion": "1.0.0-preview.1",
+        "sha256": "971e47a9018df73bf28fabb29550b7bc8d9af127aad4cf2bb9f1798a76ef08ad",
+        "toolchain": {
+          "dotnetSdk": "10.0.302",
+          "node": "24.18.0",
+          "bun": "1.4.0",
+          "npm": "11.16.0"
+        },
+        "nuget": {
+          "Runic.Application.Templates": {
+            "identity": "Runic.Application.Templates",
+            "version": "1.0.0-preview.1"
+          },
+          "dotnet-runic": {
+            "identity": "dotnet-runic",
+            "version": "1.0.0-preview.1"
+          },
+          "Runic.Application": {
+            "identity": "Runic.Application",
+            "version": "1.0.0-preview.1"
+          },
+          "Runic.Application.Bridge": {
+            "identity": "Runic.Application.Bridge",
+            "version": "1.0.0-preview.1"
+          },
+          "Runic.Application.Desktop": {
+            "identity": "Runic.Application.Desktop",
+            "version": "1.0.0-preview.1"
+          },
+          "Runic.Assets": {
+            "identity": "Runic.Assets",
+            "version": "1.0.0-preview.1"
+          },
+          "Runic.Assets.Desktop": {
+            "identity": "Runic.Assets.Desktop",
+            "version": "1.0.0-preview.1"
+          },
+          "Runic.Desktop": {
+            "identity": "Runic.Desktop",
+            "version": "1.0.0-preview.1"
+          }
+        },
+        "npm": {
+          "@runic-artifex/application-bridge": {
+            "identity": "@runic-artifex/application-bridge",
+            "version": "1.0.0-preview.1"
+          },
+          "@runic-artifex/desktop": {
+            "identity": "@runic-artifex/desktop",
+            "version": "1.0.0-preview.1"
+          },
+          "@runic-artifex/svelte": {
+            "identity": "@runic-artifex/svelte",
+            "version": "1.0.0-preview.1"
+          },
+          "@runic-artifex/vite-plugin-runic": {
+            "identity": "@runic-artifex/vite-plugin-runic",
+            "version": "1.0.0-preview.1"
+          }
+        }
+      },
+      "feeds": {
+        "nuget": "explicit-local-directory",
+        "npm": "explicit-runic-registry",
+        "githubPackages": "prohibited"
+      },
+      "isolation": {
+        "dotnetCliHome": ".dotnet",
+        "nugetPackages": ".nuget/packages",
+        "nugetHttpCache": ".nuget/http-cache",
+        "npmCache": ".npm-cache"
+      },
+      "template": {
+        "shortName": "runic-app-svelte",
+        "framework": "svelte"
+      },
+      "phases": [
+        {
+          "name": "template-install",
+          "argv": [
+            "dotnet",
+            "new",
+            "install",
+            "/tmp/runic-w105-final-journeys.HDby3Q/nuget/Runic.Application.Templates.1.0.0-preview.1.nupkg",
+            "--force"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "tool-install",
+          "argv": [
+            "dotnet",
+            "tool",
+            "install",
+            "dotnet-runic",
+            "--tool-path",
+            "$WORKSPACE/.tools",
+            "--version",
+            "1.0.0-preview.1",
+            "--configfile",
+            "NuGet.config",
+            "--ignore-failed-sources"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "create",
+          "argv": [
+            "dotnet",
+            "new",
+            "runic-app-svelte",
+            "--name",
+            "GoldenPath",
+            "--output",
+            "$WORKSPACE/GoldenPath"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "npm-install",
+          "argv": [
+            "npm",
+            "ci",
+            "--ignore-scripts",
+            "--no-audit",
+            "--no-fund",
+            "--cache",
+            ".npm-cache"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "frontend-typecheck",
+          "argv": [
+            "npm",
+            "run",
+            "typecheck"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "frontend-build",
+          "argv": [
+            "npm",
+            "run",
+            "build"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "restore",
+          "argv": [
+            "dotnet",
+            "restore",
+            "GoldenPath.csproj",
+            "--configfile",
+            "$WORKSPACE/NuGet.config",
+            "--no-cache",
+            "--force-evaluate",
+            "--nologo"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "build",
+          "argv": [
+            "dotnet",
+            "build",
+            "GoldenPath.csproj",
+            "--configuration",
+            "Release",
+            "--no-restore",
+            "--nologo"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "doctor",
+          "argv": [
+            "$WORKSPACE/.tools/dotnet-runic",
+            "doctor",
+            "--project",
+            "GoldenPath.csproj",
+            "--configuration",
+            "Release"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "inspect",
+          "argv": [
+            "$WORKSPACE/.tools/dotnet-runic",
+            "inspect",
+            "--project",
+            "GoldenPath.csproj",
+            "--configuration",
+            "Release"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "develop",
+          "argv": [
+            "$WORKSPACE/.tools/dotnet-runic",
+            "dev",
+            "--project",
+            "GoldenPath.csproj",
+            "--configuration",
+            "Release",
+            "--dry-run"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "package",
+          "argv": [
+            "dotnet",
+            "publish",
+            "GoldenPath.csproj",
+            "--configuration",
+            "Release",
+            "--no-build",
+            "--output",
+            "$WORKSPACE/package",
+            "--nologo"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "run",
+          "argv": [
+            "dotnet",
+            "run",
+            "--project",
+            "GoldenPath.csproj",
+            "--configuration",
+            "Release",
+            "--no-build",
+            "--",
+            "--smoke-test"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        },
+        {
+          "name": "restart",
+          "argv": [
+            "dotnet",
+            "run",
+            "--project",
+            "GoldenPath.csproj",
+            "--configuration",
+            "Release",
+            "--no-build",
+            "--",
+            "--smoke-test"
+          ],
+          "status": "passed",
+          "exitCode": 0,
+          "reasonCode": null
+        }
+      ],
+      "nugetPackages": {
+        "Runic.Application": {
+          "version": "1.0.0-preview.1",
+          "contentHash": "sha512-2eg0Lmv5w41fPR1ONv3CmYvgo4ziciXpQoj1VVQiS/bxzRtUmD9xBqO1MTlqiL1xLWL4Ll1HylbaNbksZr12xQ=="
+        },
+        "Runic.Application.Bridge": {
+          "version": "1.0.0-preview.1",
+          "contentHash": "sha512-oNddDKlG8f/WYYeBFLR5Q/PpTcHa7YL/VKlIuIR2c1dlC/dEZQDsv5RbeO0U+xX85CmtzziHw+kU9N7cWPlU9Q=="
+        },
+        "Runic.Application.Desktop": {
+          "version": "1.0.0-preview.1",
+          "contentHash": "sha512-ThuKVINbkEBf4lbO5VByx3yGCF2vni+I8U1CXlcN7R0Eoij1/Uci77TboFYujhlQbY4UXwJR/ktFZlVHIqj2NQ=="
+        },
+        "Runic.Assets": {
+          "version": "1.0.0-preview.1",
+          "contentHash": "sha512-jor8KzhP1iL3MpAzkmL4Fcu2x1e+aK850tRbmqJ3BYaWifqtFV02l4pFaHlt0aa1ZrA0zrf7O55NaguDfeMP5A=="
+        },
+        "Runic.Assets.Desktop": {
+          "version": "1.0.0-preview.1",
+          "contentHash": "sha512-o2V77cCCdDQ1rvX5Mu/ZISfAdWjTtCJ0wUIMNhp04b/qAh8I46IhWZ/Tji/oyRjN1YuDqWr2Um++X1lsXkOMhQ=="
+        },
+        "Runic.Desktop": {
+          "version": "1.0.0-preview.1",
+          "contentHash": "sha512-xpj9g+u4HHHoTa7+/o8mQiUVucLAgz//ykrtnAZESSXqAuiJGqg6wq/xBkHTESNP2o5PDBPm9jmgbnuXEFwkVA=="
+        }
+      },
+      "npmPackages": {
+        "@runic-artifex/application-bridge": {
+          "version": "1.0.0-preview.1",
+          "integrity": "sha512-uOy4tacjVg0KPzkLXNhCtEYkLhx2axPcwjaSXgzkjuPnh7wiZXU0Kp+3YvlYyRfFftpFxgyiiK1jd6AbckEeew==",
+          "registry": "http://127.0.0.1:4873"
+        },
+        "@runic-artifex/desktop": {
+          "version": "1.0.0-preview.1",
+          "integrity": "sha512-KXMzsnbRV7BPBpIAKjR+KZ3KcPnObLjq6tPV1jI++V8Ll+Dhppi53dAcu1NkGFXeV2ExnIiI/XkMLSjz7LKeVA==",
+          "registry": "http://127.0.0.1:4873"
+        },
+        "@runic-artifex/svelte": {
+          "version": "1.0.0-preview.1",
+          "integrity": "sha512-hEvwXvz8iVxHB4liK03nA9ifxJnkO8jTAHDGFhinrzxzh2yPOLktu4bbnyLL6aNmaD32zFakGSwx1T0G6IvVtQ==",
+          "registry": "http://127.0.0.1:4873"
+        },
+        "@runic-artifex/vite-plugin-runic": {
+          "version": "1.0.0-preview.1",
+          "integrity": "sha512-9sVI1xDMF0LJe7xx7DSKey6S7lqNsgF7ijnJ6daszWA6COtHYCjZb26BRUHfBSvXZmIeTLKKVXjJZaA7+AN8oA==",
+          "registry": "http://127.0.0.1:4873"
+        }
+      }
+    }
+  ]
+}

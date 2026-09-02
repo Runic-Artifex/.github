@@ -16,7 +16,7 @@ const evidenceDefinitions = [
   ['w90-desktop-conformance', 'W90', 'runic.w90-desktop-conformance-repeat/1', ['runic-desktop'], ['runic-desktop-presentation'], platforms],
   ['w100-golden-path', 'W100', 'runic.w100-golden-path-repeat/1', ['runic-assets', 'runic-desktop', 'runic-svelte', 'runic-toolkit', 'runic-toolkit-examples', 'runic-translations', 'runic-translations-editor', 'runic-vite'], ['runic-application-bridge', 'runic-assets', 'runic-desktop-presentation', 'runic-translations'], []],
   ['w105-experience-closure', 'W105', 'runic.w105-experience-closure-repeat/1', null, null, []],
-  ['w110-desktop-quality', 'W110', 'runic.w110-desktop-quality-repeat/1', null, null, ['linux-x64']],
+  ['w110-desktop-quality', 'W110', 'runic.w110-desktop-quality-repeat/1', null, null, platforms],
 ];
 
 function fixture() {
@@ -39,7 +39,9 @@ function fixture() {
     };
   });
   const evidencePath = join(root, 'evidence.json');
-  const evidence = { schema: 'runic.expanded-v1-readiness-evidence/1', publication: 'forbidden', externalActions: zero, w80: { status: 'historical', schema: 'runic.local-1.0-readiness-index-repeat/1', sha256: hash('historical-w80') }, languageProfiles: compatibility.languageProfiles, exclusions: ['unsigned', 'non-public', 'publication', 'signing', 'notarization', 'attestation-issuance', 'version-assignment', 'updates', 'automatic-operator-action', 'rust-support', 'cpp-support', 'c-webui-abi-source-work', 'hosted-topology-change'], citations };
+  const w80Path = join(root, 'w80.json');
+  writeFileSync(w80Path, JSON.stringify({ schema: 'runic.local-1.0-readiness-index-repeat/1' }));
+  const evidence = { schema: 'runic.expanded-v1-readiness-evidence/1', publication: 'forbidden', externalActions: zero, w80: { status: 'historical', schema: 'runic.local-1.0-readiness-index-repeat/1', path: 'w80.json', sha256: hash(readFileSync(w80Path)) }, languageProfiles: compatibility.languageProfiles, exclusions: ['unsigned', 'non-public', 'publication', 'signing', 'notarization', 'attestation-issuance', 'version-assignment', 'updates', 'automatic-operator-action', 'rust-support', 'cpp-support', 'c-webui-abi-source-work', 'hosted-topology-change'], citations };
   writeFileSync(evidencePath, JSON.stringify(evidence));
   const releasePath = join(root, 'release.json'), releaseSchemaPath = join(root, 'release.schema.json'), compatibilityPath = join(root, 'compatibility.json'), compatibilitySchemaPath = join(root, 'compatibility.schema.json');
   writeFileSync(releasePath, JSON.stringify(release)); writeFileSync(releaseSchemaPath, JSON.stringify(releaseSchema)); writeFileSync(compatibilityPath, JSON.stringify(compatibility)); writeFileSync(compatibilitySchemaPath, JSON.stringify(compatibilitySchema));

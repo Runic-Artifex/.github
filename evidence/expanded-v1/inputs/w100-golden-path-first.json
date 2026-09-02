@@ -1,0 +1,76 @@
+{
+  "schema": "runic.desktop.w100-golden-path/1",
+  "sourceRevisions": {
+    "desktop": "98a6f8259e46eaec08b352d7a243875218d3558e",
+    "toolkit": "774604ffff1346a7438790d7512b02723da92c72",
+    "assets": "9f4bc9318ddcb5a0d9a11859ecbfe35922796e8b",
+    "vite": "9a66593f1cd46dec22237baa88980cc361fe7f48",
+    "svelte": "3d4e77dceaa27cc4d8f75b3263f30c6fb2dd9635",
+    "examples": "5205c528fc959586fecbb88607f254c86e0b3cb6",
+    "translationsEditor": "f645454d264dfa08d346495f28c0d52a963983e8"
+  },
+  "contracts": {
+    "templateCounter": {
+      "identity": "runic.artifex.counter",
+      "version": 1,
+      "fingerprint": "4e873f5967e86eeded5e26d8faf27c305464f1272b90935cc8a1b09365471508"
+    },
+    "setupExample": {
+      "identity": "runic.artifex.setup",
+      "version": 1,
+      "fingerprint": "26d6e5f1c2bb960d6c848258c808215cfe222ed83612130e89c0a26ca0430a4f"
+    },
+    "translationsEditor": {
+      "identity": "runic.translations.editor",
+      "version": 1,
+      "fingerprint": "d7919f3d2ba1ec4af48bac5892dd25667f323d6341de212ae69c83b086224faf"
+    }
+  },
+  "packages": {
+    "applicationBridge": "@runic-artifex/application-bridge@0.1.0",
+    "desktop": "@runic-artifex/desktop@0.1.0",
+    "vite": "@runic-artifex/vite-plugin-runic@0.2.0-preview.2",
+    "svelte": "@runic-artifex/svelte@0.1.0-preview.15.0"
+  },
+  "capabilityProfiles": {
+    "default": [
+      "private-loopback",
+      "request-scoped-assets",
+      "browser",
+      "embedded-webview"
+    ],
+    "compatibility": [
+      "cs-webui"
+    ]
+  },
+  "exclusions": [
+    "patched-webui-abi",
+    "public-network-listener",
+    "duplicate-application-bridge",
+    "duplicate-asset-or-localization-authority",
+    "automatic-cs-webui-source-migration"
+  ],
+  "validation": {
+    "isolatedTemplateJourneys": [
+      "react",
+      "svelte"
+    ],
+    "consumerApplications": [
+      "sveltekit-setup",
+      "translations-editor"
+    ],
+    "lifecycle": [
+      "startup",
+      "cancellation",
+      "reconnect",
+      "shutdown",
+      "recovery"
+    ],
+    "delivery": [
+      "embedded-assets",
+      "streaming",
+      "vite-hmr",
+      "browser-webview"
+    ]
+  }
+}

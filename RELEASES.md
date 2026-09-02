@@ -70,22 +70,33 @@ exact current compatibility sources, contract fingerprints, and—where
 applicable—the certified platform profile. The evidence input must leave Rust
 and C++ unassigned, keep the declared exclusions exact, and mark W105 complete.
 
-After collecting those receipts in one local evidence directory, construct and
-then re-verify the index without network access:
+`eng/expanded-v1-evidence.mjs` verifies the retained milestone inputs and
+materializes deterministic wrapper receipts plus the exact evidence manifest.
+The committed inputs can be replayed without network access:
 
 ```sh
+node eng/expanded-v1-evidence.mjs materialize \
+  --compatibility runic.compatibility-set.json \
+  --w80 evidence/expanded-v1/inputs/w80-readiness.json \
+  --w90 evidence/expanded-v1/inputs/w90-desktop-conformance.json \
+  --w100-first evidence/expanded-v1/inputs/w100-golden-path-first.json \
+  --w100-second evidence/expanded-v1/inputs/w100-golden-path-second.json \
+  --w105-clean evidence/expanded-v1/inputs/w105-clean-install.json \
+  --w105-localized evidence/expanded-v1/inputs/w105-localized-desktop.json \
+  --w110 evidence/w110-desktop-quality.json \
+  --output-dir evidence/expanded-v1
 node eng/expanded-v1-readiness-index.mjs run-twice \
   --release runic.release.json --release-schema runic.release.schema.json \
   --compatibility runic.compatibility-set.json \
   --compatibility-schema runic.compatibility-set.schema.json \
-  --evidence ./expanded-v1-evidence/evidence.json \
-  --workspace .. > ./expanded-v1-readiness.json
+  --evidence evidence/expanded-v1/evidence.json \
+  --workspace .. > evidence/expanded-v1/readiness.json
 node eng/expanded-v1-readiness-index.mjs verify-twice \
   --release runic.release.json --release-schema runic.release.schema.json \
   --compatibility runic.compatibility-set.json \
   --compatibility-schema runic.compatibility-set.schema.json \
-  --evidence ./expanded-v1-evidence/evidence.json \
-  --workspace .. --receipt ./expanded-v1-readiness.json
+  --evidence evidence/expanded-v1/evidence.json \
+  --workspace .. --receipt evidence/expanded-v1/readiness.json
 ```
 
 The verifier rejects missing or replayed receipts, authority/source/contract
@@ -95,29 +106,43 @@ platform support, softened exclusions, and any publication-bearing input.
 ### W110 Desktop quality citation
 
 `eng/w110-desktop-quality.mjs` composes the local, retained Linux native
-receipt with the Translation Editor's application accessibility, 10,000/50,000
-message scale, and 50,000-message heap-budget checks. It requires a clean
-workspace at the exact compatibility revisions and runs each Editor check twice
-before writing an exact two-run receipt. It binds every compatibility source,
-contract fingerprint, release authority digest, and platform-selection fact.
+receipt, the hosted Windows/macOS native certification, and the Translation
+Editor's application accessibility, 10,000/50,000 message scale, and
+50,000-message heap-budget checks. It requires a clean workspace at the exact
+compatibility revisions and runs each Editor check twice before writing an
+exact two-run receipt. It binds every compatibility source, contract
+fingerprint, release authority digest, and platform-selection fact.
 
-It deliberately observes only `linux-x64`: Windows WebView2 and macOS WKWebView
-are excluded, as are assistive-technology certification and native latency or
-memory claims. A passing local receipt can be collected only after all cited
-Editor checks pass. The retained local-only citation is
-`evidence/w110-desktop-quality.json`; its verification reruns the same checks:
+`eng/w110-native-certification.mjs` independently replays Desktop's exact raw
+stress-matrix verifier, checks the immutable hosted job graph and every required
+native phase, and requires a complete passing TRX corpus for `win-x64`,
+`osx-x64`, and `osx-arm64`. The evidence remains raw observation rather than a
+calibrated performance SLA; native assistive-technology and profiler-backed
+memory claims stay excluded. The retained local-only citations are
+`evidence/w110-native-certification.json` and
+`evidence/w110-desktop-quality.json`.
 
 ```sh
 node eng/w110-desktop-quality.mjs run-twice \
   --release runic.release.json --release-schema runic.release.schema.json \
   --compatibility runic.compatibility-set.json \
   --compatibility-schema runic.compatibility-set.schema.json \
-  --workspace .. > ./expanded-v1-evidence/w110-desktop-quality.json
+  --workspace .. \
+  --native-certification evidence/w110-native-certification.json \
+  --native-evidence-root evidence/native-certification/33621048164 \
+  --native-matrix evidence/native-certification/33621048164/matrix.json \
+  --native-run evidence/native-certification/33621048164/run.json \
+  > ./expanded-v1-evidence/w110-desktop-quality.json
 node eng/w110-desktop-quality.mjs verify-twice \
   --release runic.release.json --release-schema runic.release.schema.json \
   --compatibility runic.compatibility-set.json \
   --compatibility-schema runic.compatibility-set.schema.json \
-  --workspace .. --receipt ./expanded-v1-evidence/w110-desktop-quality.json
+  --workspace .. \
+  --native-certification evidence/w110-native-certification.json \
+  --native-evidence-root evidence/native-certification/33621048164 \
+  --native-matrix evidence/native-certification/33621048164/matrix.json \
+  --native-run evidence/native-certification/33621048164/run.json \
+  --receipt ./expanded-v1-evidence/w110-desktop-quality.json
 ```
 
 ## Required evidence and publication
