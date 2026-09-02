@@ -1,0 +1,281 @@
+{
+  "schema": "runic.expanded-v1-readiness-evidence/1",
+  "publication": "forbidden",
+  "externalActions": {
+    "requests": 0,
+    "publications": 0,
+    "signatures": 0,
+    "updates": 0,
+    "uploads": 0,
+    "releases": 0,
+    "tags": 0
+  },
+  "w80": {
+    "status": "historical",
+    "schema": "runic.local-1.0-readiness-index-repeat/1",
+    "path": "inputs/w80-readiness.json",
+    "sha256": "d352c268db229742ff383391920df446d37e41e176177b558f57d616999332f5"
+  },
+  "languageProfiles": {
+    "v1": [
+      {
+        "language": "csharp",
+        "role": "application-backend",
+        "state": "supported"
+      },
+      {
+        "language": "typescript-effect",
+        "role": "frontend",
+        "state": "supported"
+      }
+    ],
+    "postV1": [
+      {
+        "language": "rust",
+        "role": "native-and-backend",
+        "state": "unassigned"
+      },
+      {
+        "language": "cpp",
+        "role": "native-and-backend",
+        "state": "unassigned"
+      }
+    ]
+  },
+  "exclusions": [
+    "unsigned",
+    "non-public",
+    "publication",
+    "signing",
+    "notarization",
+    "attestation-issuance",
+    "version-assignment",
+    "updates",
+    "automatic-operator-action",
+    "rust-support",
+    "cpp-support",
+    "c-webui-abi-source-work",
+    "hosted-topology-change"
+  ],
+  "citations": [
+    {
+      "id": "w100-golden-path",
+      "milestone": "W100",
+      "schema": "runic.w100-golden-path-repeat/1",
+      "path": "w100-golden-path.json",
+      "sha256": "79e1cfa1bfa0fb2db7b9fe21cec27b85b970e3d467d163f30c5dc4978ff11a79",
+      "sources": [
+        {
+          "repository": "runic-assets",
+          "revision": "a41596944d746196295fd0e220c6a1a3fbbc5956"
+        },
+        {
+          "repository": "runic-desktop",
+          "revision": "a7d025d6090e7461d679f9b88af39d0b23099d2e"
+        },
+        {
+          "repository": "runic-svelte",
+          "revision": "db4c793809657d00b541388cee545af95cd98ac5"
+        },
+        {
+          "repository": "runic-toolkit",
+          "revision": "4f99ac27562e90374c63b8bcd538aee6896223b5"
+        },
+        {
+          "repository": "runic-toolkit-examples",
+          "revision": "f1401b582993654dae2dbad85d5be1f2e85dd961"
+        },
+        {
+          "repository": "runic-translations",
+          "revision": "4e5540a29c8333f48256b9f93692531b54480daf"
+        },
+        {
+          "repository": "runic-translations-editor",
+          "revision": "32f81e7414b0d350865d92b9642867d0c1464e26"
+        },
+        {
+          "repository": "runic-vite",
+          "revision": "a24af5478954309bd31dffd6b0bcba0b2e978fc7"
+        }
+      ],
+      "contracts": [
+        {
+          "id": "runic-application-bridge",
+          "sha256": "7bd6a593bcd869d6a7dfe35f0f1b8816379893a0b418c806370d4145cf72db61"
+        },
+        {
+          "id": "runic-assets",
+          "sha256": "51cb8c006db23c662f2721318efa96b38474f6addf7dc81608dda65583fde2d4"
+        },
+        {
+          "id": "runic-desktop-presentation",
+          "sha256": "ab7081368d12f0a12556e1c125643fc881bee125c237a6b126314401673a8eeb"
+        },
+        {
+          "id": "runic-translations",
+          "sha256": "c279ae727b5a0a674444b0f90cf4cd99f2dca8fedff8c86ac188c30b361388c2"
+        }
+      ],
+      "platforms": []
+    },
+    {
+      "id": "w105-experience-closure",
+      "milestone": "W105",
+      "schema": "runic.w105-experience-closure-repeat/1",
+      "path": "w105-experience-closure.json",
+      "sha256": "8e0b16b60f59e8ea78be9b86cfff6a70f41ae5abbb80838a788cbbe14b23b706",
+      "sources": [
+        {
+          "repository": "runic-assets",
+          "revision": "a41596944d746196295fd0e220c6a1a3fbbc5956"
+        },
+        {
+          "repository": "runic-command-line",
+          "revision": "5d6a9aa6be25e19640c797730c5984cad9c17bd5"
+        },
+        {
+          "repository": "runic-desktop",
+          "revision": "a7d025d6090e7461d679f9b88af39d0b23099d2e"
+        },
+        {
+          "repository": "runic-svelte",
+          "revision": "db4c793809657d00b541388cee545af95cd98ac5"
+        },
+        {
+          "repository": "runic-toolkit",
+          "revision": "4f99ac27562e90374c63b8bcd538aee6896223b5"
+        },
+        {
+          "repository": "runic-toolkit-examples",
+          "revision": "f1401b582993654dae2dbad85d5be1f2e85dd961"
+        },
+        {
+          "repository": "runic-translations",
+          "revision": "4e5540a29c8333f48256b9f93692531b54480daf"
+        },
+        {
+          "repository": "runic-translations-editor",
+          "revision": "32f81e7414b0d350865d92b9642867d0c1464e26"
+        },
+        {
+          "repository": "runic-vite",
+          "revision": "a24af5478954309bd31dffd6b0bcba0b2e978fc7"
+        }
+      ],
+      "contracts": [
+        {
+          "id": "runic-application-bridge",
+          "sha256": "7bd6a593bcd869d6a7dfe35f0f1b8816379893a0b418c806370d4145cf72db61"
+        },
+        {
+          "id": "runic-assets",
+          "sha256": "51cb8c006db23c662f2721318efa96b38474f6addf7dc81608dda65583fde2d4"
+        },
+        {
+          "id": "runic-desktop-presentation",
+          "sha256": "ab7081368d12f0a12556e1c125643fc881bee125c237a6b126314401673a8eeb"
+        },
+        {
+          "id": "runic-translations",
+          "sha256": "c279ae727b5a0a674444b0f90cf4cd99f2dca8fedff8c86ac188c30b361388c2"
+        }
+      ],
+      "platforms": [],
+      "closure": "complete"
+    },
+    {
+      "id": "w110-desktop-quality",
+      "milestone": "W110",
+      "schema": "runic.w110-desktop-quality-repeat/1",
+      "path": "inputs/w110-desktop-quality.json",
+      "sha256": "3a85dc961416913cf3b8b9ef5f9dca3b6d21f4ba600fde863b472b9bfbc6363f",
+      "sources": [
+        {
+          "repository": "runic-assets",
+          "revision": "a41596944d746196295fd0e220c6a1a3fbbc5956"
+        },
+        {
+          "repository": "runic-command-line",
+          "revision": "5d6a9aa6be25e19640c797730c5984cad9c17bd5"
+        },
+        {
+          "repository": "runic-desktop",
+          "revision": "a7d025d6090e7461d679f9b88af39d0b23099d2e"
+        },
+        {
+          "repository": "runic-svelte",
+          "revision": "db4c793809657d00b541388cee545af95cd98ac5"
+        },
+        {
+          "repository": "runic-toolkit",
+          "revision": "4f99ac27562e90374c63b8bcd538aee6896223b5"
+        },
+        {
+          "repository": "runic-toolkit-examples",
+          "revision": "f1401b582993654dae2dbad85d5be1f2e85dd961"
+        },
+        {
+          "repository": "runic-translations",
+          "revision": "4e5540a29c8333f48256b9f93692531b54480daf"
+        },
+        {
+          "repository": "runic-translations-editor",
+          "revision": "32f81e7414b0d350865d92b9642867d0c1464e26"
+        },
+        {
+          "repository": "runic-vite",
+          "revision": "a24af5478954309bd31dffd6b0bcba0b2e978fc7"
+        }
+      ],
+      "contracts": [
+        {
+          "id": "runic-application-bridge",
+          "sha256": "7bd6a593bcd869d6a7dfe35f0f1b8816379893a0b418c806370d4145cf72db61"
+        },
+        {
+          "id": "runic-assets",
+          "sha256": "51cb8c006db23c662f2721318efa96b38474f6addf7dc81608dda65583fde2d4"
+        },
+        {
+          "id": "runic-desktop-presentation",
+          "sha256": "ab7081368d12f0a12556e1c125643fc881bee125c237a6b126314401673a8eeb"
+        },
+        {
+          "id": "runic-translations",
+          "sha256": "c279ae727b5a0a674444b0f90cf4cd99f2dca8fedff8c86ac188c30b361388c2"
+        }
+      ],
+      "platforms": [
+        "linux-x64",
+        "osx-arm64",
+        "osx-x64",
+        "win-x64"
+      ]
+    },
+    {
+      "id": "w90-desktop-conformance",
+      "milestone": "W90",
+      "schema": "runic.w90-desktop-conformance-repeat/1",
+      "path": "w90-desktop-conformance.json",
+      "sha256": "92749cc31f0021ea87716d04ea11fc7210e9eae2d9e5dd0f1f1f9bda1b7ae1cc",
+      "sources": [
+        {
+          "repository": "runic-desktop",
+          "revision": "a7d025d6090e7461d679f9b88af39d0b23099d2e"
+        }
+      ],
+      "contracts": [
+        {
+          "id": "runic-desktop-presentation",
+          "sha256": "ab7081368d12f0a12556e1c125643fc881bee125c237a6b126314401673a8eeb"
+        }
+      ],
+      "platforms": [
+        "linux-x64",
+        "osx-arm64",
+        "osx-x64",
+        "win-x64"
+      ]
+    }
+  ]
+}

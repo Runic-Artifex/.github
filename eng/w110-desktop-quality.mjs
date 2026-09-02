@@ -9,6 +9,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { verifyCompatibilitySet, verifyWorkspace } from './verify-compatibility-set.mjs';
 import { verify as verifyRelease } from './verify-release-manifest.mjs';
+import { verifyReceipt as verifyNativeCertification } from './w110-native-certification.mjs';
 
 export const journeySchema = 'runic.w110-desktop-quality/1';
 export const repeatSchema = 'runic.w110-desktop-quality-repeat/1';
@@ -106,6 +107,11 @@ function requiredDesktopReceipt(receipt, compatibility) {
 function editorFacts(editorPath, editorRevision) {
   return stable(editorEvidenceFiles, (path) => path).map((path) => ({ path, sha256: hash(gitBlob(editorPath, editorRevision, path)) }));
 }
+function nativeFacts(input, desktop) {
+  if (!input.nativeCertification) return undefined;
+  verifyNativeCertification({ desktopPath: resolve(input.workspace, desktop.repository), desktopRevision: desktop.revision, evidenceRoot: input.nativeEvidenceRoot, matrixPath: input.nativeMatrixPath, runPath: input.nativeRunPath, toolchain: input.compatibility.toolchain }, input.nativeCertification);
+  return { sha256: hash(readBytes(input.nativeCertificationPath, 'native certification')), ...input.nativeCertification.journeys[0] };
+}
 function authorityFacts(input) {
   const releaseErrors = verifyRelease(input.release, input.releaseSchema);
   if (releaseErrors.length) fail(`release authority verification failed: ${releaseErrors.join('; ')}`);
@@ -126,6 +132,7 @@ export function createQualityJourney(input) {
   const nativeReceiptPath = 'evidence/native-quality/linux-x64.json';
   const nativeReceipt = readJsonBuffer(gitBlob(desktopPath, desktop.revision, nativeReceiptPath), 'Desktop Linux quality receipt');
   const native = requiredDesktopReceipt(nativeReceipt, input.compatibility);
+  const nativeCertification = nativeFacts(input, desktop);
   return {
     schema: journeySchema,
     publication: 'forbidden',
@@ -137,7 +144,7 @@ export function createQualityJourney(input) {
     sources: sourceFacts(input.compatibility, input.workspace),
     contracts: contractFacts(input.compatibility),
     platformAuthority: stable(input.compatibility.platformProfiles, (item) => item),
-    observedPlatforms: ['linux-x64'],
+    observedPlatforms: nativeCertification ? stable(input.compatibility.platformProfiles, (item) => item) : ['linux-x64'],
     application: {
       product: 'runic-translations-editor',
       source: { repository: editor.repository, revision: editor.revision },
@@ -149,7 +156,14 @@ export function createQualityJourney(input) {
       source: { repository: desktop.repository, revision: desktop.revision, path: nativeReceiptPath, sha256: hash(gitBlob(desktopPath, desktop.revision, nativeReceiptPath)) },
       ...native,
     },
-    exclusions: {
+    ...(nativeCertification ? { nativeCertification } : {}),
+    exclusions: nativeCertification ? {
+      nativeAssistiveTechnology: 'not-certified-by-hosted-smoke-and-managed-corpus',
+      calibratedNativePerformance: 'raw-same-host-observations-only-not-a-release-sla',
+      profilerBackedNativeMemory: 'not-certified-by-this-evidence',
+      applicationAssistiveTechnology: 'not-certified-by-static-checks',
+      publication: 'forbidden',
+    } : {
       windows: 'not-certified-by-this-local-evidence',
       macos: 'not-certified-by-this-local-evidence',
       applicationAssistiveTechnology: 'not-certified-by-static-checks',
@@ -199,7 +213,7 @@ function options(values) {
 }
 function main(argv) {
   const [command, ...rest] = argv, args = options(rest);
-  const required = ['--release', '--release-schema', '--compatibility', '--compatibility-schema', '--workspace'];
+  const required = ['--release', '--release-schema', '--compatibility', '--compatibility-schema', '--workspace', '--native-certification', '--native-evidence-root', '--native-matrix', '--native-run'];
   if (required.some((key) => !args[key])) fail('required authority and workspace inputs are missing');
   const input = {
     releasePath: resolve(args['--release']),
@@ -210,8 +224,13 @@ function main(argv) {
   input.releaseSchema = readJson(resolve(args['--release-schema']), 'release schema');
   input.compatibility = readJson(input.compatibilityPath, 'compatibility authority');
   input.compatibilitySchema = readJson(resolve(args['--compatibility-schema']), 'compatibility schema');
+  input.nativeCertificationPath = resolve(args['--native-certification']);
+  input.nativeCertification = readJson(input.nativeCertificationPath, 'native certification');
+  input.nativeEvidenceRoot = resolve(args['--native-evidence-root']);
+  input.nativeMatrixPath = resolve(args['--native-matrix']);
+  input.nativeRunPath = resolve(args['--native-run']);
   if (command === 'run-twice' && !args['--receipt']) return JSON.stringify(runTwice(input), null, 2);
   if (command === 'verify-twice' && args['--receipt']) { verifyReceipt(input, readJson(resolve(args['--receipt']), 'W110 quality receipt')); return; }
-  fail('Usage: w110-desktop-quality.mjs run-twice|verify-twice --release <release.json> --release-schema <schema.json> --compatibility <set.json> --compatibility-schema <schema.json> --workspace <workspace> [--receipt <receipt.json>]');
+  fail('Usage: w110-desktop-quality.mjs run-twice|verify-twice --release <release.json> --release-schema <schema.json> --compatibility <set.json> --compatibility-schema <schema.json> --workspace <workspace> --native-certification <json> --native-evidence-root <dir> --native-matrix <json> --native-run <json> [--receipt <receipt.json>]');
 }
 if (import.meta.url === `file://${process.argv[1]}`) { try { const output = main(process.argv.slice(2)); if (output) process.stdout.write(`${output}\n`); } catch (error) { process.stderr.write(`${error.message}\n`); process.exitCode = 1; } }

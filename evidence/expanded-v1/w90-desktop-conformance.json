@@ -1,0 +1,105 @@
+{
+  "schema": "runic.w90-desktop-conformance-repeat/1",
+  "journeys": [
+    {
+      "schema": "runic.w90-desktop-conformance/1",
+      "publication": "forbidden",
+      "externalActions": {
+        "requests": 0,
+        "publications": 0,
+        "signatures": 0,
+        "updates": 0,
+        "uploads": 0,
+        "releases": 0,
+        "tags": 0
+      },
+      "milestone": "W90",
+      "inputs": [
+        {
+          "path": "inputs/w90-desktop-conformance.json",
+          "schema": "runic.desktop.conformance-receipt/1",
+          "sha256": "5e66764e778a46b340e9090f9612be6a26f03faf12c5af8c4e308670334bce3d"
+        },
+        {
+          "path": "inputs/w110-desktop-quality.json",
+          "schema": "runic.w110-desktop-quality-repeat/1",
+          "sha256": "3a85dc961416913cf3b8b9ef5f9dca3b6d21f4ba600fde863b472b9bfbc6363f"
+        }
+      ],
+      "authority": {
+        "sources": [
+          {
+            "repository": "runic-desktop",
+            "revision": "a7d025d6090e7461d679f9b88af39d0b23099d2e"
+          }
+        ],
+        "contracts": [
+          {
+            "id": "runic-desktop-presentation",
+            "sha256": "ab7081368d12f0a12556e1c125643fc881bee125c237a6b126314401673a8eeb"
+          }
+        ]
+      },
+      "results": {
+        "total": 10,
+        "passed": 10
+      },
+      "platforms": [
+        "linux-x64",
+        "osx-arm64",
+        "osx-x64",
+        "win-x64"
+      ]
+    },
+    {
+      "schema": "runic.w90-desktop-conformance/1",
+      "publication": "forbidden",
+      "externalActions": {
+        "requests": 0,
+        "publications": 0,
+        "signatures": 0,
+        "updates": 0,
+        "uploads": 0,
+        "releases": 0,
+        "tags": 0
+      },
+      "milestone": "W90",
+      "inputs": [
+        {
+          "path": "inputs/w90-desktop-conformance.json",
+          "schema": "runic.desktop.conformance-receipt/1",
+          "sha256": "5e66764e778a46b340e9090f9612be6a26f03faf12c5af8c4e308670334bce3d"
+        },
+        {
+          "path": "inputs/w110-desktop-quality.json",
+          "schema": "runic.w110-desktop-quality-repeat/1",
+          "sha256": "3a85dc961416913cf3b8b9ef5f9dca3b6d21f4ba600fde863b472b9bfbc6363f"
+        }
+      ],
+      "authority": {
+        "sources": [
+          {
+            "repository": "runic-desktop",
+            "revision": "a7d025d6090e7461d679f9b88af39d0b23099d2e"
+          }
+        ],
+        "contracts": [
+          {
+            "id": "runic-desktop-presentation",
+            "sha256": "ab7081368d12f0a12556e1c125643fc881bee125c237a6b126314401673a8eeb"
+          }
+        ]
+      },
+      "results": {
+        "total": 10,
+        "passed": 10
+      },
+      "platforms": [
+        "linux-x64",
+        "osx-arm64",
+        "osx-x64",
+        "win-x64"
+      ]
+    }
+  ]
+}

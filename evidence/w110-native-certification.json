@@ -1,0 +1,261 @@
+{
+  "schema": "runic.w110-native-certification-repeat/1",
+  "journeys": [
+    {
+      "schema": "runic.w110-native-certification/1",
+      "publication": "forbidden",
+      "externalActions": {
+        "requests": 0,
+        "publications": 0,
+        "signatures": 0,
+        "updates": 0,
+        "uploads": 0,
+        "releases": 0,
+        "tags": 0
+      },
+      "run": {
+        "id": 33621048164,
+        "url": "https://github.com/Runic-Artifex/runic-desktop/actions/runs/33621048164",
+        "event": "workflow_dispatch",
+        "headSha": "a7d025d6090e7461d679f9b88af39d0b23099d2e",
+        "conclusion": "success",
+        "createdAt": "2026-09-02T10:44:49Z",
+        "updatedAt": "2026-09-02T10:47:13Z",
+        "receiptSha256": "c2072c40841432c83426dcd5adb796a3951ced3fde610cc14bd4dc055fb76ad5"
+      },
+      "sources": {
+        "runicDesktop": "a7d025d6090e7461d679f9b88af39d0b23099d2e",
+        "csWebui": "63ca35589dc71d7ed21e159c6382d577426375c5"
+      },
+      "toolchain": {
+        "node": "v24.18.0",
+        "dotnetSdk": "10.0.302"
+      },
+      "workloadSha256": "53c5a3ae8a42cb020f7c3c32f45c04f6065be8a89e8b66f6ac749561be04005c",
+      "matrix": {
+        "sha256": "7df659278129f800f887eb7dbb27185437da962118b220ae9fee9545532ad5dc",
+        "interpretation": "raw-same-host-observations-only-not-a-cross-host-or-release-sla"
+      },
+      "platforms": [
+        {
+          "rid": "win-x64",
+          "host": {
+            "platform": "win32",
+            "architecture": "x64",
+            "release": "10.0.20348",
+            "cpuModel": "AMD EPYC 9V74 80-Core Processor                ",
+            "logicalCpuCount": 4,
+            "node": "v24.18.0",
+            "dotnetSdk": "10.0.302"
+          },
+          "stressReceipt": {
+            "path": "native-parity-and-stress-win-x64/comparative-stress/win-x64.json",
+            "sha256": "6bc22cd037fc77dc257c5cf8c7258b39d9eb0ed2bacbef7bd4deb62654a68c5a"
+          },
+          "tests": {
+            "path": "native-parity-and-stress-win-x64/test-results/win-x64/test-results.trx",
+            "sha256": "7f92b03daeea60734ef1d4cd5e97c10229a38258514600417dad6a6049265fec",
+            "counters": {
+              "total": 58,
+              "executed": 58,
+              "passed": 58,
+              "failed": 0,
+              "error": 0,
+              "timeout": 0,
+              "aborted": 0,
+              "notExecuted": 0
+            }
+          }
+        },
+        {
+          "rid": "osx-x64",
+          "host": {
+            "platform": "darwin",
+            "architecture": "x64",
+            "release": "24.6.0",
+            "cpuModel": "Intel(R) Core(TM) i7-8700B CPU @ 3.20GHz",
+            "logicalCpuCount": 4,
+            "node": "v24.18.0",
+            "dotnetSdk": "10.0.302"
+          },
+          "stressReceipt": {
+            "path": "native-parity-and-stress-osx-x64/comparative-stress/osx-x64.json",
+            "sha256": "e2ec005a8e80366bdfae0e1228074cfbf6f28892ade9b8155d65f894549e676d"
+          },
+          "tests": {
+            "path": "native-parity-and-stress-osx-x64/test-results/osx-x64/test-results.trx",
+            "sha256": "75bfd286988a1c26991b1976f8990ea06f1257e4a74c918d3f205c255369323e",
+            "counters": {
+              "total": 58,
+              "executed": 58,
+              "passed": 58,
+              "failed": 0,
+              "error": 0,
+              "timeout": 0,
+              "aborted": 0,
+              "notExecuted": 0
+            }
+          }
+        },
+        {
+          "rid": "osx-arm64",
+          "host": {
+            "platform": "darwin",
+            "architecture": "arm64",
+            "release": "23.6.0",
+            "cpuModel": "Apple M1 (Virtual)",
+            "logicalCpuCount": 3,
+            "node": "v24.18.0",
+            "dotnetSdk": "10.0.302"
+          },
+          "stressReceipt": {
+            "path": "native-parity-and-stress-osx-arm64/comparative-stress/osx-arm64.json",
+            "sha256": "f4026c9ab0e551d818ed49057a379211ed58954584d971344744f01b9ddd13e2"
+          },
+          "tests": {
+            "path": "native-parity-and-stress-osx-arm64/test-results/osx-arm64/test-results.trx",
+            "sha256": "e9cb8b575fc3713c57866f84eb0449d8884d6943afc81020a6166b4c16660860",
+            "counters": {
+              "total": 58,
+              "executed": 58,
+              "passed": 58,
+              "failed": 0,
+              "error": 0,
+              "timeout": 0,
+              "aborted": 0,
+              "notExecuted": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schema": "runic.w110-native-certification/1",
+      "publication": "forbidden",
+      "externalActions": {
+        "requests": 0,
+        "publications": 0,
+        "signatures": 0,
+        "updates": 0,
+        "uploads": 0,
+        "releases": 0,
+        "tags": 0
+      },
+      "run": {
+        "id": 33621048164,
+        "url": "https://github.com/Runic-Artifex/runic-desktop/actions/runs/33621048164",
+        "event": "workflow_dispatch",
+        "headSha": "a7d025d6090e7461d679f9b88af39d0b23099d2e",
+        "conclusion": "success",
+        "createdAt": "2026-09-02T10:44:49Z",
+        "updatedAt": "2026-09-02T10:47:13Z",
+        "receiptSha256": "c2072c40841432c83426dcd5adb796a3951ced3fde610cc14bd4dc055fb76ad5"
+      },
+      "sources": {
+        "runicDesktop": "a7d025d6090e7461d679f9b88af39d0b23099d2e",
+        "csWebui": "63ca35589dc71d7ed21e159c6382d577426375c5"
+      },
+      "toolchain": {
+        "node": "v24.18.0",
+        "dotnetSdk": "10.0.302"
+      },
+      "workloadSha256": "53c5a3ae8a42cb020f7c3c32f45c04f6065be8a89e8b66f6ac749561be04005c",
+      "matrix": {
+        "sha256": "7df659278129f800f887eb7dbb27185437da962118b220ae9fee9545532ad5dc",
+        "interpretation": "raw-same-host-observations-only-not-a-cross-host-or-release-sla"
+      },
+      "platforms": [
+        {
+          "rid": "win-x64",
+          "host": {
+            "platform": "win32",
+            "architecture": "x64",
+            "release": "10.0.20348",
+            "cpuModel": "AMD EPYC 9V74 80-Core Processor                ",
+            "logicalCpuCount": 4,
+            "node": "v24.18.0",
+            "dotnetSdk": "10.0.302"
+          },
+          "stressReceipt": {
+            "path": "native-parity-and-stress-win-x64/comparative-stress/win-x64.json",
+            "sha256": "6bc22cd037fc77dc257c5cf8c7258b39d9eb0ed2bacbef7bd4deb62654a68c5a"
+          },
+          "tests": {
+            "path": "native-parity-and-stress-win-x64/test-results/win-x64/test-results.trx",
+            "sha256": "7f92b03daeea60734ef1d4cd5e97c10229a38258514600417dad6a6049265fec",
+            "counters": {
+              "total": 58,
+              "executed": 58,
+              "passed": 58,
+              "failed": 0,
+              "error": 0,
+              "timeout": 0,
+              "aborted": 0,
+              "notExecuted": 0
+            }
+          }
+        },
+        {
+          "rid": "osx-x64",
+          "host": {
+            "platform": "darwin",
+            "architecture": "x64",
+            "release": "24.6.0",
+            "cpuModel": "Intel(R) Core(TM) i7-8700B CPU @ 3.20GHz",
+            "logicalCpuCount": 4,
+            "node": "v24.18.0",
+            "dotnetSdk": "10.0.302"
+          },
+          "stressReceipt": {
+            "path": "native-parity-and-stress-osx-x64/comparative-stress/osx-x64.json",
+            "sha256": "e2ec005a8e80366bdfae0e1228074cfbf6f28892ade9b8155d65f894549e676d"
+          },
+          "tests": {
+            "path": "native-parity-and-stress-osx-x64/test-results/osx-x64/test-results.trx",
+            "sha256": "75bfd286988a1c26991b1976f8990ea06f1257e4a74c918d3f205c255369323e",
+            "counters": {
+              "total": 58,
+              "executed": 58,
+              "passed": 58,
+              "failed": 0,
+              "error": 0,
+              "timeout": 0,
+              "aborted": 0,
+              "notExecuted": 0
+            }
+          }
+        },
+        {
+          "rid": "osx-arm64",
+          "host": {
+            "platform": "darwin",
+            "architecture": "arm64",
+            "release": "23.6.0",
+            "cpuModel": "Apple M1 (Virtual)",
+            "logicalCpuCount": 3,
+            "node": "v24.18.0",
+            "dotnetSdk": "10.0.302"
+          },
+          "stressReceipt": {
+            "path": "native-parity-and-stress-osx-arm64/comparative-stress/osx-arm64.json",
+            "sha256": "f4026c9ab0e551d818ed49057a379211ed58954584d971344744f01b9ddd13e2"
+          },
+          "tests": {
+            "path": "native-parity-and-stress-osx-arm64/test-results/osx-arm64/test-results.trx",
+            "sha256": "e9cb8b575fc3713c57866f84eb0449d8884d6943afc81020a6166b4c16660860",
+            "counters": {
+              "total": 58,
+              "executed": 58,
+              "passed": 58,
+              "failed": 0,
+              "error": 0,
+              "timeout": 0,
+              "aborted": 0,
+              "notExecuted": 0
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

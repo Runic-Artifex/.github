@@ -1,0 +1,303 @@
+{
+  "schema": "runic.localized-desktop-product-repeat/1",
+  "journeys": [
+    {
+      "schema": "runic.localized-desktop-product/1",
+      "isolation": {
+        "nuget": ".nuget/packages",
+        "bun": ".bun-cache"
+      },
+      "compatibility": {
+        "id": "runic-1.0-preview.1",
+        "releaseTrainVersion": "1.0.0-preview.1",
+        "sha256": "971e47a9018df73bf28fabb29550b7bc8d9af127aad4cf2bb9f1798a76ef08ad"
+      },
+      "generated": {
+        "catalog": "editor",
+        "contractFingerprint": "sha256:697071246f12a9b1934005ea4a594362e0ada3128a998078594e1010cedc92d4",
+        "esmAbiVersion": 2,
+        "sha256": "01c46654fd0d002fea7a86fb1513ce88a2ce66b3889d8affb44dafc429fbbacf"
+      },
+      "embedded": {
+        "sha256": "f9516ecbe8fb95f2fbac63473c321a262db31c4f37c223e0b632795c62a2f530",
+        "bytes": 859527
+      },
+      "negativeGates": [
+        "missing-manifest",
+        "stale-manifest",
+        "forged-manifest-schema",
+        "unsupported-locale",
+        "fingerprint-skew"
+      ],
+      "localeEvidence": [
+        "en",
+        "de",
+        "structured-interchange"
+      ],
+      "nugetCandidates": [
+        {
+          "identity": "Runic.Translations",
+          "version": "1.0.0-preview.1",
+          "source": "exact-local",
+          "archiveSha256": "0e856081807b3b1404093752a56fc800bf09bba9cec962d197b2101be6aa7297"
+        },
+        {
+          "identity": "Runic.Translations.Tooling",
+          "version": "1.0.0-preview.1",
+          "source": "exact-local",
+          "archiveSha256": "178b3de6d2f7150a3dbdefdaee68bc7adeb7a5eefd44e1eb7ec06c1a9640d700"
+        },
+        {
+          "identity": "Runic.Translations.Build",
+          "version": "1.0.0-preview.1",
+          "source": "exact-local",
+          "archiveSha256": "155f34c87757c86c3aa05a297433f058d4dd950a32624700b65a5bd368e6f335"
+        },
+        {
+          "identity": "dotnet-runic-translations",
+          "version": "1.0.0-preview.1",
+          "source": "exact-local",
+          "archiveSha256": "5075974595089bb437209aed112818448a09c1483720b6e5e7682ad372bc2477"
+        }
+      ],
+      "npmCandidate": {
+        "identity": "@runic-artifex/vite-plugin-runic-translations",
+        "version": "1.0.0-preview.1",
+        "source": "exact-local",
+        "integrity": "sha512-pLlqmj4NcvQ9aRsBMm8159pGiSj9pD0995TWNaacRwq/UxQM9i0HXAnPiHMJgWMflkvEzY5yb4+MNEdrIWfXqA==",
+        "archiveSha256": "64f888f8ad271b13c964082ca5aeee3a25e4ef4083f0617e66f934442e721b19"
+      },
+      "phases": [
+        {
+          "name": "tool-restore",
+          "argv": [
+            "dotnet",
+            "tool",
+            "restore",
+            "--configfile",
+            "$WORKSPACE/NuGet.config",
+            "--no-cache"
+          ],
+          "status": "passed",
+          "exitCode": 0
+        },
+        {
+          "name": "editor-build",
+          "argv": [
+            "dotnet",
+            "build",
+            "Runic.Translations.Editor.csproj",
+            "--configuration",
+            "Release",
+            "--nologo",
+            "-p:RestoreConfigFile=$WORKSPACE/NuGet.config"
+          ],
+          "status": "passed",
+          "exitCode": 0
+        },
+        {
+          "name": "frontend-check",
+          "argv": [
+            "bun",
+            "run",
+            "--cwd",
+            "Frontend",
+            "check"
+          ],
+          "status": "passed",
+          "exitCode": 0
+        },
+        {
+          "name": "manifest-contract",
+          "argv": [
+            "node",
+            "editor.esm"
+          ],
+          "status": "passed",
+          "exitCode": 0
+        },
+        {
+          "name": "editor-interchange-smoke",
+          "argv": [
+            "dotnet",
+            "run",
+            "--smoke-test"
+          ],
+          "status": "passed",
+          "exitCode": 0
+        },
+        {
+          "name": "editor-package",
+          "argv": [
+            "dotnet",
+            "publish",
+            "Runic.Translations.Editor.csproj",
+            "--configuration",
+            "Release"
+          ],
+          "status": "passed",
+          "exitCode": 0
+        },
+        {
+          "name": "package-smoke",
+          "argv": [
+            "dotnet",
+            "Runic.Translations.Editor.dll",
+            "--smoke-test"
+          ],
+          "status": "passed",
+          "exitCode": 0
+        }
+      ]
+    },
+    {
+      "schema": "runic.localized-desktop-product/1",
+      "isolation": {
+        "nuget": ".nuget/packages",
+        "bun": ".bun-cache"
+      },
+      "compatibility": {
+        "id": "runic-1.0-preview.1",
+        "releaseTrainVersion": "1.0.0-preview.1",
+        "sha256": "971e47a9018df73bf28fabb29550b7bc8d9af127aad4cf2bb9f1798a76ef08ad"
+      },
+      "generated": {
+        "catalog": "editor",
+        "contractFingerprint": "sha256:697071246f12a9b1934005ea4a594362e0ada3128a998078594e1010cedc92d4",
+        "esmAbiVersion": 2,
+        "sha256": "01c46654fd0d002fea7a86fb1513ce88a2ce66b3889d8affb44dafc429fbbacf"
+      },
+      "embedded": {
+        "sha256": "f9516ecbe8fb95f2fbac63473c321a262db31c4f37c223e0b632795c62a2f530",
+        "bytes": 859527
+      },
+      "negativeGates": [
+        "missing-manifest",
+        "stale-manifest",
+        "forged-manifest-schema",
+        "unsupported-locale",
+        "fingerprint-skew"
+      ],
+      "localeEvidence": [
+        "en",
+        "de",
+        "structured-interchange"
+      ],
+      "nugetCandidates": [
+        {
+          "identity": "Runic.Translations",
+          "version": "1.0.0-preview.1",
+          "source": "exact-local",
+          "archiveSha256": "0e856081807b3b1404093752a56fc800bf09bba9cec962d197b2101be6aa7297"
+        },
+        {
+          "identity": "Runic.Translations.Tooling",
+          "version": "1.0.0-preview.1",
+          "source": "exact-local",
+          "archiveSha256": "178b3de6d2f7150a3dbdefdaee68bc7adeb7a5eefd44e1eb7ec06c1a9640d700"
+        },
+        {
+          "identity": "Runic.Translations.Build",
+          "version": "1.0.0-preview.1",
+          "source": "exact-local",
+          "archiveSha256": "155f34c87757c86c3aa05a297433f058d4dd950a32624700b65a5bd368e6f335"
+        },
+        {
+          "identity": "dotnet-runic-translations",
+          "version": "1.0.0-preview.1",
+          "source": "exact-local",
+          "archiveSha256": "5075974595089bb437209aed112818448a09c1483720b6e5e7682ad372bc2477"
+        }
+      ],
+      "npmCandidate": {
+        "identity": "@runic-artifex/vite-plugin-runic-translations",
+        "version": "1.0.0-preview.1",
+        "source": "exact-local",
+        "integrity": "sha512-pLlqmj4NcvQ9aRsBMm8159pGiSj9pD0995TWNaacRwq/UxQM9i0HXAnPiHMJgWMflkvEzY5yb4+MNEdrIWfXqA==",
+        "archiveSha256": "64f888f8ad271b13c964082ca5aeee3a25e4ef4083f0617e66f934442e721b19"
+      },
+      "phases": [
+        {
+          "name": "tool-restore",
+          "argv": [
+            "dotnet",
+            "tool",
+            "restore",
+            "--configfile",
+            "$WORKSPACE/NuGet.config",
+            "--no-cache"
+          ],
+          "status": "passed",
+          "exitCode": 0
+        },
+        {
+          "name": "editor-build",
+          "argv": [
+            "dotnet",
+            "build",
+            "Runic.Translations.Editor.csproj",
+            "--configuration",
+            "Release",
+            "--nologo",
+            "-p:RestoreConfigFile=$WORKSPACE/NuGet.config"
+          ],
+          "status": "passed",
+          "exitCode": 0
+        },
+        {
+          "name": "frontend-check",
+          "argv": [
+            "bun",
+            "run",
+            "--cwd",
+            "Frontend",
+            "check"
+          ],
+          "status": "passed",
+          "exitCode": 0
+        },
+        {
+          "name": "manifest-contract",
+          "argv": [
+            "node",
+            "editor.esm"
+          ],
+          "status": "passed",
+          "exitCode": 0
+        },
+        {
+          "name": "editor-interchange-smoke",
+          "argv": [
+            "dotnet",
+            "run",
+            "--smoke-test"
+          ],
+          "status": "passed",
+          "exitCode": 0
+        },
+        {
+          "name": "editor-package",
+          "argv": [
+            "dotnet",
+            "publish",
+            "Runic.Translations.Editor.csproj",
+            "--configuration",
+            "Release"
+          ],
+          "status": "passed",
+          "exitCode": 0
+        },
+        {
+          "name": "package-smoke",
+          "argv": [
+            "dotnet",
+            "Runic.Translations.Editor.dll",
+            "--smoke-test"
+          ],
+          "status": "passed",
+          "exitCode": 0
+        }
+      ]
+    }
+  ]
+}
