@@ -20,7 +20,7 @@
           "schemaVersion": 1
         },
         "compatibility": {
-          "sha256": "16b935531cad4a31bcebc880357d619d166bfd478beabf0afe0a10b307f1e38c",
+          "sha256": "ddf33b9db5e8c7ead315a70aae3cf8c57a34eb6d5289f09901e825b4558880d8",
           "id": "runic-1.0-preview.1",
           "releaseTrainVersion": "1.0.0-preview.1",
           "schemaVersion": 1
@@ -450,7 +450,7 @@
           "schemaVersion": 1
         },
         "compatibility": {
-          "sha256": "16b935531cad4a31bcebc880357d619d166bfd478beabf0afe0a10b307f1e38c",
+          "sha256": "ddf33b9db5e8c7ead315a70aae3cf8c57a34eb6d5289f09901e825b4558880d8",
           "id": "runic-1.0-preview.1",
           "releaseTrainVersion": "1.0.0-preview.1",
           "schemaVersion": 1

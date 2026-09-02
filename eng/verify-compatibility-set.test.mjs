@@ -30,6 +30,7 @@ test("product package versions are exact without requiring lockstep versioning",
 test("toolchain, source, contract, and platform drift fail closed", () => {
   assert.match(errorsFor((value) => { value.toolchain.node = "24.x"; }), /exact numeric version/);
   assert.match(errorsFor((value) => { value.toolchain.bun = "1.x"; }), /exact numeric version/);
+  assert.match(errorsFor((value) => { value.toolchain.pnpm = "11.x"; }), /exact numeric version/);
   assert.match(errorsFor((value) => { value.platformProfiles.pop(); }), /four certified desktop profiles/);
   assert.match(errorsFor((value) => { value.sources[0].revision = "main"; }), /full Git revision/);
   assert.match(errorsFor((value) => { value.contracts[0].sha256 = "0"; }), /invalid digest/);

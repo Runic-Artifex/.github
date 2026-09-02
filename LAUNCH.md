@@ -63,6 +63,14 @@ independent upstream-compatibility product and is not part of the Runic v1 train
 ## 3. Correct public presentation
 
 - [ ] Confirm the portal contains the final versions and install commands.
+- [ ] Generate fresh React, Vue, Svelte, and Angular applications; prove the npm,
+      pnpm, and Bun selections with their committed lock files and frozen installs.
+- [ ] Confirm the generated quick start restores the local `dotnet-runic` manifest,
+      `doctor` identifies the selected package manager, and both Vite and Angular
+      development commands run through the standard `dev` script.
+- [ ] Confirm published applications contain their static frontend assets and the
+      target-machine guidance does not require Node.js, Bun, npm, pnpm, Vite, or
+      Angular CLI.
 - [ ] Confirm the portal describes archived Flow only through its canonical
       release-authority archive decision and migration link.
 - [ ] Confirm Runic Translations consistently uses `Runic.Translations.*`,
@@ -70,6 +78,11 @@ independent upstream-compatibility product and is not part of the Runic v1 train
       `vite-plugin-runic-translations` identifiers.
 - [ ] Confirm Runic Desktop is presented as the suite presentation host and is
       clearly distinguished from independent standalone CS-WEBUI.
+- [ ] Fail the launch if current pages still contain `<VERSION>`, "first package
+      pending", "W110 pending", or another placeholder/stale readiness claim;
+      retained historical evidence must be labeled as historical.
+- [ ] Refresh the W110 readiness receipt against the final source revisions and
+      compatibility-set digest after the package-manager DX changes.
 - [ ] Confirm the portal production build and deployment preview.
 
 ## 4. Visibility and repository protection

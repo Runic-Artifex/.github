@@ -13,12 +13,13 @@
     "toolchain": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["dotnetSdk", "node", "bun", "npm"],
+      "required": ["dotnetSdk", "node", "bun", "npm", "pnpm"],
       "properties": {
         "dotnetSdk": { "$ref": "#/$defs/numericVersion" },
         "node": { "$ref": "#/$defs/numericVersion" },
         "bun": { "$ref": "#/$defs/numericVersion" },
-        "npm": { "$ref": "#/$defs/numericVersion" }
+        "npm": { "$ref": "#/$defs/numericVersion" },
+        "pnpm": { "$ref": "#/$defs/numericVersion" }
       }
     },
     "languageProfiles": {
