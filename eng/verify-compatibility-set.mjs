@@ -36,7 +36,7 @@ export function verifyCompatibilitySet(candidate, schema, releaseManifest) {
   if (/-[a-f0-9]{7,}(?:\.|$)/i.test(candidate.releaseTrainVersion ?? "")) errors.push("$.releaseTrainVersion: hash-shaped prerelease labels are forbidden");
 
   const toolchain = candidate.toolchain ?? {};
-  for (const name of ["dotnetSdk", "node", "npm"]) if (!exactToolPattern.test(toolchain[name] ?? "")) errors.push(`$.toolchain.${name}: must be an exact numeric version`);
+  for (const name of ["dotnetSdk", "node", "bun", "npm"]) if (!exactToolPattern.test(toolchain[name] ?? "")) errors.push(`$.toolchain.${name}: must be an exact numeric version`);
   const expectedLanguageProfiles = { v1: [{ language: "csharp", role: "application-backend", state: "supported" }, { language: "typescript-effect", role: "frontend", state: "supported" }], postV1: [{ language: "rust", role: "native-and-backend", state: "unassigned" }, { language: "cpp", role: "native-and-backend", state: "unassigned" }] };
   if (JSON.stringify(candidate.languageProfiles) !== JSON.stringify(expectedLanguageProfiles)) errors.push("$.languageProfiles: must select the C# backend and TypeScript+Effect frontend for v1 while leaving Rust and C++ unassigned post-v1");
   const profiles = Array.isArray(candidate.platformProfiles) ? candidate.platformProfiles : [];
@@ -127,7 +127,8 @@ export function verifyWorkspace(candidate, workspace) {
     if (manifestPath) {
       try {
         const manifest = gitJson(repositoryPath, source.revision, manifestPath);
-        if (manifest.packageManager !== `npm@${candidate.toolchain.npm}`) errors.push(`${source.repository}: ${manifestPath} packageManager '${manifest.packageManager ?? "missing"}' disagrees with compatibility npm '${candidate.toolchain.npm}'`);
+        const packageManagers = new Set([`bun@${candidate.toolchain.bun}`, `npm@${candidate.toolchain.npm}`]);
+        if (!packageManagers.has(manifest.packageManager)) errors.push(`${source.repository}: ${manifestPath} packageManager '${manifest.packageManager ?? "missing"}' disagrees with compatibility Bun '${candidate.toolchain.bun}' and npm '${candidate.toolchain.npm}'`);
         if (!String(manifest.engines?.node ?? "").includes(candidate.toolchain.node.slice(0, candidate.toolchain.node.lastIndexOf(".")))) errors.push(`${source.repository}: ${manifestPath} does not declare compatibility with Node '${candidate.toolchain.node}'`);
       } catch (error) { errors.push(`${source.repository}: cannot verify ${manifestPath} (${error.message})`); }
     }
