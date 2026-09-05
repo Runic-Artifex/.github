@@ -1,18 +1,25 @@
 ![Runic Artifex banner](../.github/assets/brand/banner.png)
 
-# Independent tools. Explicit seams.
+# Runic Artifex
 
-Runic Artifex builds focused, NativeAOT-minded tools for modern .NET
-applications. Each product owns its contracts, history, packages, and release
-cadence while composing through explicit integrations.
+Runic builds NativeAOT-minded tools for modern .NET applications, with typed
+application logic, web frontends and native desktop integration.
 
-- [Runic Toolkit](https://github.com/Runic-Artifex/runic-toolkit) composes application hosts and frontends.
-- [CsWebUi](https://github.com/Runic-Artifex/cs-webui) provides a lightweight native host for web-powered .NET UI.
-- [Runic Flow](https://github.com/Runic-Artifex/runic-flow) is archived for v0.2; its legacy packages remain migration sources only.
-- [Runic Assets](https://github.com/Runic-Artifex/runic-assets) carries portable static assets across hosts.
-- [Runic Translations](https://github.com/Runic-Artifex/runic-translations) provides deterministic localization contracts and tooling.
-- [Runic Translations Editor](https://github.com/Runic-Artifex/runic-translations-editor) gives translators a focused desktop authoring environment.
-- [Runic Command Line](https://github.com/Runic-Artifex/runic-command-line) builds reflection-free command applications.
+[**Runic SDK**](https://github.com/Runic-Artifex/runic-sdk) is the development home
+for the application framework, desktop host, assets, translations, command line,
+frontend integrations, translations editor, examples and documentation. Libraries
+retain independent NuGet and npm package identities within one development workspace.
 
-The shared product map, architecture boundaries, and release policy live in
-[Runic Artifex Documentation](https://github.com/Runic-Artifex/runic-docs).
+- [Start developing](https://github.com/Runic-Artifex/runic-sdk/blob/main/CONTRIBUTING.md)
+- [Examples and migration from WPF/CommunityToolkit MVVM](https://github.com/Runic-Artifex/runic-sdk/tree/main/examples)
+- [Documentation source](https://github.com/Runic-Artifex/runic-sdk/tree/main/docs)
+- [Report SDK issues](https://github.com/Runic-Artifex/runic-sdk/issues)
+
+[CS-WebUI](https://github.com/Runic-Artifex/cs-webui) remains the independent native
+WebUI binding. [Runic Brand](https://github.com/Runic-Artifex/runic-brand) owns shared
+visual assets, and [Runic Site](https://github.com/Runic-Artifex/runic-site) owns the
+marketing website. Organization governance and release policy live in this repository.
+
+The ten repositories merged into the SDK remain available as historical archives.
+See the [repository map](https://github.com/Runic-Artifex/runic-sdk/blob/main/eng/migration/github-cutover.md)
+for their new locations. Runic Flow and Runic Markup remain separate legacy products.

@@ -1,6 +1,8 @@
 # Contributing to Runic Artifex
 
-Thank you for helping improve a Runic Artifex project.
+SDK development takes place in [runic-sdk](https://github.com/Runic-Artifex/runic-sdk).
+Follow its [contributor guide](https://github.com/Runic-Artifex/runic-sdk/blob/main/CONTRIBUTING.md)
+for coordinated changes across libraries, tools, applications and documentation.
 
 Before opening a change, check the repository's README and existing issues for
 product-specific guidance. Keep a pull request focused on one product boundary,
@@ -8,7 +10,8 @@ include tests appropriate to its risk, and update public API or protocol evidenc
 when behavior changes.
 
 All repositories use exact dependency versions and must remain free of NuGet
-`packages.lock.json` files and sibling source-tree dependencies. Generated files
+`packages.lock.json` files and dependencies on sibling repository checkouts. Explicit source references
+within the SDK monorepo are supported. Generated files
 must be reproducible by the checked-in tooling.
 
 Pull requests should explain:
