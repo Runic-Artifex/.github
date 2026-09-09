@@ -6,8 +6,10 @@ for coordinated changes across libraries, tools, applications and documentation.
 
 Before opening a change, check the repository's README and existing issues for
 product-specific guidance. Keep a pull request focused on one product boundary,
-include tests appropriate to its risk, and update public API or protocol evidence
-when behavior changes.
+include tests appropriate to the changed behavior, and update API/protocol
+documentation when behavior changes. Use focused checks locally and rely on
+GitHub for complete CI. SDK releases follow the SDK guide, without legacy
+organization-level evidence or manual acceptance requirements.
 
 All repositories use exact dependency versions and must remain free of NuGet
 `packages.lock.json` files and dependencies on sibling repository checkouts. Explicit source references

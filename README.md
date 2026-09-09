@@ -7,16 +7,24 @@ contracts for the Runic Artifex organization. It is made public before the
 product repositories so community health files and shared release validation
 resolve for public contributors.
 
-Current responsibilities:
+Runic SDK maintains its own [release policy](https://github.com/Runic-Artifex/runic-sdk/blob/main/eng/release/README.md)
+and package inventory. The launch, compatibility-train and evidence tooling here
+is retained for historical/independent repository work and does not gate SDK
+releases.
+
+The automatic legacy release-authority workflow and weekly candidate-registry
+report are retired. Their source tools/data remain available for historical
+inspection; routine organization documentation edits do not rebuild the deleted
+multi-repository train.
+
+Responsibilities outside SDK release automation:
 
 - default contribution, security, support, issue, and pull-request guidance;
-- the organization release policy;
+- retained organization release records;
 - reusable validation for public NuGet artifacts;
 - workflow templates that keep registry publishing explicit and product-owned.
-- the shared CI graph, GitHub Packages candidate policy, and registry retention
-  reporting.
+- historical CI graph, GitHub Packages candidate policy, and retention tools.
 
-See [the release policy](RELEASES.md) and [first-preview launch
-runbook](LAUNCH.md) for the current publication gates. See
-[the CI architecture](CI.md) for the Bun migration, package ordering, and
-retention model.
+See [the release record](RELEASES.md), [first-preview launch runbook](LAUNCH.md)
+and [CI architecture](CI.md) for the historical multi-repository process. Current
+SDK work follows the SDK's contributor and release guides.

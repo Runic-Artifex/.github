@@ -1,5 +1,11 @@
 # Runic Artifex release policy
 
+> Scope: this is the retained multi-repository policy/runbook. Runic SDK owns
+> its package inventory in `eng/workspace.json`, CI in its own workflow, and
+> [release policy](https://github.com/Runic-Artifex/runic-sdk/blob/main/eng/release/README.md).
+> The SDK no longer participates in the legacy candidate train or evidence gates
+> described below. These documents do not add requirements to SDK releases.
+
 [`runic.release.json`](runic.release.json), validated by the committed schema
 and verifier, is the sole release-train authority for product identity, package
 disposition, compatibility lanes, artifact ownership, and format support. This
