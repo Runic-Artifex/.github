@@ -32,7 +32,7 @@ test('the committed authority inventories only the 19 NuGet and eight npm v1 pac
   });
   assert.deepEqual(manifest.products.filter((item) => item.documentation.state === 'pending').map((item) => item.id), ['svelte', 'vite']);
   assert.equal(manifest.products.find((item) => item.id === 'desktop').documentation.path, '/products/runic-desktop/');
-  assert.equal(manifest.products.find((item) => item.id === 'application').documentation.path, '/products/runic-toolkit/');
+  assert.equal(manifest.products.find((item) => item.id === 'application').documentation.path, '/products/runic-application/');
   assert.equal(manifest.products.find((item) => item.id === 'release-automation').documentation.path, '/releases/');
   for (const artifact of ['translation-catalog-manifest', 'translation-resource-document']) {
     const claim = manifest.formatSupport.find((item) => item.artifact === artifact);
