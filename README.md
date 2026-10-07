@@ -1,32 +1,29 @@
 ![Runic Artifex banner](.github/assets/brand/banner.png)
 
-# Runic Artifex organization foundation
+# Runic Artifex organization repository
 
-This repository owns the shared governance, organization profile, and release
-contracts for the Runic Artifex organization. It is made public before the
-product repositories so community health files and shared release validation
-resolve for public contributors.
+This is the organization-level `.github` repository. It centralizes public
+GitHub defaults and organization-wide records that are useful across Runic
+Artifex repositories.
 
-Each Runic SDK product maintains its own release policy and package inventory:
+## What belongs here
+
+- Community-health defaults, issue templates, and ownership guidance for public
+  repositories.
+- The reusable [release-artifact validation action](.github/actions/validate-release-artifacts).
+- Shared release and CI records, schemas, verifiers, and retained evidence.
+- Public organization profile and support information.
+
+The maintainer's `local-planning` repository owns product and organization
+planning. Contributor guidance, CI, package inventories,
+and releases remain owned by their product repositories. Each Runic SDK product
+maintains its own release policy:
 [Runic SDK](https://github.com/Runic-Artifex/runic-sdk/blob/main/eng/release/README.md),
-[Runic CLI SDK](https://github.com/Runic-Artifex/runic-cli-sdk/blob/main/eng/release/README.md),
+[Runic CLI SDK](https://github.com/Runic-Artifex/runic-cli-sdk/blob/main/eng/release/README.md)
 and [Runic Translations SDK](https://github.com/Runic-Artifex/runic-translations-sdk/blob/main/eng/release/README.md).
-The launch, compatibility-train and evidence tooling here is retained for
-historical/independent repository work and does not gate product releases.
 
-The automatic legacy release-authority workflow and weekly candidate-registry
-report are retired. Their source tools/data remain available for historical
-inspection; routine organization documentation edits do not rebuild the deleted
-multi-repository train.
+The former multi-repository candidate train is retired. Its manifests,
+tools and evidence remain in this repository as historical records;
+they do not authorize or gate current product releases.
 
-Responsibilities outside product release automation:
-
-- default contribution, security, support, issue, and pull-request guidance;
-- retained organization release records;
-- reusable validation for public NuGet artifacts;
-- workflow templates that keep registry publishing explicit and product-owned.
-- historical CI graph, GitHub Packages candidate policy, and retention tools.
-
-See [the release record](RELEASES.md), [first-preview launch runbook](LAUNCH.md)
-and [CI architecture](CI.md) for the historical multi-repository process. Current
-product work follows the owning repository's contributor and release guides.
+For the retained records, see [release authority](RELEASES.md) and [CI policy](CI.md).
