@@ -23,6 +23,5 @@ WebUI binding. [Runic Brand](https://github.com/Runic-Artifex/runic-brand) owns 
 visual assets, and [Runic Site](https://github.com/Runic-Artifex/runic-site) owns the
 marketing website. Organization governance and release policy live in this repository.
 
-The earlier monorepo cutover record remains available in the
-[Runic SDK repository](https://github.com/Runic-Artifex/runic-sdk/blob/main/eng/migration/github-cutover.md).
-Runic Flow and Runic Markup remain separate legacy products.
+Runic Flow is retired; new applications use Runic Application, and the
+[Runic Flow page](https://docs.runic-artifex.eu/products/runic-flow/) explains the move.
